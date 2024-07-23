@@ -12,7 +12,7 @@ declare class NERtcEngine extends EventEmitter {
     renderMode: 1 | 2 | 3;
     customRenderer: any;
     /**
-     * NERtcEngine类构造函数
+     * NERtcEngine 类构造函数
      * @returns {NERtcEngine}
      */
     constructor();
@@ -22,8 +22,8 @@ declare class NERtcEngine extends EventEmitter {
      * <pre>
      * 设置相同房间名称的用户会进入同一个通话房间。
      * </pre>
-     * @param {string} name  房间名 字符串格式，长度为1~ 64 字节。支持以下89个字符：a-z, A-Z, 0-9, space, !#$%&()+-:;≤.,>? @[]^_{|}~”
-     * @returns {object} NERtcChannel对象
+     * @param {string} name  房间名 字符串格式，长度为 1~ 64 字节。支持以下 89 个字符：a-z, A-Z, 0-9, space, !#$%&()+-:;≤.,>? @[]^_{|}~”
+     * @returns {object} NERtcChannel 对象
      */
     createChannel(channelName: string): any;
     /**
@@ -35,8 +35,8 @@ declare class NERtcEngine extends EventEmitter {
      * - 必须使用同一个 App Key 才能进行通话。
      * - 一个 NERtcEngine 实例对象只能使用一个 App Key。如需更换 App Key，必须先调用 {@link NERtcEngine#release} 方法释放当前实例资源再调用本方法初始化实例。
      * </pre>
-     * @param {Object} context 传入的 RTC engine context 对象: NERtcEngineContext。
-     * @param {String} context.app_key 用户注册云信的 APP Key。如果你的开发包里面缺少 APP Key，请申请注册一个新的 APP Key。
+     * @param {Object} context 传入的 RTC engine context 对象：NERtcEngineContext。
+     * @param {String} context.app_key 用户注册云信的 APP Key。如果您的开发包里面缺少 APP Key，请申请注册一个新的 APP Key。
      * @param {String} context.log_dir_path 日志目录的完整路径，采用 UTF-8 编码。
      * @param {number} [context.log_level=3] 日志级别，默认级别为 kNERtcLogLevelInfo。
      * <pre>
@@ -46,23 +46,23 @@ declare class NERtcEngine extends EventEmitter {
      * - 3 Info 级别日志信息。默认级别。
      * - 4 DetailInfo 级别日志信息。
      * - 5 Verbos 级别日志信息。
-     * - 6 Debug 级别日志信息。如果你想获取最完整的日志，可以将日志级别设为该等级。
+     * - 6 Debug 级别日志信息。如果您想获取最完整的日志，可以将日志级别设为该等级。
      * - 7 不输出日志信息。
      * </pre>
      * @param {number} [context.log_file_max_size_KBytes=20480] 指定 SDK 输出日志文件的大小上限，单位为 KB。如果设置为 0，则默认为 20 M。
-     * @param {Object} context.server_config 私有化服务器地址，默认需要置空, 如需启用私有化功能，请联系技术支持获取详情。
+     * @param {Object} context.server_config 私有化服务器地址，默认需要置空, 如需启用私有化功能，请 [提交工单](https://app.yunxin.163.com/global/service/ticket/create) 联系网易云信技术支持工程师获取详情。
      * @param {String} context.server_config.channel_server 获取通道信息服务器。
      * @param {String} context.server_config.statistics_server 统计上报服务器。
-     * @param {String} context.server_config.room_server roomServer服务器。
+     * @param {String} context.server_config.room_server roomServer 服务器。
      * @param {String} context.server_config.compat_server 兼容性配置服务器
      * @param {String} context.server_config.nos_lbs_server nos 域名解析服务器
-     * @param {String} context.server_config.nos_upload_sever 默认nos 上传服务器
-     * @param {String} context.server_config.nos_token_server 获取NOS token 服务器
-     * @param {Boolean} context.server_config.use_ipv6 是否使用IPv6（默认false)
+     * @param {String} context.server_config.nos_upload_sever 默认 nos 上传服务器
+     * @param {String} context.server_config.nos_token_server 获取 NOS token 服务器
+     * @param {Boolean} context.server_config.use_ipv6 是否使用 IPv6（默认 false)
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     initialize(context: NERtcEngineContext): number;
@@ -74,7 +74,7 @@ declare class NERtcEngine extends EventEmitter {
      * 设置参会者角色
      * <pre>
      * {@link NERtcEngine#setClientRole} 接口用于在直播场景中设置用户角色。默认情况下用户以主播角色加入房间。
-     * 在加入房间前，用户需要调用setClientRole 接口设置本端模式为观众或主播模式。在加入房间后，用户可以通过本接口切换用户模式。
+     * 在加入房间前，用户需要调用 setClientRole 接口设置本端模式为观众或主播模式。在加入房间后，用户可以通过本接口切换用户模式。
      * 用户角色支持设置为主播或观众，主播和观众的权限不同。默认情况下用户以主播角色加入房间。
      * 可以在通话前后设置，通话前设置会在加入频道之后生效。如果设置观众模式。则会停止音视频设备。
      * </pre>
@@ -86,8 +86,8 @@ declare class NERtcEngine extends EventEmitter {
      * @fires NERtcEngine#onClientRoleChanged
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setClientRole(role: NERtcClientRole): number;
@@ -103,24 +103,24 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setChannelProfile(profile: NERtcChannelProfileType): number;
     /**
      * 加入频道。如果频道还未创建，会自动尝试创建频道。
      * <pre>
-     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。 使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcEngine#leaveChannel} 退出当前通话，才能进入下一个频道。
+     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcEngine#leaveChannel} 退出当前通话，才能进入下一个频道。
      * 频道内每个用户的用户 ID 必须是唯一的。
      * </pre>
-     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高: 将值设置为 Token。如果你已经启用了 App Certificate, 请务必使用 Token。
+     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高：将值设置为 Token。如果您已经启用了 App Certificate, 请务必使用 Token。
      * @param {String} channelName 标识通话的频道名称，长度在 64 字节以内的字符串。以下为支持的字符集范围（共 89 个字符）: a-z, A-Z, 0-9, space, !#$%&()+-:;&le;.,>? @[]^_{|}~”
-     * @param {number} uid 用户ID。
+     * @param {number} uid 用户 ID。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     joinChannel(token: String, channelName: String, uid: number): number;
@@ -128,19 +128,19 @@ declare class NERtcEngine extends EventEmitter {
      * 加入频道。如果频道还未创建，会自动尝试创建频道。
      * @since V5.4.0
      * <pre>
-     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。 使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcEngine#leaveChannel} 退出当前通话，才能进入下一个频道。
+     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcEngine#leaveChannel} 退出当前通话，才能进入下一个频道。
      * 频道内每个用户的用户 ID 必须是唯一的。
      * </pre>
-     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高: 将值设置为 Token。如果你已经启用了 App Certificate, 请务必使用 Token。
+     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高：将值设置为 Token。如果您已经启用了 App Certificate, 请务必使用 Token。
      * @param {String} channelName 标识通话的频道名称，长度在 64 字节以内的字符串。以下为支持的字符集范围（共 89 个字符）: a-z, A-Z, 0-9, space, !#$%&()+-:;&le;.,>? @[]^_{|}~”
-     * @param {number} uid 用户ID。
+     * @param {number} uid 用户 ID。
      * @param {Object} channelOptions 加入音视频房间时的一些可选信息。
      * @param {string} channelOptions.custom_info 自定义信息，最长支持 127 个字符。
      * @param {string} channelOptions.permission_key 权限密钥。能控制通话时长及媒体权限能力。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     joinChannelWithOptions(token: string, channelName: string, uid: number, channelOptions: NERtcJoinChannelOptions): number;
@@ -148,15 +148,15 @@ declare class NERtcEngine extends EventEmitter {
      * 离开频道。
      * <pre>
      * 离开频道，即挂断或退出通话。
-     * 当调用 {@link NERtcEngine#joinChannel} 方法后，必须调用 {@link NERtcEngine#leaveChannel} 结束通话，否则无法开始下一次通话。 不管当前是否在通话中，都可以调用 leaveChannel，没有副作用。该方法会把会话相关的所有资源释放掉。
+     * 当调用 {@link NERtcEngine#joinChannel} 方法后，必须调用 {@link NERtcEngine#leaveChannel} 结束通话，否则无法开始下一次通话。不管当前是否在通话中，都可以调用 leaveChannel，没有副作用。该方法会把会话相关的所有资源释放掉。
      * 该方法是异步操作，调用返回时并没有真正退出频道。在真正退出频道后，SDK 会触发 onLeaveChannel 事件。
-     * 如果你调用了 {@link NERtcEngine#leaveChannel} 后立即调用 {@link NERtcEngine#release} , SDK 将无法触发 onLeaveChannel 事件。
+     * 如果您调用了 {@link NERtcEngine#leaveChannel} 后立即调用 {@link NERtcEngine#release} , SDK 将无法触发 onLeaveChannel 事件。
      * </pre>
      * @fires NERtcEngine#onLeaveChannel
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     leaveChannel(): number;
@@ -178,15 +178,15 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLocalAudio(enabled: Boolean): number;
     /**
      * 设置本地视图。
      * <pre>
-     * 该方法设置本地视频显示信息。App 通过调用此接口绑定本地视频流的显示视窗(view)。 在 App 开发中，通常在初始化后调用该方法进行本地视频设置，然后再加入频道。
+     * 该方法设置本地视频显示信息。App 通过调用此接口绑定本地视频流的显示视窗(view)。在 App 开发中，通常在初始化后调用该方法进行本地视频设置，然后再加入频道。
      * </pre>
      * @param {Object} canvas 视频画布信息
      * @param {number} canvas.mode 视频画布缩放模式
@@ -198,8 +198,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {Element} canvas.view 视频画布对象
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setupLocalVideoCanvas(canvas: NERtcVideoCanvas): number;
@@ -221,8 +221,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {Element} canvas.view 视频画布对象
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setupRemoteVideoCanvas(uid: number, canvas: NERtcVideoCanvas): number;
@@ -245,13 +245,13 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {boolean} enabled 是否启用本地视频:
      * <pre>
-     * - true: 开启本地视频采集和渲染 (默认)；
-     * - false: 关闭使用本地摄像头设备。关闭后，远端用户会接收不到本地用户的视频流；但本地用户依然可以接收远端用户的视频流。设置为 false 时，该方法不需要本地有摄像头。
+     * - true：开启本地视频采集和渲染 (默认)。
+     * - false：关闭使用本地摄像头设备。关闭后，远端用户会接收不到本地用户的视频流。但本地用户依然可以接收远端用户的视频流。设置为 false 时，该方法不需要本地有摄像头。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLocalVideo(enabled: Boolean): number;
@@ -264,18 +264,18 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {number} streamType 视频通道类型：
      * <pre>
-     * - 0: 主流；
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @param {boolean} enabled 是否启用本地视频:
      * <pre>
-     * - true: 开启本地视频采集和渲染 (默认)；
-     * - false: 关闭使用本地摄像头设备。关闭后，远端用户会接收不到本地用户的视频流；但本地用户依然可以接收远端用户的视频流。设置为 false 时，该方法不需要本地有摄像头。
+     * - true：开启本地视频采集和渲染 (默认)。
+     * - false：关闭使用本地摄像头设备。关闭后，远端用户会接收不到本地用户的视频流。但本地用户依然可以接收远端用户的视频流。设置为 false 时，该方法不需要本地有摄像头。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLocalVideoWithType(streamType: NERtcVideoStreamType, enabled: boolean): number;
@@ -290,13 +290,13 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {boolean} subscribe
      * <pre>
-     * - true: 订阅指定远端用户的视频流；
-     * - false: 取消订阅指定远端用户的视频流。
+     * - true：订阅指定远端用户的视频流。
+     * - false：取消订阅指定远端用户的视频流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
       */
     subscribeRemoteVideoStream(uid: number, type: NERtcRemoteVideoStreamType, subscribe: Boolean): number;
@@ -324,8 +324,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     muteLocalAudioStream(enabled: Boolean): number;
@@ -333,19 +333,19 @@ declare class NERtcEngine extends EventEmitter {
      * 开启或关闭音频辅流。
      * @since V5.4.0
      * <pre>
-     * 开启时远端会收到onUserSubStreamAudioStart，关闭时远端会收到onUserSubStreamAudioStop。
+     * 开启时远端会收到 onUserSubStreamAudioStart，关闭时远端会收到 onUserSubStreamAudioStop。
      * <b>NOTE:</b>
      * - 该方法设置内部引擎为启用状态，在{@link NERtcEngine#leaveChannel}后仍然有效。
      * </pre>
      * @param {boolean} enabled 是否开启音频辅流：
      * <pre>
-     * - true: 开启音频辅流。
-     * - false: 关闭音频辅流。
+     * - true：开启音频辅流。
+     * - false：关闭音频辅流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLocalSubStreamAudio(enabled: boolean): number;
@@ -359,13 +359,13 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {boolean} mute 是否静音本地音频辅流发送。
      * <pre>
-     * - true: 静音本地音频辅流（默认）。
-     * - false: 取消静音本地音频辅流。
+     * - true：静音本地音频辅流（默认）。
+     * - false：取消静音本地音频辅流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     muteLocalSubStreamAudio(enabled: boolean): number;
@@ -373,11 +373,11 @@ declare class NERtcEngine extends EventEmitter {
      * 设置音频编码属性。
      * <pre>
      * <b>NOTE:</b>
-     * - 该方法需要在 {@link NERtcEngine#joinChannel} 之前设置好， {@link NERtcEngine#joinChannel} 之后设置不生效。
+     * - 该方法需要在 {@link NERtcEngine#joinChannel} 之前设置好，{@link NERtcEngine#joinChannel} 之后设置不生效。
      * - 音乐场景下，建议将 profile 设置为 4.
      * @param {number}  profile 设置采样率，码率，编码模式和声道数:
      * <pre>
-     * - 0 默认设置。Speech场景下为 1，Music场景下为 2
+     * - 0 默认设置。Speech 场景下为 1，Music 场景下为 2
      * - 1 普通质量的音频编码，16000Hz，20Kbps
      * - 2 普通质量的音频编码，16000Hz，32Kbps
      * - 3 中等质量的音频编码，48000Hz，32Kbps
@@ -387,14 +387,14 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {number}  scenario 设置音频应用场景:
      * <pre>
-     * - 0: 默认设置: 通过{@link NERtcEngine#setChannelProfile}设置通话模式时为语音场景(1)，直播推流模式时为音乐场景(2)。
+     * - 0: 默认设置：通过{@link NERtcEngine#setChannelProfile}设置通话模式时为语音场景(1)，直播推流模式时为音乐场景(2)。
      * - 1: 语音场景. profile 推荐使用 2 及以下
-     * - 2: 音乐场景。profile 推荐使用 3 及以上
+     * - 2：音乐场景。profile 推荐使用 3 及以上
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setAudioProfile(profile: NERtcAudioProfileType, scenario: NERtcAudioScenarioType): number;
@@ -403,13 +403,13 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} uid 指定用户的 ID
      * @param {boolean} subscribe
      * <pre>
-     * - true: 订阅指定音频主流（默认）。
-     * - false: 取消订阅指定音频主流。
+     * - true：订阅指定音频主流（默认）。
+     * - false：取消订阅指定音频主流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     subscribeRemoteAudioStream(uid: number, enabled: Boolean): number;
@@ -419,13 +419,13 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} uid 指定用户的 ID
      * @param {boolean} subscribe
      * <pre>
-     * - true: 订阅指定音频辅流（默认）。
-     * - false: 取消订阅指定音频辅流。
+     * - true：订阅指定音频辅流（默认）。
+     * - false：取消订阅指定音频辅流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     subscribeRemoteSubStreamAudio(uid: number, subscribe: boolean): number;
@@ -440,13 +440,13 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {boolean} subscribe
      * <pre>
-     * - true: 订阅所有远端用户的音频主流。
-     * - false: 取消订阅所有远端用户的音频主流。
+     * - true：订阅所有远端用户的音频主流。
+     * - false：取消订阅所有远端用户的音频主流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     subscribeAllRemoteAudioStream(subscribe: boolean): number;
@@ -459,32 +459,32 @@ declare class NERtcEngine extends EventEmitter {
      * - 此接口需要在加入房间成功后调用。
      * - 对于调用接口时不在房间的 uid 不生效。
      * </pre>
-     * @param {Array<Number>} uids 用户id数组
+     * @param {Array<Number>} uids 用户 ID 数组
      * @param {number} size 数组长度
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setAudioSubscribeOnlyBy(uids: Array<Number>, size: number): number;
     /**
-     * 你可以调用该方法指定只订阅的音频流。
+     * 您可以调用该方法指定只订阅的音频流。
      * <pre>
      *  - 此接口需要在加入房间成功后调用。
      *  - 对于调用接口时不在房间的 uid 不生效。
      * </pre>
-     * @param {Array<Number>} uids 只订阅此用户uid列表 的音频.此列表为全量列表。如果列表为空或 null，取消订阅白名单。例如：[uid1,uid2...]。
+     * @param {Array<Number>} uids 只订阅此用户 uid 列表 的音频.此列表为全量列表。如果列表为空或 null，取消订阅白名单。例如：[uid1,uid2...]。
      * @param {number} size 数组长度
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功。
+     * - 0：方法调用成功。
      * - 其他：方法调用失败。
      * </pre>
      */
     setSubscribeAudioAllowlist(uids: Array<Number>, size: number): number;
     /**
-     * 你可以调用该方法指定不订阅的音频流。
+     * 您可以调用该方法指定不订阅的音频流。
      * <pre>
      *  - 此接口需要在加入房间成功后调用。
      *  - 对于调用接口时不在房间的 uid 不生效。
@@ -494,11 +494,11 @@ declare class NERtcEngine extends EventEmitter {
      * - 0: 主流
      * - 1: 辅流
      * </pre>
-     * @param {Array<Number>} uids 只订阅此用户uid列表 的音频.此列表为全量列表。如果列表为空或 null，取消订阅白名单。例如：[uid1,uid2...]。
+     * @param {Array<Number>} uids 只订阅此用户 uid 列表 的音频.此列表为全量列表。如果列表为空或 null，取消订阅白名单。例如：[uid1,uid2...]。
      * @param {number} size 数组长度
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功。
+     * - 0：方法调用成功。
      * - 其他：方法调用失败。
      * </pre>
      */
@@ -519,8 +519,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setStreamAlignmentProperty(enable: boolean): number;
@@ -553,8 +553,8 @@ declare class NERtcEngine extends EventEmitter {
     * @param {number} config.captureHeight 本地采集的视频高度，单位为 px。
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功；
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     setCameraCaptureConfig(config: NERtcCameraCaptureConfig): number;
@@ -569,23 +569,23 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {NERtcVideoStreamType} streamType 视频通道类型。
      * <pre>
-     * - 0: 主流。
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @param {object} config 摄像头采集配置:
      * @param {number} config.captureWidth 本地采集的视频宽度，单位为 px。
      * @param {number} config.captureHeight 本地采集的视频高度，单位为 px。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setCameraCaptureConfigWithType(streamType: NERtcVideoStreamType, config: NERtcCameraCaptureConfig): number;
     /**
      * 设置视频配置。
      * <pre>
-     * 该方法设置视频配置。每个属性对应一套视频参数，如分辨率等，会在摄像头重启后生效。 所有设置的参数均为理想情况下的最大值。当视频引擎因网络环境等原因无法达到设置的分辨率的最大值时，会取最接近最大值的那个值。
+     * 该方法设置视频配置。每个属性对应一套视频参数，如分辨率等，会在摄像头重启后生效。所有设置的参数均为理想情况下的最大值。当视频引擎因网络环境等原因无法达到设置的分辨率的最大值时，会取最接近最大值的那个值。
      * </pre>
      * @param {object} config 视频配置:
      * @param {number} config.max_profile 视频编码的分辨率，用于衡量编码质量:
@@ -596,8 +596,8 @@ declare class NERtcEngine extends EventEmitter {
      * - 3 1280x720, 30fps
      * - 4 1920x1080, 30fps
      * </pre>
-     * @param {number} config.width 视频编码自定义分辨率之宽度。width为0表示使用max_profile
-     * @param {number} config.height 视频编码自定义分辨率之高度。height为0表示使用max_profile
+     * @param {number} config.width 视频编码自定义分辨率之宽度。width 为 0 表示使用 max_profile
+     * @param {number} config.height 视频编码自定义分辨率之高度。height 为 0 表示使用 max_profile
      * @param {number} config.crop_mode 视频画面裁剪模式:
      * <pre>
      * - 0 Device Defalut
@@ -608,24 +608,24 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} config.framerate 视频帧率:
      * <pre>
      * - 0 默认帧率
-     * - 7 7帧每秒
-     * - 10 10帧每秒
-     * - 15 15帧每秒
-     * - 24 24帧每秒
-     * - 30 30帧每秒
-     * - 60 60帧每秒
+     * - 7 7 帧每秒
+     * - 10 10 帧每秒
+     * - 15 15 帧每秒
+     * - 24 24 帧每秒
+     * - 30 30 帧每秒
+     * - 60 60 帧每秒
      * </pre>
      * @param {number} config.min_framerate 视频最小帧率:
      * <pre>
      * - 0 默认帧率
-     * - 7 7帧每秒
-     * - 10 10帧每秒
-     * - 15 15帧每秒
-     * - 24 24帧每秒
-     * - 30 30帧每秒
+     * - 7 7 帧每秒
+     * - 10 10 帧每秒
+     * - 15 15 帧每秒
+     * - 24 24 帧每秒
+     * - 30 30 帧每秒
      * </pre>
-     * @param {number} [config.bitrate=0] 视频编码码率kbps，取0时使用默认值
-     * @param {number} [config.min_bitrate=0] 视频编码码率下限kbps，取0时使用默认值
+     * @param {number} [config.bitrate=0] 视频编码码率 kbps，取 0 时使用默认值
+     * @param {number} [config.min_bitrate=0] 视频编码码率下限 kbps，取 0 时使用默认值
      * @param {number} config.degradation_preference 编码策略:
      * <pre>
      * - 0 使用引擎推荐值。通话场景使用平衡模式，直播推流场景使用清晰优先
@@ -635,7 +635,7 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {number} config.mirror_mode 设置本地视频编码的镜像模式，即本地发送视频的镜像模式，只影响远端用户看到的视频画面:
      * <pre>
-     * - 0 Windows/macOS SDK 启用镜像模式。在 iOS/Android 平台中：如果你使用前置摄像头，SDK 默认启用镜像模式；如果你使用后置摄像头，SDK 默认关闭镜像模式。
+     * - 0 Windows/macOS SDK 启用镜像模式。在 iOS/Android 平台中：如果您使用前置摄像头，SDK 默认启用镜像模式；如果您使用后置摄像头，SDK 默认关闭镜像模式。
      * - 1 启用镜像模式。
      * - 2 清晰度优先
      * - 3 关闭镜像模式(默认)。
@@ -648,8 +648,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setVideoConfig(config: NERtcVideoConfig): number;
@@ -657,12 +657,12 @@ declare class NERtcEngine extends EventEmitter {
      * 设置视频配置。
      * @since V5.4.0
      * <pre>
-     * 该方法设置视频配置。每个属性对应一套视频参数，如分辨率等，会在摄像头重启后生效。 所有设置的参数均为理想情况下的最大值。当视频引擎因网络环境等原因无法达到设置的分辨率的最大值时，会取最接近最大值的那个值。
+     * 该方法设置视频配置。每个属性对应一套视频参数，如分辨率等，会在摄像头重启后生效。所有设置的参数均为理想情况下的最大值。当视频引擎因网络环境等原因无法达到设置的分辨率的最大值时，会取最接近最大值的那个值。
      * </pre>
      * @param {number} streamType 视频通道类型。
      * <pre>
-     * - 0: 主流。
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @param {object} config 视频配置:
      * @param {number} config.max_profile 视频编码的分辨率，用于衡量编码质量:
@@ -673,8 +673,8 @@ declare class NERtcEngine extends EventEmitter {
      * - 3 1280x720, 30fps
      * - 4 1920x1080, 30fps
      * </pre>
-     * @param {number} config.width 视频编码自定义分辨率之宽度。width为0表示使用max_profile
-     * @param {number} config.height 视频编码自定义分辨率之高度。height为0表示使用max_profile
+     * @param {number} config.width 视频编码自定义分辨率之宽度。width 为 0 表示使用 max_profile
+     * @param {number} config.height 视频编码自定义分辨率之高度。height 为 0 表示使用 max_profile
      * @param {number} config.crop_mode 视频画面裁剪模式:
      * <pre>
      * - 0 Device Defalut
@@ -685,24 +685,24 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} config.framerate 视频帧率:
      * <pre>
      * - 0 默认帧率
-     * - 7 7帧每秒
-     * - 10 10帧每秒
-     * - 15 15帧每秒
-     * - 24 24帧每秒
-     * - 30 30帧每秒
-     * - 60 60帧每秒
+     * - 7 7 帧每秒
+     * - 10 10 帧每秒
+     * - 15 15 帧每秒
+     * - 24 24 帧每秒
+     * - 30 30 帧每秒
+     * - 60 60 帧每秒
      * </pre>
      * @param {number} config.min_framerate 视频最小帧率:
      * <pre>
      * - 0 默认帧率
-     * - 7 7帧每秒
-     * - 10 10帧每秒
-     * - 15 15帧每秒
-     * - 24 24帧每秒
-     * - 30 30帧每秒
+     * - 7 7 帧每秒
+     * - 10 10 帧每秒
+     * - 15 15 帧每秒
+     * - 24 24 帧每秒
+     * - 30 30 帧每秒
      * </pre>
-     * @param {number} [config.bitrate=0] 视频编码码率kbps，取0时使用默认值
-     * @param {number} [config.min_bitrate=0] 视频编码码率下限kbps，取0时使用默认值
+     * @param {number} [config.bitrate=0] 视频编码码率 kbps，取 0 时使用默认值
+     * @param {number} [config.min_bitrate=0] 视频编码码率下限 kbps，取 0 时使用默认值
      * @param {number} config.degradation_preference 编码策略:
      * <pre>
      * - 0 使用引擎推荐值。通话场景使用平衡模式，直播推流场景使用清晰优先
@@ -724,8 +724,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setVideoConfigWithType(streamType: NERtcVideoStreamType, config: NERtcVideoConfig): number;
@@ -741,15 +741,15 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableDualStreamMode(enabled: Boolean): number;
     /**
      * 设置本地辅流视图。
      * <pre>
-     * 该方法设置本地辅流视频显示信息。App 通过调用此接口绑定本地辅流的显示视窗(view)。 在 App 开发中，通常在初始化后调用该方法进行本地视频设置，然后再加入频道。
+     * 该方法设置本地辅流视频显示信息。App 通过调用此接口绑定本地辅流的显示视窗(view)。在 App 开发中，通常在初始化后调用该方法进行本地视频设置，然后再加入频道。
      * </pre>
      * @param {Object} canvas 视频画布信息
      * @param {number} canvas.mode 视频显示模式
@@ -761,8 +761,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {Element} canvas.view 视频画布对象
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setupLocalSubStreamVideoCanvas(canvas: NERtcVideoCanvas): number;
@@ -774,7 +774,7 @@ declare class NERtcEngine extends EventEmitter {
      * @param {(string|number)} uid
      * <pre>
      * 'local':本地视图
-     * {number}: 远端用户 ID。
+     * {number}：远端用户 ID。
      * </pre>
      * @param {number} mode  视频显示模式:
      * <pre>
@@ -784,8 +784,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setRenderMode(uid: 'local' | number, mode: NERtcVideoScalingMode): number;
@@ -797,7 +797,7 @@ declare class NERtcEngine extends EventEmitter {
      * @param {(string|number)} uid
      * <pre>
      * 'local':本地辅流视图
-     * {number}: 远端辅流用户 ID。
+     * {number}：远端辅流用户 ID。
      * </pre>
      * @param {number} mode  视频显示模式:
      * <pre>
@@ -807,15 +807,15 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setSubStreamRenderMode(uid: 'local' | number, mode: NERtcVideoScalingMode): number;
     /**
      * 设置本地视频镜像模式。
      * <pre>
-     *  该方法设置本地视频镜像模式。 App 可以多次调用此方法更改镜像模式。
+     *  该方法设置本地视频镜像模式。App 可以多次调用此方法更改镜像模式。
      * </pre>
      * @param {number} mode  视频镜像模式:
      * <pre>
@@ -825,8 +825,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setLocalVideoMirrorMode(mode: NERtcVideoMirrorMode): number;
@@ -841,8 +841,8 @@ declare class NERtcEngine extends EventEmitter {
     * </pre>
     * @param {number} streamType 视频通道类型。
     * <pre>
-    * - 0: 主流。
-    * - 1: 辅流。
+    * - 0：主流。
+    * - 1：辅流。
     * </pre>
     * @param {number} mode  视频镜像模式:
     * <pre>
@@ -852,8 +852,8 @@ declare class NERtcEngine extends EventEmitter {
     * </pre>
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功；
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     setLocalVideoMirrorModeWithType(streamType: NERtcVideoStreamType, mode: NERtcVideoMirrorMode): number;
@@ -876,8 +876,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {Element} canvas.view 视频画布对象
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setupRemoteSubStreamVideoCanvas(uid: number, canvas: NERtcVideoCanvas): number;
@@ -892,13 +892,13 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} uid 指定用户的用户 ID。
      * @param {number} subscribe
      * <pre>
-     * - true: 订阅指定远端用户的视频流；
-     * - false: 取消订阅指定远端用户的视频流。
+     * - true：订阅指定远端用户的视频流。
+     * - false：取消订阅指定远端用户的视频流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     subscribeRemoteVideoSubStream(uid: number, sub: boolean): number;
@@ -907,13 +907,13 @@ declare class NERtcEngine extends EventEmitter {
      * <pre>
      * 该方法用于在进入频道前启动本地视频预览。调用该 API 前，必须:
      * - 调用 {@link NERtcEngine#setupLocalVideoCanvas} 设置预览窗口；
-     * - 调用 {@link NERtcEngine#setVideoDevice} 前必须先设置设备id；
+     * - 调用 {@link NERtcEngine#setVideoDevice} 前必须先设置设备 ID；
      * <b>NOTE:</b> 启用了本地视频预览后，在进入频道前，本地预览必须先关闭，需要调用 {@link NERtcEngine#stopVideoPreview}。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startVideoPreview(): number;
@@ -923,18 +923,18 @@ declare class NERtcEngine extends EventEmitter {
      * <pre>
      * 该方法用于在进入频道前启动本地视频预览。调用该 API 前，必须:
      * - 调用 {@link NERtcEngine#setupLocalVideoCanvas} 设置预览窗口；
-     * - 调用 {@link NERtcEngine#setVideoDevice} 前必须先设置设备id；
+     * - 调用 {@link NERtcEngine#setVideoDevice} 前必须先设置设备 ID；
      * <b>NOTE:</b> 启用了本地视频预览后，在进入频道前，本地预览必须先关闭，需要调用 {@link NERtcEngine#stopVideoPreview}。
      * </pre>
      * @param {number} streamType 视频通道类型。
      * <pre>
-     * - 0: 主流。
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startVideoPreviewWithType(streamType: number): number;
@@ -945,8 +945,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopVideoPreview(): number;
@@ -957,13 +957,13 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {number} streamType 视频通道类型。
      * <pre>
-     * - 0: 主流。
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopVideoPreviewWithType(streamType: number): number;
@@ -979,8 +979,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     muteLocalVideoStream(enabled: Boolean): number;
@@ -991,8 +991,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {number} streamType 视频通道类型。
      * <pre>
-     * - 0: 视频主流。
-     * - 1: 视频辅流。
+     * - 0：视频主流。
+     * - 1：视频辅流。
      * </pre>
      * @param {boolean} mute
      * <pre>
@@ -1001,8 +1001,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     muteLocalVideoStreamWithType(streamType: number, enabled: boolean): number;
@@ -1022,25 +1022,25 @@ declare class NERtcEngine extends EventEmitter {
      * - 1 参与混合录制
      * - 2 只录单人文件
      * </pre>
-     * @param {boolean} [parameters.auto_subscribe_audio=true] 其他用户打开音频时，自动订阅。 默认值 true
+     * @param {boolean} [parameters.auto_subscribe_audio=true] 其他用户打开音频时，自动订阅。默认值 true
      * @param {boolean} [parameters.publish_self_stream_enabled=false]   开启旁路直播。默认值 false
      * @param {number} [parameters.log_level=3] 日志级别，默认级别为 kNERtcLogLevelInfo。
      * <pre>
-     * - 0 Fatal级别日志信息
-     * - 1 Error级别日志信息
-     * - 2 Warning级别日志信息
-     * - 3 Info级别日志信息。默认级别
-     * - 4 DetailInfo级别日志信息
-     * - 5 Verbos级别日志信息
-     * - 6 Debug级别日志信息。如果你想获取最完整的日志，可以将日志级别设为该等级
+     * - 0 Fatal 级别日志信息
+     * - 1 Error 级别日志信息
+     * - 2 Warning 级别日志信息
+     * - 3 Info 级别日志信息。默认级别
+     * - 4 DetailInfo 级别日志信息
+     * - 5 Verbos 级别日志信息
+     * - 6 Debug 级别日志信息。如果您想获取最完整的日志，可以将日志级别设为该等级
      * - 7 不输出日志信息
      * </pre>
-     * @param {boolean} [parameters.audio_processing_aec_enable=true] AEC开关，默认值 true
-     * @param {boolean} [parameters.audio_processing_agc_enable=true] AGC开关，默认值 true
-     * @param {boolean} [parameters.audio_processing_ns_enable=true] NS开关，默认值 true
-     * @param {boolean} [parameters.audio_processing_ai_ns_enable=false] AI NS开关，建议通话前修改，默认值 false
+     * @param {boolean} [parameters.audio_processing_aec_enable=true] AEC 开关，默认值 true
+     * @param {boolean} [parameters.audio_processing_agc_enable=true] AGC 开关，默认值 true
+     * @param {boolean} [parameters.audio_processing_ns_enable=true] NS 开关，默认值 true
+     * @param {boolean} [parameters.audio_processing_ai_ns_enable=false] AI NS 开关，建议通话前修改，默认值 false
      * @param {boolean} [parameters.audio_processing_external_audiomix_enable=false] 输入混音开关，默认值 false
-     * @param {boolean} [parameters.audio_processing_earphone=false] 通知SDK是否使用耳机:
+     * @param {boolean} [parameters.audio_processing_earphone=false] 通知 SDK 是否使用耳机:
      * <pre>
      * - true: 使用耳机
      * - false: 不使用耳机
@@ -1054,17 +1054,17 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setParameters(parameters: String): number;
     /**
-     * 以String 的形式获取一些内部参数。
+     * 以 String 的形式获取一些内部参数。
      * @since V5.3.0
      * <pre>
     * <b>NOTE:</b>
-     * - 此接口为隐藏接口，需要特定参数及特定时机，详情联系技术支持。
+     * - 此接口为隐藏接口，需要特定参数及特定时机，详情请 [提交工单](https://app.yunxin.163.com/global/service/ticket/create) 联系网易云信技术支持工程师。
      * - 请在初始化后调用该方法，且该方法在加入房间前后均可调用。
      * </pre>
      * @param {String} parameters 音视频通话的参数集合.
@@ -1073,36 +1073,36 @@ declare class NERtcEngine extends EventEmitter {
      */
     getParameters(parameters: String, extra_info: String): String;
     /**
-     * 开启音频dump。
+     * 开启音频 dump。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startAudioDump(): number;
     /**
-     * 开启音频dump。
+     * 开启音频 dump。
      * @since V5.4.0
-     * @param {number} type 音频dump类型。
+     * @param {number} type 音频 dump 类型。
      * <pre>
-     * - 0: 仅输出.dump文件（默认）。
-     * - 1: 输出.dump和.wav文件。
-     * - 2: 仅输出.wav文件.
+     * - 0：仅输出.dump 文件（默认）。
+     * - 1：输出.dump 和.wav 文件。
+     * - 2: 仅输出.wav 文件.
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startAudioDumpWithType(type: number): number;
     /**
-     * 结束音频dump。
+     * 结束音频 dump。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopAudioDump(): number;
@@ -1112,20 +1112,20 @@ declare class NERtcEngine extends EventEmitter {
      * 指定本地或在线音频文件来和录音设备采集的音频流进行混音。成功调用该方法后，可以通过{@link NERtcEngine#on}方法监听 onAudioMixingStateChanged 播放状态改变事件。
      * 请在频道内调用该方法，如果在频道外调用该方法可能会出现问题。
      * </pre>
-     * @param {object} option 创建混音任务配置的选项，包括混音任务类型、混音文件全路径或URL等。支持的音频格式包括: AAC、MP3 和 WAVE。
-     * @param {string} option.path 本地文件全路径或URL <256 chars
-     * @param {number} [option.loop_count=1] 循环次数， <= 0, 表示无限循环，默认 1
+     * @param {object} option 创建混音任务配置的选项，包括混音任务类型、混音文件全路径或 URL 等。支持的音频格式包括：AAC、MP3 和 WAVE。
+     * @param {string} option.path 本地文件全路径或 URL <256 chars
+     * @param {number} [option.loop_count=1] 循环次数，<= 0, 表示无限循环，默认 1
      * @param {boolean} [option.send_enabled=true] 是否可发送，默认为 true
      * @param {number} [option.send_volume=100] 发送音量。最大为 100（默认）含义（0%-100%）
      * @param {boolean} [option.playback_enabled=true] 是否可回放，默认为 true
      * @param {number} [option.playback_volume=100] 回放音量。最大为 100（默认）
-     * @param {number} [option.start_timestamp] 音乐文件开始播放的时间，UTC 时间戳，即从1970 年 1 月 1 日 0 点 0 分 0 秒开始到事件发生时的毫秒数。默认值为 0，表示立即播放。
+     * @param {number} [option.start_timestamp] 音乐文件开始播放的时间，UTC 时间戳，即从 1970 年 1 月 1 日 0 点 0 分 0 秒开始到事件发生时的毫秒数。默认值为 0，表示立即播放。
      * @param {number} [option.NERtcAudioStreamType] 伴音跟随音频主流还是辅流，默认跟随主流。
-     * @param {number} [option.progress_interval] 伴音播放进度回调间隔，单位ms，取值范围为 100~10000, 默认1000ms。
+     * @param {number} [option.progress_interval] 伴音播放进度回调间隔，单位 ms，取值范围为 100~10000, 默认 1000ms。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startAudioMixing(opt: NERtcCreateAudioMixingOption): number;
@@ -1136,8 +1136,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopAudioMixing(): number;
@@ -1148,8 +1148,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     pauseAudioMixing(): number;
@@ -1160,8 +1160,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     resumeAudioMixing(): number;
@@ -1173,8 +1173,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} volume 伴奏音量范围为 0~200。默认 100 为原始文件音量。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setAudioMixingSendVolume(volume: number): number;
@@ -1185,8 +1185,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - >=0: 伴奏发送音量；
-     * - 其他: 方法调用失败。
+     * - >=0：伴奏发送音量。
+     * - 其他：方法调用失败。
      * </pre>
      */
     getAudioMixingSendVolume(): number;
@@ -1198,8 +1198,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} volume 伴奏音量范围为 0~200。默认 100 为原始文件音量。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setAudioMixingPlaybackVolume(volume: number): number;
@@ -1210,8 +1210,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - >= 0: 伴奏播放音量；
-     * - 其他: 方法调用失败。
+     * - >= 0：伴奏播放音量。
+     * - 其他：方法调用失败。
      * </pre>
      */
     getAudioMixingPlaybackVolume(): number;
@@ -1222,8 +1222,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - >=0: 伴奏时长，单位为毫秒；
-     * - 其他: 方法调用失败。
+     * - >=0：伴奏时长，单位为毫秒。
+     * - 其他：方法调用失败。
      * </pre>
      */
     getAudioMixingDuration(): number;
@@ -1234,21 +1234,21 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - >= 0: 伴奏播放进度，单位为毫秒；
-     * - 其他: 方法调用失败。
+     * - >= 0：伴奏播放进度，单位为毫秒。
+     * - 其他：方法调用失败。
      * </pre>
      */
     getAudioMixingCurrentPosition(): number;
     /**
      * 设置音乐文件的播放位置。
      * <pre>
-     * 该方法可以设置音频文件的播放位置，这样你可以根据实际情况播放文件，而非从头到尾播放整个文件。
+     * 该方法可以设置音频文件的播放位置，这样您可以根据实际情况播放文件，而非从头到尾播放整个文件。
      * </pre>
      * @param {number} pos 进度条位置，单位为毫秒。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setAudioMixingPosition(pos: number): number;
@@ -1263,8 +1263,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} pitch 当前伴音文件的音调。默认值为 0，即不调整音调，取值范围为 -12 ~ 12
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setAudioMixingPitch(pitch: number): number;
@@ -1272,31 +1272,31 @@ declare class NERtcEngine extends EventEmitter {
     * 获取当前伴音文件的音调。
     * @since v5.4.0
     * <pre>
-    * 请先调用startAudioMixing方法开启伴音。
+    * 请先调用 startAudioMixing 方法开启伴音。
     * @returns {number} 当前伴音文件音调
     */
     getAudioMixingPitch(): number;
     /**
      * 播放指定音效文件。
      * <pre>
-     * 你可以多次调用该方法，通过传入不同的音效文件的 effect_id 和 option ，同时播放多个音效文件，实现音效叠加。为获得最佳用户体验，我们建议同时播放的音效文件不要超过 3 个。成功调用该方法后，可以通过{@link NERtcEngine#on}方法监听 onAudioEffectFinished 播放结束事件。
+     * 您可以多次调用该方法，通过传入不同的音效文件的 effect_id 和 option，同时播放多个音效文件，实现音效叠加。为获得最佳用户体验，网易云信建议同时播放的音效文件不要超过 3 个。成功调用该方法后，可以通过{@link NERtcEngine#on}方法监听 onAudioEffectFinished 播放结束事件。
      * 请在频道内调用该方法，如果在频道外调用该方法可能会出现问题。
      * </pre>
      * @param {number} effectId 指定音效的 ID。每个音效均有唯一的 ID。
-     * @param {object[]} opt 创建音效任务配置的选项，包括混音任务类型、混音文件全路径或URL等。支持的音频格式包括: AAC、MP3 和 WAVE。
-     * @param {String} opt[].path 本地文件全路径或URL <256 chars
-     * @param {number} [opt[].loop_count=1] 循环次数， <= 0, 表示无限循环，默认 1
+     * @param {object[]} opt 创建音效任务配置的选项，包括混音任务类型、混音文件全路径或 URL 等。支持的音频格式包括：AAC、MP3 和 WAVE。
+     * @param {String} opt[].path 本地文件全路径或 URL <256 chars
+     * @param {number} [opt[].loop_count=1] 循环次数，<= 0, 表示无限循环，默认 1
      * @param {boolean} [opt[].send_enabled=true] 是否可发送，默认为 true
      * @param {number} [opt[].send_volume] 发送音量。最大为 100（默认）含义（0%-100%）
      * @param {boolean} [opt[].playback_enabled=true] 是否可回放，默认为 true
      * @param {number} [opt[].playback_volume]  回放音量。最大为 100（默认）
-     * @param {number} [opt[].start_timestamp] 音乐文件开始播放的时间，UTC 时间戳，即从1970 年 1 月 1 日 0 点 0 分 0 秒开始到事件发生时的毫秒数。默认值为 0，表示立即播放。
+     * @param {number} [opt[].start_timestamp] 音乐文件开始播放的时间，UTC 时间戳，即从 1970 年 1 月 1 日 0 点 0 分 0 秒开始到事件发生时的毫秒数。默认值为 0，表示立即播放。
      * @param {number} [opt[].NERtcAudioStreamType] 伴音跟随音频主流还是辅流，默认跟随主流。
-     * @param {number} [opt[].progress_interval] 伴音播放进度回调间隔，单位ms，取值范围为 100~10000, 默认1000ms。
+     * @param {number} [opt[].progress_interval] 伴音播放进度回调间隔，单位 ms，取值范围为 100~10000, 默认 1000ms。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     playEffect(effectId: number, opt: Array<NERtcCreateAudioEffectOption>): number;
@@ -1308,8 +1308,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} effectId 指定音效的 ID。每个音效均有唯一的 ID。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopEffect(effectId: number): number;
@@ -1325,8 +1325,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} pitch 当前音效文件的音调。默认值为 0，即不调整音调，取值范围为 -12 ~ 12。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setEffectPitch(effectId: number, pitch: number): number;
@@ -1334,7 +1334,7 @@ declare class NERtcEngine extends EventEmitter {
      * 获取指定音效文件的音调。
      * @since v5.4.0
      * <pre>
-     * 请先调用playEffect方法开启伴音。
+     * 请先调用 playEffect 方法开启伴音。
      * </pre>
      * @returns {number} 当前音效文件音调
      */
@@ -1343,8 +1343,8 @@ declare class NERtcEngine extends EventEmitter {
      * 停止播放所有音效文件。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopAllEffects(): number;
@@ -1356,8 +1356,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} effectId 指定音效的 ID。每个音效均有唯一的 ID。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     pauseEffect(effectId: number): number;
@@ -1369,8 +1369,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} effectId 指定音效的 ID。每个音效均有唯一的 ID。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     resumeEffect(effectId: number): number;
@@ -1381,8 +1381,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     pauseAllEffects(): number;
@@ -1398,8 +1398,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} timestamp_ms 指定音效文件的起始播放位置。单位为毫秒。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setEffectPosition(effectId: number, pos: number): number;
@@ -1407,7 +1407,7 @@ declare class NERtcEngine extends EventEmitter {
      * 获取指定音效文件的播放进度。
      * @since v5.4.0
      * <pre>
-     * 请先调用playEffect方法开启伴音。
+     * 请先调用 playEffect 方法开启伴音。
      * @returns {number} 当前音效文件音调
      */
     getEffectCurrentPosition(effectId: number): number;
@@ -1424,8 +1424,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     resumeAllEffects(): number;
@@ -1438,8 +1438,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} volume 音效音量范围为 0~100。默认 100 为原始文件音量。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setEffectSendVolume(effectId: number, volume: number): number;
@@ -1450,8 +1450,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {number} effectId 指定音效的 ID。每个音效均有唯一的 ID。
      * @returns {number}
-     * - >=0: 音效发送音量；
-     * - 其他: 方法调用失败。
+     * - >=0：音效发送音量。
+     * - 其他：方法调用失败。
      */
     getEffectSendVolume(effectId: number): number;
     /**
@@ -1463,8 +1463,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} volume 音效音量范围为 0~100。默认 100 为原始文件音量。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setEffectPlaybackVolume(effectId: number, volume: number): number;
@@ -1475,8 +1475,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {number} effectId 指定音效的 ID。每个音效均有唯一的 ID。
      * @returns {number}
-     * - >= 0: 音效播放音量；
-     * - 其他: 方法调用失败。
+     * - >= 0：音效播放音量。
+     * - 其他：方法调用失败。
      */
     getEffectPlaybackVolume(effectId: number): number;
     /**
@@ -1488,8 +1488,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} volume 耳返音量。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableEarback(enabled: boolean, volume: number): number;
@@ -1501,8 +1501,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} volume 耳返音量。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setEarbackVolume(volume: number): number;
@@ -1515,8 +1515,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} interval 指定音量提示的时间间隔，单位为毫秒。必须设置为 100 毫秒的整数倍值。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableAudioVolumeIndication(enabled: boolean, interval: number): number;
@@ -1539,8 +1539,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - d: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - d：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableAudioVolumeIndicationEx(enabled: boolean, interval: number, enableVad: boolean): number;
@@ -1569,10 +1569,10 @@ declare class NERtcEngine extends EventEmitter {
      * - 2 1920x1080, 5fps。默认
      * - 3 自定义
      * </pre>
-     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
      * @param {number} param.dimensions.width  宽度
      * @param {number} param.dimensions.height  高度
-     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
      * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
      * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
      * @param {boolean} param.window_focus 调用 {@link NERtcEngine#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -1585,8 +1585,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startScreenCaptureByScreenRect(screenRect: NERtcRectangle, regionRect: NERtcRectangle, param: NERtcScreenCaptureParameters): number;
@@ -1597,7 +1597,7 @@ declare class NERtcEngine extends EventEmitter {
      * - 该方法仅适用于 Windows 和 macOS。
      * - 该方法打开视频辅流。
      * </pre>
-     * @param {number} displayId 指定待共享的屏幕 ID。开发者需要通过该参数指定你要共享的那个屏幕。
+     * @param {number} displayId 指定待共享的屏幕 ID。开发者需要通过该参数指定您要共享的那个屏幕。
      * @param {object} [regionRect=] (可选) 指定待共享区域相对于整个屏幕屏幕的位置。如果设置的共享区域超出了屏幕的边界，则只共享屏幕内的内容；如果将 width 或 height 设为 0, 则共享整个屏幕。
      * @param {number} regionRect.x 左上角的横向偏移
      * @param {number} regionRect.y 左上角的纵向偏移
@@ -1611,10 +1611,10 @@ declare class NERtcEngine extends EventEmitter {
      * - 2 1920x1080, 5fps。默认
      * - 3 自定义
      * </pre>
-     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
      * @param {number} param.dimensions.width  宽度
      * @param {number} param.dimensions.height  高度
-     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
      * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
      * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
      * @param {boolean} param.window_focus 调用 {@link NERtcEngine#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -1627,9 +1627,9 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
+     * - 0：方法调用成功。
      * - -100: 需要先调用 {@link NERtcEngine#enumerateScreenCaptureSourceInfo} 缓存桌面信息
-     * - 其他: 方法调用失败。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startScreenCaptureByDisplayId(displayId: number, regionRect: NERtcRectangle, param: NERtcScreenCaptureParameters): number;
@@ -1654,10 +1654,10 @@ declare class NERtcEngine extends EventEmitter {
      * - 2 1920x1080, 5fps。默认
      * - 3 自定义
      * </pre>
-     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
      * @param {number} param.dimensions.width  宽度
      * @param {number} param.dimensions.height  高度
-     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
      * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
      * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
      * @param {boolean} param.window_focus 调用 {@link NERtcEngine#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -1670,8 +1670,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startScreenCaptureByWindowId(windowid: number, regionRect: NERtcRectangle, param: NERtcScreenCaptureParameters): number;
@@ -1685,10 +1685,10 @@ declare class NERtcEngine extends EventEmitter {
      * - 2 1920x1080, 5fps。默认
      * - 3 自定义
      * </pre>
-     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
      * @param {number} param.dimensions.width  宽度
      * @param {number} param.dimensions.height  高度
-     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
      * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
      * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
      * @param {boolean} param.window_focus 调用 {@link NERtcEngine#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -1701,8 +1701,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     updateScreenCaptureRegion(regionRect: NERtcRectangle): number;
@@ -1716,8 +1716,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setScreenCaptureMouseCursor(capture_cursor: boolean): number;
@@ -1725,8 +1725,8 @@ declare class NERtcEngine extends EventEmitter {
      * 停止屏幕共享。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopScreenCapture(): number;
@@ -1734,8 +1734,8 @@ declare class NERtcEngine extends EventEmitter {
      * 暂停屏幕共享。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     pauseScreenCapture(): number;
@@ -1743,8 +1743,8 @@ declare class NERtcEngine extends EventEmitter {
      * 恢复屏幕共享。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     resumeScreenCapture(): number;
@@ -1764,8 +1764,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {ArrayBuffer} data 自定义 SEI 数据
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     sendSEIMsg(data: ArrayBuffer): number;
@@ -1790,14 +1790,14 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     sendSEIMsgWithType(data: ArrayBuffer, type: NERtcStreamChannelType): number;
     /**
      * 查询 SDK 版本号。
-     * @returns {String} 当前的 SDK 版本号，格式为字符串，如1.0.0.
+     * @returns {String} 当前的 SDK 版本号，格式为字符串，如 1.0.0.
      */
     getVersion(): String;
     /**
@@ -1807,14 +1807,14 @@ declare class NERtcEngine extends EventEmitter {
      */
     getErrorDescription(errorCode: number): String;
     /**
-     * 上传SDK 信息（如log文件和Audio dump文件）。
+     * 上传 SDK 信息（如 log 文件和 Audio dump 文件）。
      */
     uploadSdkInfo(): void;
     /**
      * 添加房间推流任务，成功添加后当前用户可以收到该直播流的状态通知。通话中有效。
      * @fires NERtcEngine#onAddLiveStreamTask
      * @param {Object} info 直播任务信息。
-     * @param {String} info.task_id 推流任务ID，为推流任务的唯一标识，用于过程中增删任务操作 <64 chars
+     * @param {String} info.task_id 推流任务 ID，为推流任务的唯一标识，用于过程中增删任务操作 <64 chars
      * @param {String} info.stream_url 直播推流地址 <256 chars
      * @param {Boolean} info.server_record_enabled 服务器录制功能是否开启
      * @param {Number} info.ls_mode 直播推流模式:
@@ -1838,8 +1838,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} info.layout.background_color 视频推流背景色，(R & 0xff) << 16 | (G & 0xff) << 8 | (B & 0xff)
      * @param {number} info.layout.user_count 成员布局个数
      * @param {object[]} info.layout.users 成员布局数组:
-     * @param {number} info.layout.users[].uid 用户id
-     * @param {boolean} info.layout.users[].video_push 是否推送该用户视频流，info.ls_mode=1时无效
+     * @param {number} info.layout.users[].uid 用户 ID
+     * @param {boolean} info.layout.users[].video_push 是否推送该用户视频流，info.ls_mode=1 时无效
      * @param {number} info.layout.users[].adaption 视频流裁剪模式:
      * <pre>
      * - 0 视频尺寸等比缩放。优先保证视频内容全部显示。因视频尺寸与显示视窗尺寸不一致造成的视窗未被填满的区域填充背景色
@@ -1858,8 +1858,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} info.layout.users[].bg_image.height 画面在主画面的显示高度，画面底边超出主画面会失败
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     addLiveStreamTask(info: NERtcLiveStreamTaskInfo): number;
@@ -1867,7 +1867,7 @@ declare class NERtcEngine extends EventEmitter {
      * 更新修改房间推流任务。通话中有效。
      * @fires NERtcEngine#onUpdateLiveStreamTask
      * @param {Object} info 直播任务信息。
-     * @param {String} info.task_id 推流任务ID，为推流任务的唯一标识，用于过程中增删任务操作 <64 chars
+     * @param {String} info.task_id 推流任务 ID，为推流任务的唯一标识，用于过程中增删任务操作 <64 chars
      * @param {String} info.stream_url 直播推流地址 <256 chars
      * @param {Boolean} info.server_record_enabled 服务器录制功能是否开启
      * @param {Number} info.ls_mode 直播推流模式:
@@ -1881,8 +1881,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} info.layout.background_color 视频推流背景色，(R & 0xff) << 16 | (G & 0xff) << 8 | (B & 0xff)
      * @param {number} info.layout.user_count 成员布局个数
      * @param {object[]} info.layout.users 成员布局数组:
-     * @param {number} info.layout.users[].uid 用户id
-     * @param {boolean} info.layout.users[].video_push 是否推送该用户视频流，info.ls_mode=1时无效
+     * @param {number} info.layout.users[].uid 用户 ID
+     * @param {boolean} info.layout.users[].video_push 是否推送该用户视频流，info.ls_mode=1 时无效
      * @param {number} info.layout.users[].adaption 视频流裁剪模式:
      * <pre>
      * - 0 视频尺寸等比缩放。优先保证视频内容全部显示。因视频尺寸与显示视窗尺寸不一致造成的视窗未被填满的区域填充背景色
@@ -1901,19 +1901,19 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} info.layout.users[].bg_image.height 画面在主画面的显示高度，画面底边超出主画面会失败
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     updateLiveStreamTask(info: NERtcLiveStreamTaskInfo): number;
     /**
      * 删除房间推流任务。通话中有效。
      * @fires NERtcEngine#onRemoveLiveStreamTask
-     * @param {String} taskId  直播任务id
+     * @param {String} taskId  直播任务 ID
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     removeLiveStreamTask(taskId: String): number;
@@ -1924,33 +1924,33 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {NERtcDevice[] | null}
      * <pre>
-     * - NERtcDevice[] : 方法调用成功；
+     * - NERtcDevice[]：方法调用成功。
      * <table style="width:100%;">
      * <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-     * <tr><td>NERtcDevice.device_id</td><td>String</td><td>设备ID</td></tr>
-     * <tr><td>NERtcDevice.device_name</td><td>String</td><td>设备名称</td></tr>
+     * <tr><td>NERtcDevice.device_id</td><td>String</td><td>设备 ID</td></tr>
+     * <tr><td>NERtcDevice.device_name</td><td>String</td><td>设备名称。</td></tr>
      * <tr><td>NERtcDevice.transport_type</td><td>Number</td><td>设备链接类型:
      * - audio:
      *   - 0 未知设备
      *   - 1 蓝牙设备
      *   - 2 蓝牙立体声设备
      *   - 3 蓝牙低功耗设备
-     *   - 4 USB设备
-     *   - 5 HDMI设备
+     *   - 4 USB 设备
+     *   - 5 HDMI 设备
      *   - 6 内置设备
      *   - 7 雷电接口设备
-     *   - 8 AirPlay设备
+     *   - 8 AirPlay 设备
      *   - 9 虚拟设备
      *   - 10 其他设备
      * - video:
      *   - 0 未知设备
-     *   - 1 USB设备
+     *   - 1 USB 设备
      *   - 2 虚拟设备
-     *   - 3 其他设备</td></tr>
-     * <tr><td>NERtcDevice.suspected_unavailable</td><td>Boolean</td><td>是否是不推荐设备</td></tr>
-     * <tr><td>NERtcDevice.system_default_device</td><td>Boolean</td><td>是否是系统默认设备</td></tr>
+     *   - 3 其他设备。</td></tr>
+     * <tr><td>NERtcDevice.suspected_unavailable</td><td>Boolean</td><td>是否是不推荐设备。</td></tr>
+     * <tr><td>NERtcDevice.system_default_device</td><td>Boolean</td><td>是否是系统默认设备。</td></tr>
      * </table>
-     * - NULL: 方法调用失败。
+     * - NULL：方法调用失败。
      * </pre>
      */
     enumerateRecordDevices(): Array<NERtcDevice>;
@@ -1959,8 +1959,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {String} id 音频采集设备的设备 ID。可通过 {@link NERtcEngine#enumerateRecordDevices} 获取。插拔设备不会影响 deviceId。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setRecordDevice(id: String): number;
@@ -1968,8 +1968,8 @@ declare class NERtcEngine extends EventEmitter {
      * 获取当前使用的音频采集设备 ID。
      * @returns {String}
      * <pre>
-     * - 设备ID： 调用成功
-     * - null: 调用失败。
+     * - 设备 ID： 调用成功
+     * - null：调用失败。
      * </pre>
      */
     getRecordDevice(): String;
@@ -1980,34 +1980,34 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {NERtcDevice[]}
      * <pre>
-     * - Array<NERtcDevice>: 调用成功；
+     * - Array<NERtcDevice>：调用成功。
      * - null：调用失败。
      * <table style="width:100%;">
      * <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-     * <tr><td>NERtcDevice.device_id</td><td>String</td><td>设备ID</td></tr>
-     * <tr><td>NERtcDevice.device_name</td><td>String</td><td>设备名称</td></tr>
+     * <tr><td>NERtcDevice.device_id</td><td>String</td><td>设备 ID</td></tr>
+     * <tr><td>NERtcDevice.device_name</td><td>String</td><td>设备名称。</td></tr>
      * <tr><td>NERtcDevice.transport_type</td><td>Number</td><td>设备链接类型:
      * - audio:
      *   - 0 未知设备
      *   - 1 蓝牙设备
      *   - 2 蓝牙立体声设备
      *   - 3 蓝牙低功耗设备
-     *   - 4 USB设备
-     *   - 5 HDMI设备
+     *   - 4 USB 设备
+     *   - 5 HDMI 设备
      *   - 6 内置设备
      *   - 7 雷电接口设备
-     *   - 8 AirPlay设备
+     *   - 8 AirPlay 设备
      *   - 9 虚拟设备
      *   - 10 其他设备
      * - video:
      *   - 0 未知设备
-     *   - 1 USB设备
+     *   - 1 USB 设备
      *   - 2 虚拟设备
-     *   - 3 其他设备</td></tr>
-     * <tr><td>NERtcDevice.suspected_unavailable</td><td>Boolean</td><td>是否是不推荐设备</td></tr>
-     * <tr><td>NERtcDevice.system_default_device</td><td>Boolean</td><td>是否是系统默认设备</td></tr>
+     *   - 3 其他设备。</td></tr>
+     * <tr><td>NERtcDevice.suspected_unavailable</td><td>Boolean</td><td>是否是不推荐设备。</td></tr>
+     * <tr><td>NERtcDevice.system_default_device</td><td>Boolean</td><td>是否是系统默认设备。</td></tr>
      * </table>
-     - null: 调用失败。
+     - null：调用失败。
      */
     enumeratePlayoutDevices(): Array<NERtcDevice>;
     /**
@@ -2015,8 +2015,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {String} id 音频播放设备的设备 ID。可以通过 {@link NERtcEngine#enumeratePlayoutDevices} 获取。插拔设备不会影响 deviceId。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setPlayoutDevice(id: String): number;
@@ -2030,8 +2030,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} volume 音频采集设备音量。取值范围为 0~255。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setRecordDeviceVolume(volume: number): number;
@@ -2039,8 +2039,8 @@ declare class NERtcEngine extends EventEmitter {
      * 获取音频采集设备音量。
      * @returns {number}
      * <pre>
-     * - >=0: 音频采集设备音量。取值范围为 0~255。
-     * - 其他: 方法调用失败。
+     * - >=0：音频采集设备音量。取值范围为 0~255。
+     * - 其他：方法调用失败。
      * </pre>
      */
     getRecordDeviceVolume(): number;
@@ -2049,8 +2049,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} volume 音频播放设备音量。取值范围为 0~255。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setPlayoutDeviceVolume(volume: number): number;
@@ -2058,8 +2058,8 @@ declare class NERtcEngine extends EventEmitter {
      * 获取音频播放设备音量。
      * @returns {number}
      * <pre>
-     * - >=0: 音频播放设备音量。取值范围为 0~255。
-     * - 其他: 方法调用失败。
+     * - >=0：音频播放设备音量。取值范围为 0~255。
+     * - 其他：方法调用失败。
      * </pre>
      */
     getPlayoutDeviceVolume(): number;
@@ -2067,13 +2067,13 @@ declare class NERtcEngine extends EventEmitter {
      * 静音或取消静音音频播放设备。
      * @param mute 是否静音音频播放设备。
      * <pre>
-     * - true: 静音音频播放设备。
-     * - false: 取消静音音频播放设备。
+     * - true：静音音频播放设备。
+     * - false：取消静音音频播放设备。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setPlayoutDeviceMute(mute: boolean): number;
@@ -2081,8 +2081,8 @@ declare class NERtcEngine extends EventEmitter {
      * 获取音频播放设备静音状态。
      * @returns {boolean}
      * <pre>
-     * - true: 静音状态。
-     * - false: 非静音状态。
+     * - true：静音状态。
+     * - false：非静音状态。
      * </pre>
      */
     getPlayoutDeviceMute(): boolean;
@@ -2090,13 +2090,13 @@ declare class NERtcEngine extends EventEmitter {
      * 静音或取消静音音频采集设备。
      * @param {boolean} mute 是否静音音频采集设备。
      * <pre>
-     * - true: 静音音频采集设备。
-     * - false: 取消静音音频采集设备。
+     * - true：静音音频采集设备。
+     * - false：取消静音音频采集设备。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setRecordDeviceMute(mute: boolean): number;
@@ -2104,8 +2104,8 @@ declare class NERtcEngine extends EventEmitter {
      * 获取音频采集设备静音状态。
      * @returns {boolean}
      * <pre>
-     * - true: 静音状态。
-     * - false: 非静音状态。
+     * - true：静音状态。
+     * - false：非静音状态。
      * </pre>
      */
     getRecordDeviceMute(): boolean;
@@ -2113,14 +2113,14 @@ declare class NERtcEngine extends EventEmitter {
      * 调节录音音量。
      * @param {number} volume 录音信号音量可在 0 ~ 400 范围内进行调节:
      * <pre>
-     * - 0: 静音；
-     * - 100: 原始音量；
-     * - 400: 最大可为原始音量的 4 倍（自带溢出保护）。
+     * - 0：静音。
+     * - 100：原始音量。
+     * - 400：最大可为原始音量的 4 倍（自带溢出保护）。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     adjustRecordingSignalVolume(volume: number): number;
@@ -2128,14 +2128,14 @@ declare class NERtcEngine extends EventEmitter {
      * 调节播放音量。
      * @param {number} volume 播放音量可在 0 ~ 400 范围内进行调节:
      * <pre>
-     * - 0:  静音；
-     * - 100: 原始音量；
-     * - 400: 最大可为原始音量的 4 倍（自带溢出保护）。
+     * - 0： 静音。
+     * - 100：原始音量。
+     * - 400：最大可为原始音量的 4 倍（自带溢出保护）。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     adjustPlaybackSignalVolume(volume: number): number;
@@ -2151,8 +2151,8 @@ declare class NERtcEngine extends EventEmitter {
      * @fires NERtcEngine#onLocalAudioVolumeIndication
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startRecordDeviceTest(interval: number): number;
@@ -2166,8 +2166,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopRecordDeviceTest(): number;
@@ -2184,8 +2184,8 @@ declare class NERtcEngine extends EventEmitter {
      * @fires NERtcEngine#onLocalAudioVolumeIndication
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功，并且可以听到所设置文件的声音。
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功，并且可以听到所设置文件的声音。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startPlayoutDeviceTest(path: String): number;
@@ -2197,15 +2197,15 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopPlayoutDeviceTest(): number;
     /**
      * 开始音频设备回路测试。
      * <pre>
-     * 该方法测试音频采集和播放设备是否能正常工作。一旦测试开始，音频采集设备会采集本地音频，然后使用音频播放设备播放出来。 可以通过 {@link NERtcEngine#on}监听 onLocalAudioVolumeIndication 报告音量信息的事件。
+     * 该方法测试音频采集和播放设备是否能正常工作。一旦测试开始，音频采集设备会采集本地音频，然后使用音频播放设备播放出来。可以通过 {@link NERtcEngine#on}监听 onLocalAudioVolumeIndication 报告音量信息的事件。
      * <b>NOTE:</b>
      * - 该方法需在加入房间前调用。
      * - 音频设备回路测试会在通话开始后自动结束，您也可以手动调用 {@link NERtcEngine#stopAudioDeviceLoopbackTest} 停止音频设备回路测试。
@@ -2215,8 +2215,8 @@ declare class NERtcEngine extends EventEmitter {
      * @fires NERtcEngine#onLocalAudioVolumeIndication
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startAudioDeviceLoopbackTest(interval: number): number;
@@ -2228,8 +2228,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopAudioDeviceLoopbackTest(): number;
@@ -2240,33 +2240,33 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      @returns {NERtcDevice[]}
      * <pre>
-     * - NERtcDevice[] : 调用成功；
+     * - NERtcDevice[]：调用成功。
      * <table style="width:100%;">
      * <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-     * <tr><td>NERtcDevice.device_id</td><td>String</td><td>设备ID</td></tr>
-     * <tr><td>NERtcDevice.device_name</td><td>String</td><td>设备名称</td></tr>
+     * <tr><td>NERtcDevice.device_id</td><td>String</td><td>设备 ID</td></tr>
+     * <tr><td>NERtcDevice.device_name</td><td>String</td><td>设备名称。</td></tr>
      * <tr><td>NERtcDevice.transport_type</td><td>Number</td><td>设备链接类型:
      * - audio:
      *   - 0 未知设备
      *   - 1 蓝牙设备
      *   - 2 蓝牙立体声设备
      *   - 3 蓝牙低功耗设备
-     *   - 4 USB设备
-     *   - 5 HDMI设备
+     *   - 4 USB 设备
+     *   - 5 HDMI 设备
      *   - 6 内置设备
      *   - 7 雷电接口设备
-     *   - 8 AirPlay设备
+     *   - 8 AirPlay 设备
      *   - 9 虚拟设备
      *   - 10 其他设备
      * - video:
      *   - 0 未知设备
-     *   - 1 USB设备
+     *   - 1 USB 设备
      *   - 2 虚拟设备
-     *   - 3 其他设备</td></tr>
-     * <tr><td>NERtcDevice.suspected_unavailable</td><td>Boolean</td><td>是否是不推荐设备</td></tr>
-     * <tr><td>NERtcDevice.system_default_device</td><td>Boolean</td><td>是否是系统默认设备</td></tr>
+     *   - 3 其他设备。</td></tr>
+     * <tr><td>NERtcDevice.suspected_unavailable</td><td>Boolean</td><td>是否是不推荐设备。</td></tr>
+     * <tr><td>NERtcDevice.system_default_device</td><td>Boolean</td><td>是否是系统默认设备。</td></tr>
      * </table>
-     * - NULL: 调用失败。
+     * - NULL：调用失败。
      * </pre>
      */
     enumerateVideoCaptureDevices(): Array<NERtcDevice>;
@@ -2279,26 +2279,26 @@ declare class NERtcEngine extends EventEmitter {
      * @param {number} iconHeight 图标高度 px。
      * @returns {Object[]}
      * <pre>
-     * - Object[] : 调用成功；
+     * - Object[]：调用成功。
      * <table style="width:100%;">
      * <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-     * <tr><td>Object.sourceId</td><td>number</td><td>信息源ID</td></tr>
+     * <tr><td>Object.sourceId</td><td>number</td><td>信息源 ID</td></tr>
      * <tr><td>Object.displayId</td><td>String</td><td>如果是屏幕设备则为屏幕 ID</td></tr>
-     * <tr><td>Object.sourceName</td><td>String</td><td>信息源名称</td></tr>
-     * <tr><td>Object.type</td><td>int</td><td>信息源类型:1-屏幕 2-窗口</td></tr>
-     * <tr><td>Object.isMinimizeWindow</td><td>boolean</td><td>窗口是否最小化状态</td></tr>
-     * <tr><td>Object.thumbBGRA</td><td>object</td><td>缩略图信息,使用前需要判断是否undefined:
-     * - buffer - BGRA二进制数据
+     * <tr><td>Object.sourceName</td><td>String</td><td>信息源名称。</td></tr>
+     * <tr><td>Object.type</td><td>int</td><td>信息源类型:1-屏幕 2-窗口。</td></tr>
+     * <tr><td>Object.isMinimizeWindow</td><td>boolean</td><td>窗口是否最小化状态。</td></tr>
+     * <tr><td>Object.thumbBGRA</td><td>object</td><td>缩略图信息,使用前需要判断是否 undefined:
+     * - buffer - BGRA 二进制数据
      * - length - 数据大小 byte
      * - width - 图片宽度 px
      * - height - 图片高度 px</td></tr>
-     * <tr><td>Object.iconBGRA</td><td>object</td><td>图标信息,使用前需要判断是否undefined:
-     * - buffer - BGRA二进制数据
+     * <tr><td>Object.iconBGRA</td><td>object</td><td>图标信息,使用前需要判断是否 undefined:
+     * - buffer - BGRA 二进制数据
      * - length - 数据大小 byte
      * - width - 图片宽度 px
      * - height - 图片高度 px</td></tr>
      * </table>
-     * - NULL: 调用失败。
+     * - NULL：调用失败。
      * </pre>
      */
     enumerateScreenCaptureSourceInfo(thumbWidth: number, thumbHeight: number, iconWidth: number, iconHeight: number): Array<Object>;
@@ -2307,8 +2307,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {string} id 视频采集设备的设备 ID。可以通过 {@link NERtcEngine#enumerateCaptureDevices}获取。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setVideoDevice(id: String): number;
@@ -2322,14 +2322,14 @@ declare class NERtcEngine extends EventEmitter {
     * </pre>
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功；
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     setVideoDeviceWithType(id: string, streamType: NERtcVideoStreamType): number;
     /**
      * 获取当前使用的视频采集设备信息。
-     * @returns {String} 设备ID
+     * @returns {String} 设备 ID
      */
     getVideoDevice(): String;
     /**
@@ -2339,7 +2339,7 @@ declare class NERtcEngine extends EventEmitter {
      * - 0：视频流主流。
      * - 1：视频流辅流。
      * </pre>
-     * @returns {String} 设备ID
+     * @returns {String} 设备 ID
      */
     getVideoDeviceWithType(streamType: NERtcVideoStreamType): string;
     /**
@@ -2360,7 +2360,7 @@ declare class NERtcEngine extends EventEmitter {
      * @returns {number}
      * <pre>
      * - 0: 方法调用成功
-     * - 其他: 方法调用失败。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setAudioEffectPreset(type: NERtcVoiceChangerType): number;
@@ -2389,7 +2389,7 @@ declare class NERtcEngine extends EventEmitter {
      * @returns {number}
      * <pre>
      * - 0: 方法调用成功
-     * - 其他: 方法调用失败。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setVoiceBeautifierPreset(type: NERtcVoiceBeautifierType): number;
@@ -2405,7 +2405,7 @@ declare class NERtcEngine extends EventEmitter {
      * @returns {number}
      * <pre>
      * - 0: 方法调用成功
-     * - 其他: 方法调用失败。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setLocalVoicePitch(pitch: number): number;
@@ -2433,7 +2433,7 @@ declare class NERtcEngine extends EventEmitter {
      * @returns {number}
      * <pre>
      * - 0: 方法调用成功
-     * - 其他: 方法调用失败。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setLocalVoiceEqualization(bandFrequency: NERtcVoiceEqualizationBand, bandGain: number): number;
@@ -2449,17 +2449,17 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param  {boolean} enable 是否开启声卡采集功能。
      * <pre>
-     * - true: 开启声卡采集。
-     * - false: 关闭声卡采集（默认）。
+     * - true：开启声卡采集。
+     * - false：关闭声卡采集（默认）。
      * </pre>
      * @param  {String} deviceName 声卡的设备名。默认设为 NULL，即使用当前声卡采集。
      * <pre>
-     * - 如果用户使用虚拟声卡，如 “Soundflower”，可以将虚拟声卡名称 “Soundflower” 作为参数，SDK 会找到对应的虚拟声卡设备，并开始采集。
+     * - 如果用户使用虚拟声卡，如 `Soundflower`，可以将虚拟声卡名称 `Soundflower` 作为参数，SDK 会找到对应的虚拟声卡设备，并开始采集。
      * <pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功。
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLoopbackRecording(enable: boolean, deviceName: String): number;
@@ -2467,13 +2467,13 @@ declare class NERtcEngine extends EventEmitter {
      * 调节声卡采集信号音量。
      * @since 4.1.110
      * <pre>
-     * - 调用 {@link nertc::IRtcEngineEx::enableLoopbackRecording} "enableLoopbackRecording" 开启声卡采集后，你可以调用该方法调节声卡采集的信号音量。
+     * - 调用 {@link nertc::IRtcEngineEx::enableLoopbackRecording} "enableLoopbackRecording" 开启声卡采集后，您可以调用该方法调节声卡采集的信号音量。
      * </pre>
-     * @param  {number} volume 声卡采集信号音量。取值范围为 [0,100]。默认值为 100，表示原始音量 。
+     * @param  {number} volume 声卡采集信号音量。取值范围为 [0,100]。默认值为 100，表示原始音量。
      * @returns {number}
      * <pre>
      * - 0: 方法调用成功
-     * - 其他: 方法调用失败。
+     * - 其他：方法调用失败。
      * </pre>
      */
     adjustLoopbackRecordingSignalVolume(volume: number): number;
@@ -2495,8 +2495,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功。
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     adjustUserPlaybackSignalVolume(uid: number, volume: number): number;
@@ -2512,8 +2512,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param  {number} volume 播放音量，取值范围为 [0,400]。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功。
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     adjustChannelPlaybackSignalVolume(volume: number): number;
@@ -2524,19 +2524,19 @@ declare class NERtcEngine extends EventEmitter {
    * - 房间场景为直播场景时，房间中角色为观众的成员可以调用该方法从当前房间快速切换至另一个房间。
    * - 成功调用该方切换房间后，本端用户会先收到离开房间的回调 onLeaveChannel，再收到成功加入新房间的回调 onJoinChannel。远端用户会收到 onUserLeave 和 onUserJoined 回调。
    * <b>NOTE:</b>
-   * - 快速切换房间功能默认关闭。如需使用，请联系技术支持免费开通。
+   * - 快速切换房间功能默认关闭。如需使用，请 [提交工单](https://app.yunxin.163.com/global/service/ticket/create) 联系网易云信技术支持工程师免费开通。
    * - 该方法仅适用于直播场景中，角色为观众的音视频房间成员。即已通过接口 setchannelprofile 设置房间场景为直播，通过 setClientRole 设置房间成员的角色为观众。
    * - 房间成员成功切换房间后，默认订阅房间内所有其他成员的音频流，因此产生用量并影响计费。如果想取消订阅，可以通过调用相应的 subscribeRemoteAudio 方法传入 false 实现。
    * </pre>
    * @param {number}  token 安全认证签名（NERTC Token）。
    * <pre>
    * - null。非安全模式下可设置为 null。安全性不高，建议在产品正式上线前联系对应商务经理转为安全模式。
-   * - 已获取的 NERTC Token。安全模式下必须设置为获取到的 Token 。若未传入正确的 Token，用户将无法进入房间。推荐使用安全模式。
+   * - 已获取的 NERTC Token。安全模式下必须设置为获取到的 Token。若未传入正确的 Token，用户将无法进入房间。推荐使用安全模式。
    * </pre>
    * @param {string} channel_name 期望切换到的目标房间名称。
    * @return {number}
    * <pre>
-   * - 0: 方法调用成功。
+   * - 0：方法调用成功。
    * - 其他：方法调用失败。
    * </pre>
    */
@@ -2548,14 +2548,14 @@ declare class NERtcEngine extends EventEmitter {
      * - 房间场景为直播场景时，房间中角色为观众的成员可以调用该方法从当前房间快速切换至另一个房间。
      * - 成功调用该方切换房间后，本端用户会先收到离开房间的回调 onLeaveChannel，再收到成功加入新房间的回调 onJoinChannel。远端用户会收到 onUserLeave 和 onUserJoined 回调。
      * <b>NOTE:</b>
-     * - 快速切换房间功能默认关闭。如需使用，请联系技术支持免费开通。
+     * - 快速切换房间功能默认关闭。如需使用，请 [提交工单](https://app.yunxin.163.com/global/service/ticket/create) 联系网易云信技术支持工程师免费开通。
      * - 该方法仅适用于直播场景中，角色为观众的音视频房间成员。即已通过接口 setchannelprofile 设置房间场景为直播，通过 setClientRole 设置房间成员的角色为观众。
      * - 房间成员成功切换房间后，默认订阅房间内所有其他成员的音频流，因此产生用量并影响计费。如果想取消订阅，可以通过调用相应的 subscribeRemoteAudio 方法传入 false 实现。
      * </pre>
      * @param {number}  token 安全认证签名（NERTC Token）。
      * <pre>
      * - null。非安全模式下可设置为 null。安全性不高，建议在产品正式上线前联系对应商务经理转为安全模式。
-     * - 已获取的 NERTC Token。安全模式下必须设置为获取到的 Token 。若未传入正确的 Token，用户将无法进入房间。推荐使用安全模式。
+     * - 已获取的 NERTC Token。安全模式下必须设置为获取到的 Token。若未传入正确的 Token，用户将无法进入房间。推荐使用安全模式。
      * </pre>
      * @param {string} channelName 期望切换到的目标房间名称。
      * @param {Object} channelOptions 加入音视频房间时的一些可选信息。
@@ -2563,7 +2563,7 @@ declare class NERtcEngine extends EventEmitter {
      * @param {string} channelOptions.permission_key 权限密钥。能控制通话时长及媒体权限能力。
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功。
+     * - 0：方法调用成功。
      * - 其他：方法调用失败。
      * </pre>
      */
@@ -2575,14 +2575,14 @@ declare class NERtcEngine extends EventEmitter {
     * - 房间场景为直播场景时，房间中角色为观众的成员可以调用该方法从当前房间快速切换至另一个房间。
     * - 成功调用该方切换房间后，本端用户会先收到离开房间的回调 onLeaveChannel，再收到成功加入新房间的回调 onJoinChannel。远端用户会收到 onUserLeave 和 onUserJoined 回调。
     * <b>NOTE:</b>
-    * - 快速切换房间功能默认关闭。如需使用，请联系技术支持免费开通。
+    * - 快速切换房间功能默认关闭。如需使用，请 [提交工单](https://app.yunxin.163.com/global/service/ticket/create) 联系网易云信技术支持工程师免费开通。
     * - 该方法仅适用于直播场景中，角色为观众的音视频房间成员。即已通过接口 setchannelprofile 设置房间场景为直播，通过 setClientRole 设置房间成员的角色为观众。
     * - 房间成员成功切换房间后，默认订阅房间内所有其他成员的音频流，因此产生用量并影响计费。如果想取消订阅，可以通过调用相应的 subscribeRemoteAudio 方法传入 false 实现。
     * </pre>
     * @param {number}  token 安全认证签名（NERTC Token）。
     * <pre>
     * - null。非安全模式下可设置为 null。安全性不高，建议在产品正式上线前联系对应商务经理转为安全模式。
-    * - 已获取的 NERTC Token。安全模式下必须设置为获取到的 Token 。若未传入正确的 Token，用户将无法进入房间。推荐使用安全模式。
+    * - 已获取的 NERTC Token。安全模式下必须设置为获取到的 Token。若未传入正确的 Token，用户将无法进入房间。推荐使用安全模式。
     * </pre>
     * @param {string} channelName 期望切换到的目标房间名称。
     * @param {Object} channelOptions 加入音视频房间时的一些可选信息。
@@ -2590,7 +2590,7 @@ declare class NERtcEngine extends EventEmitter {
     * @param {string} channelOptions.permission_key 权限密钥。能控制通话时长及媒体权限能力。
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2617,7 +2617,7 @@ declare class NERtcEngine extends EventEmitter {
     * </pre
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2626,12 +2626,12 @@ declare class NERtcEngine extends EventEmitter {
     * 设置屏幕捕捉时需屏蔽的窗口列表, 该方法在捕捉过程中可动态调用。
     * @since 4.4.8
     * <pre>
-    *  - 仅支持Windows
+    *  - 仅支持 Windows
     * </pre>
-    * @param {list} window_list 需屏蔽的窗口ID列表, 例如：[id1,id2...]。
+    * @param {list} window_list 需屏蔽的窗口 ID 列表, 例如：[id1,id2...]。
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2640,12 +2640,12 @@ declare class NERtcEngine extends EventEmitter {
     * 更新屏幕共享参数。
     * @since V5.4.0
     * <pre>
-    *  - 仅支持Windows
+    *  - 仅支持 Windows
     * </pre>
-    * @param {list} window_list 需屏蔽的窗口ID列表, 例如：[id1,id2...]。
+    * @param {list} window_list 需屏蔽的窗口 ID 列表, 例如：[id1,id2...]。
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2672,7 +2672,7 @@ declare class NERtcEngine extends EventEmitter {
     * @param {number} quality 录音音质，只在 AAC 格式下有效。详细说明请参考 NERtcAudioRecordingQuality。
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2712,14 +2712,14 @@ declare class NERtcEngine extends EventEmitter {
     * @param {number} config.cycleTime  录制过程中，循环缓存的最大时间长度，单位(s):
     * <pre>
     * - 0 录制本地和所有远端用户混音后的音频（默认）
-    * - 10 音频录制缓存时间为10s，StopAudioRectording()后，将缓存都写到文件，文件数据时间跨度为: [0,10s]
-    * - 60 音频录制缓存时间为60s，StopAudioRectording()后，将缓存都写到文件，文件数据时间跨度为: [0,60s]
-    * - 360 音频录制缓存时间为360s，StopAudioRectording()后，将缓存都写到文件，文件数据时间跨度为: [0,360s]
-    * - 900 音频录制缓存时间为900s，StopAudioRectording()后，将缓存都写到文件，文件数据时间跨度为: [0,900s]
+    * - 10 音频录制缓存时间为 10s，StopAudioRectording()后，将缓存都写到文件，文件数据时间跨度为: [0,10s]
+    * - 60 音频录制缓存时间为 60s，StopAudioRectording()后，将缓存都写到文件，文件数据时间跨度为: [0,60s]
+    * - 360 音频录制缓存时间为 360s，StopAudioRectording()后，将缓存都写到文件，文件数据时间跨度为: [0,360s]
+    * - 900 音频录制缓存时间为 900s，StopAudioRectording()后，将缓存都写到文件，文件数据时间跨度为: [0,900s]
     * </pre>
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2734,7 +2734,7 @@ declare class NERtcEngine extends EventEmitter {
     * </pre>
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2760,8 +2760,8 @@ declare class NERtcEngine extends EventEmitter {
     * @param {String} config.dest_infos.uid 标识目标房间中的转发媒体流的 UID。请确保不要将该参数设为目标房间的主播的 UID，并与目标房间中的 所有 UID 都不同。
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功。
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     startChannelMediaRelay(config: NERtcChannelMediaRelayConfiguration): number;
@@ -2784,7 +2784,7 @@ declare class NERtcEngine extends EventEmitter {
     * @param {String} config.dest_infos.uid 标识目标房间中的转发媒体流的 UID。请确保不要将该参数设为目标房间的主播的 UID，并与目标房间中的 所有 UID 都不同。
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2797,7 +2797,7 @@ declare class NERtcEngine extends EventEmitter {
     * <pre>
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2811,16 +2811,16 @@ declare class NERtcEngine extends EventEmitter {
     * - 当本地发布的音视频流回退为音频流时，或由音频流恢复为音视频流时，SDK 会触发本地发布的媒体流已回退为音频流 onLocalPublishFallbackToAudioOnly 回调。
     * <b>NOTE:</b> 请在加入房间（joinChannel）前调用此方法。
     * <pre>
-    * @param  {number} option 发布音视频流的回退选项: NERTCStreamFallbackOption。
+    * @param  {number} option 发布音视频流的回退选项：NERTCStreamFallbackOption。
     * <pre>
-    * - 0: 上行或下行网络较弱时，不对音视频流作回退处理，但不能保证音视频流的质量。
-    * - 1: 在下行网络条件较差的情况下，SDK 将只接收视频小流，即低分辨率、低码率视频流。
-    * - 2: 上行网络较弱时，只发布音频流。下行网络较弱时，先尝试只接收视频小流，即低分辨率、低码率视频流。如果网络环境无法显示视频，则再回退到只接收音频流。
+    * - 0：上行或下行网络较弱时，不对音视频流作回退处理，但不能保证音视频流的质量。
+    * - 1：在下行网络条件较差的情况下，SDK 将只接收视频小流，即低分辨率、低码率视频流。
+    * - 2：上行网络较弱时，只发布音频流。下行网络较弱时，先尝试只接收视频小流，即低分辨率、低码率视频流。如果网络环境无法显示视频，则再回退到只接收音频流。
     * </pre>
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功。
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     setLocalPublishFallbackOption(option: number): number;
@@ -2833,16 +2833,16 @@ declare class NERtcEngine extends EventEmitter {
     * <b>NOTE:</b>
     * - 请在加入房间（joinChannel）前调用此方法。
     * </pre>
-    * @param  {number} option 发布音视频流的回退选项: NERTCStreamFallbackOption。
+    * @param  {number} option 发布音视频流的回退选项：NERTCStreamFallbackOption。
     * <pre>
-    * - 0: 上行或下行网络较弱时，不对音视频流作回退处理，但不能保证音视频流的质量。
-    * - 1: 在下行网络条件较差的情况下，SDK 将只接收视频小流，即低分辨率、低码率视频流。
-    * - 2: 上行网络较弱时，只发布音频流。下行网络较弱时，先尝试只接收视频小流，即低分辨率、低码率视频流。如果网络环境无法显示视频，则再回退到只接收音频流。
+    * - 0：上行或下行网络较弱时，不对音视频流作回退处理，但不能保证音视频流的质量。
+    * - 1：在下行网络条件较差的情况下，SDK 将只接收视频小流，即低分辨率、低码率视频流。
+    * - 2：上行网络较弱时，只发布音频流。下行网络较弱时，先尝试只接收视频小流，即低分辨率、低码率视频流。如果网络环境无法显示视频，则再回退到只接收音频流。
     * </pre>
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功；
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     setRemoteSubscribeFallbackOption(option: number): number;
@@ -2851,7 +2851,7 @@ declare class NERtcEngine extends EventEmitter {
     * @since V4.4.0
     * <pre>
     * <b>NOTE:</b>
-    * - 使用 AI 超分功能之前，请联系技术支持开通 AI 超分功能。
+    * - 使用 AI 超分功能之前，请 [提交工单](https://app.yunxin.163.com/global/service/ticket/create) 联系网易云信技术支持工程师开通 AI 超分功能。
     * - AI 超分仅对以下类型的视频流有效：
     * - 必须为本端接收到第一路 360P 的视频流。
     * - 必须为摄像头采集到的主流大流视频。AI 超分功能暂不支持复原重建小流和屏幕共享辅流。
@@ -2859,7 +2859,7 @@ declare class NERtcEngine extends EventEmitter {
     * @param enable 是否启用 AI 超分。默认为关闭状态。
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -2879,14 +2879,14 @@ declare class NERtcEngine extends EventEmitter {
      * - true: 开启
      * - false:（默认）关闭
      * </pre>
-     * @param config 媒体流加密方案。详细信息请参考 nertc::NERtcEncryptionConfig 。
+     * @param config 媒体流加密方案。详细信息请参考 nertc::NERtcEncryptionConfig。
      * @param {number} config.mode 媒体流加密模式。
      * <pre>
      * - 0: 128 位 SM4 加密，ECB 模式
      * - 1: 自定义加密
      * <b>NOTE:</b>
-     * - 自定义加密需要在cpp层开发自定义算法，实现nertc_node_engine_event_handler文件中NertcNodePacketObserver中相关方法
-     * - 自定义加密 key设置为null。
+     * - 自定义加密需要在 cpp 层开发自定义算法，实现 nertc_node_engine_event_handler 文件中 NertcNodePacketObserver 中相关方法
+     * - 自定义加密 key 设置为 null。
      * </pre>
      * @param {String} config.key 媒体流加密密钥。字符串类型，推荐设置为英文字符串。
      * @return
@@ -2907,7 +2907,7 @@ declare class NERtcEngine extends EventEmitter {
     * - 请在加入房间（joinChannel）前调用此方法。
     * - 调用该方法后，在收到 `onLastmileQuality` 和 `onLastmileProbeResult` 回调之前请不要调用其他方法，否则可能会由于 API 操作过于频繁导致此方法无法执行。
     * </pre>
-    * @param {Object} config Last mile网络探测配置。
+    * @param {Object} config Last mile 网络探测配置。
     * @param {boolean} config.probe_uplink 是否探测上行网络,不发流的用户，例如直播房间中的普通观众，无需进行上行网络探测。
     * <pre>
     * - true: 探测
@@ -2929,8 +2929,8 @@ declare class NERtcEngine extends EventEmitter {
     * </pre>
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功；
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     startLastmileProbeTest(config: any): number;
@@ -2971,7 +2971,7 @@ declare class NERtcEngine extends EventEmitter {
     * 检测虚拟声卡是否安装（仅适用于 Mac 系统）
     * @since V5.4.0
     * <pre>
-    * 该接口会检测电脑是否安装最新版本的虚拟声卡。如果未安装，并且应用中已集成NERTCPrivilegedTask库，该接口会弹出安装虚拟声卡对话框，方便用户安装。
+    * 该接口会检测电脑是否安装最新版本的虚拟声卡。如果未安装，并且应用中已集成 NERTCPrivilegedTask 库，该接口会弹出安装虚拟声卡对话框，方便用户安装。
     * </pre>
     * @return
     * <pre>
@@ -2987,7 +2987,7 @@ declare class NERtcEngine extends EventEmitter {
      * 启用虚拟背景功能后，您可以使用自定义背景图片替换本地用户的原始背景图片。
      * 替换后，频道内所有用户都可以看到自定义背景图片。
      *  <b>NOTE:</b>
-     * - 您可以通过onVirtualBackgroundSourceEnabled回调查看虚拟背景是否开启成功或出错原因。
+     * - 您可以通过 onVirtualBackgroundSourceEnabled 回调查看虚拟背景是否开启成功或出错原因。
      * - 建议您使用配备 i5 CPU 及更高性能的设备。
      * - 建议您在满足以下条件的场景中使用该功能：
      * - 采用高清摄像设备，环境光线均匀。
@@ -3005,7 +3005,7 @@ declare class NERtcEngine extends EventEmitter {
      * - 1 背景图像为纯色（默认）
      * - 2 背景图像只支持 PNG 或 JPG 格式的文件
      * </pre>
-     * @param {number} backgroundSource.color 自定义背景图像的颜色。格式为RGB定义的十六进制整数，不带#号.
+     * @param {number} backgroundSource.color 自定义背景图像的颜色。格式为 RGB 定义的十六进制整数，不带#号.
      * @param {string} backgroundSource.source 自定义背景图片的本地绝对路径。支持 PNG 和 JPG 格式。
      * @return
      * <pre>
@@ -3066,7 +3066,7 @@ declare class NERtcEngine extends EventEmitter {
      * <pre>
      * 加入房间时，默认订阅所有远端用户的数据通道流，您可以通过此方法取消或恢复订阅指定远端用户的数据通道流。
      * <b>NOTE:</b>
-     * - 当kNERtcKeyAutoSubscribeData默认打开时，用户不能手动修改数据通道订阅状态
+     * - 当 kNERtcKeyAutoSubscribeData 默认打开时，用户不能手动修改数据通道订阅状态
      * </pre>
      * @param {number} uid  指定用户的 ID。
      * @param {boolean} subscribe 是否订阅远端用户数据通道流。
@@ -3083,8 +3083,8 @@ declare class NERtcEngine extends EventEmitter {
      * @param {ArrayBuffer} data 自定义数据。
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     sendData(data: ArrayBuffer): number;
@@ -3098,7 +3098,7 @@ declare class NERtcEngine extends EventEmitter {
     * - 该方法需要在 `enableLocalVideo` 之前设置。
     * - 该方法仅适用于 Windows 平台。
     * </pre>
-    * @param {String} file_path 文件文件绝对路径。（例：windows环境下传入xxx\data\beauty\nebeauty）
+    * @param {String} file_path 文件文件绝对路径。（例：windows 环境下传入 xxx\data\beauty\nebeauty）
     * @return {number}
     * <pre>
     * - 0: 方法调用成功
@@ -3201,7 +3201,7 @@ declare class NERtcEngine extends EventEmitter {
      * - 请先调用 startBeauty 方法开启美颜功能模块。
      * - 请在引擎初始化之后调用此接口，且该方法在加入房间前后均可调用。
      * - 该方法仅适用于 Windows 平台。
-     * - 使用滤镜、贴纸和美妆等自定义美颜效果之前，请联系商务经理获取美颜资源或模型。
+     * - 使用滤镜、贴纸和美妆等自定义美颜效果之前，请联系网易云信商务经理获取美颜资源或模型。
      * - 滤镜效果可以和全局美颜、贴纸、美妆等效果互相叠加，但是不支持叠加多个滤镜。
      * </pre>
      * @param {String} file_path 滤镜资源或模型所在的绝对路径。
@@ -3337,7 +3337,7 @@ declare class NERtcEngine extends EventEmitter {
      * - 该方法暂时仅支持控制音频流的发送。
      * - 该方法在加入房间前后均可调用。
      * - 停止发送媒体流的状态会在通话结束后被重置为允许发送。
-     * - 成功调用该方法切换本地用户的发流状态后，房间内其他用户会收到onUserAudioStart（开启发送音频）或 onUserAudioStop（停止发送音频）的回调。
+     * - 成功调用该方法切换本地用户的发流状态后，房间内其他用户会收到 onUserAudioStart（开启发送音频）或 onUserAudioStop（停止发送音频）的回调。
      * </pre>
      * @param {boolean} enabled 是否发布本地媒体流。
      * <pre>
@@ -3359,7 +3359,7 @@ declare class NERtcEngine extends EventEmitter {
      * 更新权限密钥。
      * @since V5.4.0
      * <pre>
-     * - 通过本接口可以实现当用户权限被变更，或者收到权限密钥即将过期的回调onPermissionKeyWillExpire时，更新权限密钥。
+     * - 通过本接口可以实现当用户权限被变更，或者收到权限密钥即将过期的回调 onPermissionKeyWillExpire 时，更新权限密钥。
      * <b>NOTE:</b>
      * - 请确保已开通高级 Token 鉴权功能，具体请联系网易云信商务经理。
      * - 请在引擎初始化之后调用此接口，且该方法仅可在加入房间后调用。
@@ -3384,8 +3384,8 @@ declare class NERtcEngine extends EventEmitter {
      * </pre>
      * @param {number} mode 范围语音模式，包括所有人和仅小队两种模式。
      * <pre>
-     * - 0: 默认模式。设置后玩家附近一定范围的人都能听到该玩家讲话，如果范围内也有玩家设置为此模式，则也可以互相通话。
-     * - 1: 小组模式。仅TeamID相同的队友可以互相听到
+     * - 0：默认模式。设置后玩家附近一定范围的人都能听到该玩家讲话，如果范围内也有玩家设置为此模式，则也可以互相通话。
+     * - 1：小组模式。仅 TeamID 相同的队友可以互相听到
      * </pre>
      * @return {number}
      * <pre>
@@ -3395,18 +3395,18 @@ declare class NERtcEngine extends EventEmitter {
      */
     setRangeAudioMode(mode: number): number;
     /**
-     * 设置范围语音的小队ID。
+     * 设置范围语音的小队 ID。
      * @since V5.5.10
      * <pre>
      * - 请在引擎初始化后调用此接口，且该方法在加入房间前后均可调用。
      * <b>NOTE:</b>
-     * - 离开房间后，TeamID 失效，需要重新配置TeamID ，请在每次加入房间之前都调用此方法设置 TeamID。
-     * - 离开房间后，TeamID 失效，需要重新配置TeamID ，请在每次加入房间之前都调用此方法设置队伍号。
+     * - 离开房间后，TeamID 失效，需要重新配置 TeamID，请在每次加入房间之前都调用此方法设置 TeamID。
+     * - 离开房间后，TeamID 失效，需要重新配置 TeamID，请在每次加入房间之前都调用此方法设置队伍号。
      * - 如果离开房间后再加入房间，请在收到退房成功回调（onLeaveChannel）后，再调用此方法设置队伍号。
      * - 若加入房间后，调用此接口修改队伍号，设置后立即生效。
      * - 请配合 #setRangeAudioMode  接口一起使用。
      * </pre>
-     * @param {number} team_id 小队ID, 有效值: >=0。若team_id = 0，则房间内所有人（不论范围语音的模式是所有人还是仅小队）都可以听到该成员的声音。
+     * @param {number} team_id 小队 ID, 有效值：>=0。若 team_id = 0，则房间内所有人（不论范围语音的模式是所有人还是仅小队）都可以听到该成员的声音。
      * @return {number}
      * <pre>
      * - 0: 方法调用成功
@@ -3420,10 +3420,10 @@ declare class NERtcEngine extends EventEmitter {
      * <pre>
      * - 请在引擎初始化后调用此接口，且该方法在加入房间前后均可调用。
      * <b>NOTE:</b>
-     * - 若要使用范围语音或3D音效功能，加入房间前需要调用一次本接口。
-     * - 仅使用范围语音时，您只需要设置audible_distance参数，其他参数设置不生效，填写默认值即可。
+     * - 若要使用范围语音或 3D 音效功能，加入房间前需要调用一次本接口。
+     * - 仅使用范围语音时，您只需要设置 audible_distance 参数，其他参数设置不生效，填写默认值即可。
      * </pre>
-     * @param {number} audible_distance 监听器能够听到扬声器并接收其语音的距离扬声器的最大距离。距离有效范围：[1,max int) ，无默认值。
+     * @param {number} audible_distance 监听器能够听到扬声器并接收其语音的距离扬声器的最大距离。距离有效范围：[1,max int)，无默认值。
      * @param {number} conversational_distance 范围语音场景中，该参数设置的值不起作用，保持默认值即可。空间音效场景中，需要配置该参数。控制音频保持其原始音量的范围，超出该范围时，语音聊天的响度在被听到时开始淡出。
      * 默认值为 1。
      * @param {number} roll_off 范围语音场景中，该参数设置的值不起作用，保持默认值即可。
@@ -3445,10 +3445,10 @@ declare class NERtcEngine extends EventEmitter {
      * <pre>
      * - 请在引擎初始化后调用此接口，且该方法在加入房间前后均可调用。
      * </pre>
-     * @param {Object} info L通过 info 参数设置空间音效中说话者和接收者的空间位置信息。
-     * @param {Array<Number>} info.speaker_position 说话者的位置信息，三个值依次表示X、Y、Z的坐标值。默认值[0,0,0]。
+     * @param {Object} info L 通过 info 参数设置空间音效中说话者和接收者的空间位置信息。
+     * @param {Array<Number>} info.speaker_position 说话者的位置信息，三个值依次表示 X、Y、Z 的坐标值。默认值[0,0,0]。
      * @param {Array<Number>} info.speaker_quaternion 说话者的旋转信息，通过四元组来表示，数据格式为[w, x, y, z]。默认值[0,0,0,0]。
-     * @param {Array<Number>} info.head_position 接收者的位置信息，三个值依次表示X、Y、Z的坐标值。默认值[0,0,0]。
+     * @param {Array<Number>} info.head_position 接收者的位置信息，三个值依次表示 X、Y、Z 的坐标值。默认值[0,0,0]。
      * @param {Array<Number>} info.head_quaternion 接收者的旋转信息，通过四元组来表示，数据格式为[w, x, y, z]。默认值[0,0,0,0]。
      * @return {number}
      * <pre>
@@ -3462,8 +3462,8 @@ declare class NERtcEngine extends EventEmitter {
      * @since V5.4.0
      * <pre>
      * - 请在引擎初始化后调用此接口，且该方法在加入房间前后均可调用。
-     * - 该接口不支持Linux平台
-     * - 请先调用enableSpatializer接口启用空间音效，再调用本接口。
+     * - 该接口不支持 Linux 平台
+     * - 请先调用 enableSpatializer 接口启用空间音效，再调用本接口。
      * </pre>
      * @param {boolean} enable 混响效果开关，默认值关闭。
      * @return {number}
@@ -3484,10 +3484,10 @@ declare class NERtcEngine extends EventEmitter {
      * @param {Object} config 房间属性。
      * @param {number} config.room_capacity 房间大小。
      * <pre>
-     * - 0: 小房间。
-     * - 1: 中等大小房间。
-     * - 2: 大房间。
-     * - 3: 巨大房间。
+     * - 0：小房间。
+     * - 1：中等大小房间。
+     * - 2：大房间。
+     * - 3：巨大房间。
      * - 4: 无房间效果
      * </pre>
      * @param {number} config.material 房间材质。
@@ -3517,10 +3517,10 @@ declare class NERtcEngine extends EventEmitter {
      * - 22: 木头枪板，未开放
      * - 23: 均匀分布，未开放
      * </pre>
-     * @param {number} config.reflection_scalar 反射比例，默认值1.0。
-     * @param {number} config.reverb_gain 混响增益比例因子，默认值1.0。
-     * @param {number} config.reverb_time 混响时间比例因子，默认值1.0。
-     * @param {number} config.reverb_brightness 混响亮度，默认值1.0。
+     * @param {number} config.reflection_scalar 反射比例，默认值 1.0。
+     * @param {number} config.reverb_gain 混响增益比例因子，默认值 1.0。
+     * @param {number} config.reverb_time 混响时间比例因子，默认值 1.0。
+     * @param {number} config.reverb_brightness 混响亮度，默认值 1.0。
      * @return {number}
      * <pre>
      * - 0: 方法调用成功
@@ -3553,7 +3553,7 @@ declare class NERtcEngine extends EventEmitter {
      */
     setSpatializerRenderMode(mode: number): number;
     /**
-     * 初始化引擎3D音效算法。
+     * 初始化引擎 3D 音效算法。
      * @since V5.5.10
      * <pre>
      * - 此接口在加入房间前调用后均可调用。
@@ -3577,15 +3577,15 @@ declare class NERtcEngine extends EventEmitter {
      * - 开启空间音效后，通话结束时仍保留该开关状态，不重置。
      * - 请先调用 \ref  #initSpatializer 接口初始化空间音效算法，再调用本接口。
      * </pre>
-     * @param {boolean} enable 是否打开3D音效算法功能，默认为关闭状态。
+     * @param {boolean} enable 是否打开 3D 音效算法功能，默认为关闭状态。
      * <pre>
-     * - true: 开启空间音效。
-     * - false: 关闭空间音效。
+     * - true：开启空间音效。
+     * - false：关闭空间音效。
      * </pre>
-     * @param {boolean} apply_to_team 是否仅本小队开启3D音效。默认为 false。
+     * @param {boolean} apply_to_team 是否仅本小队开启 3D 音效。默认为 false。
      * <pre>
-     * - true: 仅在接收本小队的语音时有3D音效。
-     * - false: 接收到所有的语音都有3D音效。
+     * - true：仅在接收本小队的语音时有 3D 音效。
+     * - false：接收到所有的语音都有 3D 音效。
      * </pre>
      * @return {number}
      * <pre>

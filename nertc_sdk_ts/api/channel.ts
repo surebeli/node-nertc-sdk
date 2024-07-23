@@ -102,14 +102,14 @@ class NERtcChannel extends EventEmitter {
     /**
      * 加入频道。如果频道还未创建，会自动尝试创建频道。
      * <pre>
-     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。 使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcChannel#leaveChannel} 退出当前通话，才能进入下一个频道。
+     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcChannel#leaveChannel} 退出当前通话，才能进入下一个频道。
      * 频道内每个用户的用户 ID 必须是唯一的。
      * </pre>
-     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高: 将值设置为 Token。如果你已经启用了 App Certificate, 请务必使用 Token。
+     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高：将值设置为 Token。如果您已经启用了 App Certificate, 请务必使用 Token。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     joinChannel(token: string): number {
@@ -119,15 +119,15 @@ class NERtcChannel extends EventEmitter {
     /**
      * 加入频道。如果频道还未创建，会自动尝试创建频道。
      * <pre>
-     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。 使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcChannel#leaveChannel} 退出当前通话，才能进入下一个频道。
+     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcChannel#leaveChannel} 退出当前通话，才能进入下一个频道。
      * 频道内每个用户的用户 ID 必须是唯一的。
      * </pre>
-     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高: 将值设置为 Token。如果你已经启用了 App Certificate, 请务必使用 Token。
-     * @param {number} uid 用户ID。
+     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高：将值设置为 Token。如果您已经启用了 App Certificate, 请务必使用 Token。
+     * @param {number} uid 用户 ID。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     joinChannelWithUid(token: string, uid: number): number {
@@ -138,19 +138,19 @@ class NERtcChannel extends EventEmitter {
      * 加入频道。如果频道还未创建，会自动尝试创建频道。
      * @since V5.4.0
      * <pre>
-     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。 使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcChannel#leaveChannel} 退出当前通话，才能进入下一个频道。
+     * 该方法让用户加入通话频道，在同一个频道内的用户可以互相通话，多个用户加入同一个频道，可以群聊。使用不同 App Key 的 App 是不能互通的。如果已在通话中，用户必须调用 {@link NERtcChannel#leaveChannel} 退出当前通话，才能进入下一个频道。
      * 频道内每个用户的用户 ID 必须是唯一的。
      * </pre>
-     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高: 将值设置为 Token。如果你已经启用了 App Certificate, 请务必使用 Token。
+     * @param {String} token 动态秘钥。安全要求不高: 将值设为 空字符串。安全要求高：将值设置为 Token。如果您已经启用了 App Certificate, 请务必使用 Token。
      * @param {String} channelName 标识通话的频道名称，长度在 64 字节以内的字符串。以下为支持的字符集范围（共 89 个字符）: a-z, A-Z, 0-9, space, !#$%&()+-:;&le;.,>? @[]^_{|}~”
-     * @param {number} uid 用户ID。
+     * @param {number} uid 用户 ID。
      * @param {Object} channelOptions 加入音视频房间时的一些可选信息。
      * @param {string} channelOptions.custom_info 自定义信息，最长支持 127 个字符。
      * @param {string} channelOptions.permission_key 权限密钥。能控制通话时长及媒体权限能力。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     joinChannelWithOptions(token: string, uid: number, channelOptions: NERtcJoinChannelOptions): number {
@@ -161,15 +161,15 @@ class NERtcChannel extends EventEmitter {
      * 离开频道。
      * <pre>
      * 离开频道，即挂断或退出通话。
-     * 当调用 {@link NERtcChannel#joinChannel} 方法后，必须调用 {@link NERtcChannel#leaveChannel} 结束通话，否则无法开始下一次通话。 不管当前是否在通话中，都可以调用 leaveChannel，没有副作用。该方法会把会话相关的所有资源释放掉。
+     * 当调用 {@link NERtcChannel#joinChannel} 方法后，必须调用 {@link NERtcChannel#leaveChannel} 结束通话，否则无法开始下一次通话。不管当前是否在通话中，都可以调用 leaveChannel，没有副作用。该方法会把会话相关的所有资源释放掉。
      * 该方法是异步操作，调用返回时并没有真正退出频道。在真正退出频道后，SDK 会触发 onLeaveChannel 事件。
-     * 如果你调用了 {@link NERtcChannel#leaveChannel} 后立即调用 {@link NERtcChannel#release} , SDK 将无法触发 onLeaveChannel 事件。
+     * 如果您调用了 {@link NERtcChannel#leaveChannel} 后立即调用 {@link NERtcChannel#release} , SDK 将无法触发 onLeaveChannel 事件。
      * </pre>
      * @fires NERtcChannel#onLeaveChannel
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     leaveChannel(): number {
@@ -194,8 +194,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLocalAudio(enabled: boolean): number {
@@ -206,19 +206,19 @@ class NERtcChannel extends EventEmitter {
      * 开启或关闭音频辅流。
      * @since V5.4.0
      * <pre>
-     * 开启时远端会收到onUserSubStreamAudioStart，关闭时远端会收到onUserSubStreamAudioStop。
+     * 开启时远端会收到 onUserSubStreamAudioStart，关闭时远端会收到 onUserSubStreamAudioStop。
      * <b>NOTE:</b>
      * - 该方法设置内部引擎为启用状态，在{@link NERtcChannel#leaveChannel}后仍然有效。
      * </pre>
      * @param {boolean} enabled 是否开启音频辅流：
      * <pre>
-     * - true: 开启音频辅流。
-     * - false: 关闭音频辅流。
+     * - true：开启音频辅流。
+     * - false：关闭音频辅流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLocalSubStreamAudio(enabled: boolean): number {
@@ -237,8 +237,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     muteLocalAudioStream(mute: boolean): number {
@@ -255,13 +255,13 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {boolean} mute 是否静音本地音频辅流发送。
      * <pre>
-     * - true: 静音本地音频辅流（默认）。
-     * - false: 取消静音本地音频辅流。
+     * - true：静音本地音频辅流（默认）。
+     * - false：取消静音本地音频辅流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     muteLocalSubStreamAudio(mute: boolean): number {
@@ -276,13 +276,13 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {boolean} enabled 是否启用本地视频:
      * <pre>
-     * - true: 开启本地视频采集和渲染 (默认)；
-     * - false: 关闭使用本地摄像头设备。关闭后，远端用户会接收不到本地用户的视频流；但本地用户依然可以接收远端用户的视频流。设置为 false 时，该方法不需要本地有摄像头。
+     * - true：开启本地视频采集和渲染 (默认)。
+     * - false：关闭使用本地摄像头设备。关闭后，远端用户会接收不到本地用户的视频流。但本地用户依然可以接收远端用户的视频流。设置为 false 时，该方法不需要本地有摄像头。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLocalVideo(enabled: boolean): number {
@@ -298,18 +298,18 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {number} streamType 视频通道类型：
      * <pre>
-     * - 0: 主流；
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @param {boolean} enabled 是否启用本地视频:
      * <pre>
-     * - true: 开启本地视频采集和渲染 (默认)；
-     * - false: 关闭使用本地摄像头设备。关闭后，远端用户会接收不到本地用户的视频流；但本地用户依然可以接收远端用户的视频流。设置为 false 时，该方法不需要本地有摄像头。
+     * - true：开启本地视频采集和渲染 (默认)。
+     * - false：关闭使用本地摄像头设备。关闭后，远端用户会接收不到本地用户的视频流。但本地用户依然可以接收远端用户的视频流。设置为 false 时，该方法不需要本地有摄像头。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableLocalVideoWithType(type: number, enabled: boolean): number {
@@ -328,8 +328,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     muteLocalVideoStream(enabled: boolean): number {
@@ -343,8 +343,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {number} streamType 视频通道类型。
      * <pre>
-     * - 0: 视频主流。
-     * - 1: 视频辅流。
+     * - 0：视频主流。
+     * - 1：视频辅流。
      * </pre>
      * @param {boolean} mute
      * <pre>
@@ -353,8 +353,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     muteLocalVideoStreamWithType(type: number, enabled: boolean): number {
@@ -370,8 +370,8 @@ class NERtcChannel extends EventEmitter {
      * @param {number} interval 指定音量提示的时间间隔，单位为毫秒。必须设置为 100 毫秒的整数倍值。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableAudioVolumeIndication(enabled: boolean, interval: number, enableVad: boolean): number {
@@ -382,56 +382,55 @@ class NERtcChannel extends EventEmitter {
     //  * 枚举屏幕分享源信息。
     //  * @since 5.5.20
     //  * @param {Object} thumbSize 屏幕或窗口的缩略图的目标尺寸（宽高单位为像素）:
-    //  * @param {number} thumbSize.width 缩略图缩略图宽度px默认0
-    //  * @param {number} thumbSize.height 缩略图高度px默认0
+    //  * @param {number} thumbSize.width 缩略图缩略图宽度 px 默认 0
+    //  * @param {number} thumbSize.height 缩略图高度 px 默认 0
     //  * <pre>
     //  * <b>NOTE:</b>
     //  * - SDK 会在保证原图不变形的前提下，缩放原图，使图片最长边和目标尺寸的最长边的长度一致。
     //  * - 如果目标尺寸大于原图尺寸，缩略图即为原图，SDK 不进行缩放操作。
     //  * </pre>
-    //  * @param {Object} iconSize 程序所对应的图标的目标尺寸px。
-    //  * @param {number} iconSize.width 程序所对应的图标宽度px默认0
-    //  * @param {number} iconSize.height 程序所对应的图标高度px默认0
+    //  * @param {Object} iconSize 程序所对应的图标的目标尺寸 px。
+    //  * @param {number} iconSize.width 程序所对应的图标宽度 px 默认 0
+    //  * @param {number} iconSize.height 程序所对应的图标高度 px 默认 0
     //  * <b>NOTE:</b>
     //  * - SDK 会在保证原图不变形的前提下，缩放原图，使图片最长边和目标尺寸的最长边的长度一致。
     //  * - 如果目标尺寸大于原图尺寸，缩略图即为原图，SDK 不进行缩放操作。
     //  * </pre>
     //  * @param includeScreen 除了窗口信息外，SDK 是否还返回屏幕信息：
     //  * <pre>
-    //  * - true: SDK 返回屏幕和窗口信息；
-    //  * - false: SDK 仅返回窗口信息。
+    //  * - true：SDK 返回屏幕和窗口信息。
+    //  * - false：SDK 仅返回窗口信息。
     //  * </pre>
     //  * @returns {Object[]}
     //  * <pre>
-    //  * - Object[] : 调用成功；
+    //  * - Object[]：调用成功。
     //  * <table style="width:100%;">
-    //  * <tr><td>Object.type</td><td>int</td><td>信息源类型:-1-未知 0-窗口 1-屏幕 2-自定义</td></tr>
-    //  * <tr><td>Object.source_id</td><td>number</td><td>信息源ID</td></tr>
-    //  * <tr><td>Object.source_name</td><td>String</td><td>信息源名称</td></tr>
-    //  * <tr><td>Object.thumb_image</td><td>object</td><td>缩略图信息,使用前需要判断是否undefined:
-    //  * - buffer - BGRA二进制数据
+    //  * <tr><td>Object.type</td><td>int</td><td>信息源类型:-1-未知 0-窗口 1-屏幕 2-自定义。</td></tr>
+    //  * <tr><td>Object.source_id</td><td>number</td><td>信息源 ID</td></tr>
+    //  * <tr><td>Object.source_name</td><td>String</td><td>信息源名称。</td></tr>
+    //  * <tr><td>Object.thumb_image</td><td>object</td><td>缩略图信息,使用前需要判断是否 undefined:
+    //  * - buffer - BGRA 二进制数据
     //  * - length - 数据大小 byte
     //  * - width - 图片宽度 px
     //  * - height - 图片高度 px</td></tr>
-    //  * <tr><td>Object.icon_image</td><td>object</td><td>图标信息,使用前需要判断是否undefined:
-    //  * - buffer - BGRA二进制数据
+    //  * <tr><td>Object.icon_image</td><td>object</td><td>图标信息,使用前需要判断是否 undefined:
+    //  * - buffer - BGRA 二进制数据
     //  * - length - 数据大小 byte
     //  * - width - 图片宽度 px
     //  * - height - 图片高度 px</td></tr>
     //  * </table>
-    //  * - NULL: 调用失败。
+    //  * - NULL：调用失败。
     //  * </pre>
     //  */
     // getScreenCaptureSources(thumbSize: NERtcSize, iconSize: NERtcSize, includeScreen: boolean): Array<Object> {
     //     return this.rtcChannel.getScreenCaptureSources(thumbSize, iconSize, includeScreen);
     // }
-
     // /**
     //  * 枚举屏幕分享源信息。
     //  * @since 5.5.20
     //  * @param {CaptureSoureInfo} source 屏幕或窗口的缩略图的目标尺寸（宽高单位为像素）:
     //  * @param {number} source.type 信息源类型:-1-未知 0-窗口 1-屏幕 2-自定义
-    //  * @param {number} source.source_id 信息源ID
+    //  * @param {number} source.source_id 信息源 ID
     //  * @param {object} [regionRect=] (可选) 指定待共享区域相对于整个屏幕屏幕的位置。如果设置的共享区域超出了屏幕的边界，则只共享屏幕内的内容；如果将 width 或 height 设为 0, 则共享整个屏幕。
     //  * @param {number} regionRect.x 左上角的横向偏移
     //  * @param {number} regionRect.y 左上角的纵向偏移
@@ -445,10 +444,10 @@ class NERtcChannel extends EventEmitter {
     //  * - 2 1920x1080, 5fps。默认
     //  * - 3 自定义
     //  * </pre>
-    //  * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+    //  * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
     //  * @param {number} param.dimensions.width  宽度
     //  * @param {number} param.dimensions.height  高度
-    //  * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+    //  * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
     //  * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
     //  * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
     //  * @param {boolean} param.window_focus 调用 {@link NERtcEngine#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -464,7 +463,7 @@ class NERtcChannel extends EventEmitter {
     //     return this.rtcChannel.setScreenCaptureSource(source, regionRect, capture_params);
     // }
 
-     /**
+    /**
      * 通过指定区域共享屏幕。共享一个屏幕或该屏幕的部分区域。用户需要在该方法中指定想要共享的屏幕区域。
      * <pre>
      * <b>NOTE:</b>
@@ -489,10 +488,10 @@ class NERtcChannel extends EventEmitter {
      * - 2 1920x1080, 5fps。默认
      * - 3 自定义
      * </pre>
-     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
      * @param {number} param.dimensions.width  宽度
      * @param {number} param.dimensions.height  高度
-     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
      * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
      * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
      * @param {boolean} param.window_focus 调用 {@link NERtcChannel#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -505,8 +504,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startScreenCaptureByScreenRect(screenRect: NERtcRectangle, regionRect: NERtcRectangle, param: NERtcScreenCaptureParameters): number {
@@ -520,7 +519,7 @@ class NERtcChannel extends EventEmitter {
      * - 该方法仅适用于 Windows 和 macOS。
      * - 该方法打开视频辅流。
      * </pre>
-     * @param {number} displayId 指定待共享的屏幕 ID。开发者需要通过该参数指定你要共享的那个屏幕。
+     * @param {number} displayId 指定待共享的屏幕 ID。开发者需要通过该参数指定您要共享的那个屏幕。
      * @param {object} [regionRect=] (可选) 指定待共享区域相对于整个屏幕屏幕的位置。如果设置的共享区域超出了屏幕的边界，则只共享屏幕内的内容；如果将 width 或 height 设为 0, 则共享整个屏幕。
      * @param {number} regionRect.x 左上角的横向偏移
      * @param {number} regionRect.y 左上角的纵向偏移
@@ -534,10 +533,10 @@ class NERtcChannel extends EventEmitter {
      * - 2 1920x1080, 5fps。默认
      * - 3 自定义
      * </pre>
-     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
      * @param {number} param.dimensions.width  宽度
      * @param {number} param.dimensions.height  高度
-     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
      * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
      * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
      * @param {boolean} param.window_focus 调用 {@link NERtcChannel#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -550,9 +549,9 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
+     * - 0：方法调用成功。
      * - -100: 需要先调用 {@link NERtcChannel#enumerateScreenCaptureSourceInfo} 缓存桌面信息
-     * - 其他: 方法调用失败。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startScreenCaptureByDisplayId(displayId: string, regionRect: NERtcRectangle, param: NERtcScreenCaptureParameters): number {
@@ -580,10 +579,10 @@ class NERtcChannel extends EventEmitter {
      * - 2 1920x1080, 5fps。默认
      * - 3 自定义
      * </pre>
-     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
      * @param {number} param.dimensions.width  宽度
      * @param {number} param.dimensions.height  高度
-     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
      * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
      * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
      * @param {boolean} param.window_focus 调用 {@link NERtcChannel#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -596,8 +595,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     startScreenCaptureByWindowId(windowid: string, regionRect: NERtcRectangle, param: NERtcScreenCaptureParameters): number {
@@ -614,10 +613,10 @@ class NERtcChannel extends EventEmitter {
      * - 2 1920x1080, 5fps。默认
      * - 3 自定义
      * </pre>
-     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3时生效:
+     * @param {object} param.dimensions 屏幕共享视频发送的最大像素值，param.profile=3 时生效:
      * @param {number} param.dimensions.width  宽度
      * @param {number} param.dimensions.height  高度
-     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3时生效，单位为 fps；默认值为 5，建议不要超过 15
+     * @param {number} [param.frame_rate=5] 共享视频的帧率，param.profile=3 时生效，单位为 fps；默认值为 5，建议不要超过 15
      * @param {number} [param.bitrate=0] 共享视频的码率，单位为 bps；默认值为 0，表示 SDK 根据当前共享屏幕的分辨率计算出一个合理的值
      * @param {boolean} param.capture_mouse_cursor 是否采集鼠标用于屏幕共享
      * @param {boolean} param.window_focus 调用 {@link NERtcChannel#startScreenCaptureByWindowId} 方法共享窗口时，是否将该窗口前置
@@ -630,8 +629,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     updateScreenCaptureRegion(regionRect: NERtcRectangle): number {
@@ -648,8 +647,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setScreenCaptureMouseCursor(): number {
@@ -660,8 +659,8 @@ class NERtcChannel extends EventEmitter {
      * 停止屏幕共享。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     stopScreenCapture(): number {
@@ -672,8 +671,8 @@ class NERtcChannel extends EventEmitter {
      * 暂停屏幕共享。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     pauseScreenCapture(): number {
@@ -684,8 +683,8 @@ class NERtcChannel extends EventEmitter {
      * 恢复屏幕共享。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     resumeScreenCapture(): number {
@@ -696,12 +695,12 @@ class NERtcChannel extends EventEmitter {
     * 设置屏幕捕捉时需屏蔽的窗口列表, 该方法在捕捉过程中可动态调用。
     * @since 4.4.8
     * <pre>
-    *  - 仅支持Windows
+    *  - 仅支持 Windows
     * </pre>
-    * @param {list} window_list 需屏蔽的窗口ID列表, 例如：[id1,id2...]。
+    * @param {list} window_list 需屏蔽的窗口 ID 列表, 例如：[id1,id2...]。
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -713,12 +712,12 @@ class NERtcChannel extends EventEmitter {
     * 更新屏幕共享参数。
     * @since V5.4.0
     * <pre>
-    *  - 仅支持Windows
+    *  - 仅支持 Windows
     * </pre>
-    * @param {list} window_list 需屏蔽的窗口ID列表, 例如：[id1,id2...]。
+    * @param {list} window_list 需屏蔽的窗口 ID 列表, 例如：[id1,id2...]。
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -729,7 +728,7 @@ class NERtcChannel extends EventEmitter {
     /**
      * 设置本地视图。
      * <pre>
-     * 该方法设置本地视频显示信息。App 通过调用此接口绑定本地视频流的显示视窗(view)。 在 App 开发中，通常在初始化后调用该方法进行本地视频设置，然后再加入频道。
+     * 该方法设置本地视频显示信息。App 通过调用此接口绑定本地视频流的显示视窗(view)。在 App 开发中，通常在初始化后调用该方法进行本地视频设置，然后再加入频道。
      * </pre>
      * @param {Object} canvas 视频画布信息
      * @param {number} canvas.mode 视频画布缩放模式
@@ -741,8 +740,8 @@ class NERtcChannel extends EventEmitter {
      * @param {Element} canvas.view 视频画布对象
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setupLocalVideoCanvas(canvas: NERtcVideoCanvas): number {
@@ -762,7 +761,7 @@ class NERtcChannel extends EventEmitter {
     /**
      * 设置本地辅流视图。
      * <pre>
-     * 该方法设置本地辅流视频显示信息。App 通过调用此接口绑定本地辅流的显示视窗(view)。 在 App 开发中，通常在初始化后调用该方法进行本地视频设置，然后再加入频道。
+     * 该方法设置本地辅流视频显示信息。App 通过调用此接口绑定本地辅流的显示视窗(view)。在 App 开发中，通常在初始化后调用该方法进行本地视频设置，然后再加入频道。
      * </pre>
      * @param {Object} canvas 视频画布信息
      * @param {number} canvas.mode 视频显示模式
@@ -774,8 +773,8 @@ class NERtcChannel extends EventEmitter {
      * @param {Element} canvas.view 视频画布对象
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setupLocalSubStreamVideoCanvas(canvas: NERtcVideoCanvas): number {
@@ -800,7 +799,7 @@ class NERtcChannel extends EventEmitter {
      * @param {(string|number)} uid
      * <pre>
      * 'local':本地视图
-     * {number}: 远端用户 ID。
+     * {number}：远端用户 ID。
      * </pre>
      * @param {number} mode  视频显示模式:
      * <pre>
@@ -810,8 +809,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setRenderMode(uid: 'local' | number, mode: NERtcVideoScalingMode): number {
@@ -833,7 +832,7 @@ class NERtcChannel extends EventEmitter {
      * @param {(string|number)} uid
      * <pre>
      * 'local':本地辅流视图
-     * {number}: 远端辅流用户 ID。
+     * {number}：远端辅流用户 ID。
      * </pre>
      * @param {number} mode  视频显示模式:
      * <pre>
@@ -843,8 +842,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setSubStreamRenderMode(uid: 'local' | number, mode: NERtcVideoScalingMode): number {
@@ -861,7 +860,7 @@ class NERtcChannel extends EventEmitter {
     /**
      * 设置本地视频镜像模式。
      * <pre>
-     * 该方法设置本地视频镜像模式。 App 可以多次调用此方法更改镜像模式。
+     * 该方法设置本地视频镜像模式。App 可以多次调用此方法更改镜像模式。
      * </pre>
      * @param {number} mode  视频镜像模式:
      * <pre>
@@ -871,8 +870,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setLocalVideoMirrorMode(mode: NERtcVideoMirrorMode): number {
@@ -890,8 +889,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {number} streamType 视频通道类型。
      * <pre>
-     * - 0: 主流。
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @param {number} mode  视频镜像模式:
      * <pre>
@@ -901,8 +900,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setLocalVideoMirrorModeWithType(type: number, mode: NERtcVideoMirrorMode): number {
@@ -927,8 +926,8 @@ class NERtcChannel extends EventEmitter {
      * @param {Element} canvas.view 视频画布对象
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setupRemoteVideoCanvas(uid: number, canvas: NERtcVideoCanvas): number {
@@ -964,8 +963,8 @@ class NERtcChannel extends EventEmitter {
      * @param {Element} canvas.view 视频画布对象
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setupRemoteSubStreamVideoCanvas(uid: number, canvas: NERtcVideoCanvas): number {
@@ -986,7 +985,7 @@ class NERtcChannel extends EventEmitter {
      * 设置参会者角色
      * <pre>
      * {@link NERtcChannel#setClientRole} 接口用于在直播场景中设置用户角色。默认情况下用户以主播角色加入房间。
-     * 在加入房间前，用户需要调用setClientRole 接口设置本端模式为观众或主播模式。在加入房间后，用户可以通过本接口切换用户模式。
+     * 在加入房间前，用户需要调用 setClientRole 接口设置本端模式为观众或主播模式。在加入房间后，用户可以通过本接口切换用户模式。
      * 用户角色支持设置为主播或观众，主播和观众的权限不同。默认情况下用户以主播角色加入房间。
      * 可以在通话前后设置，通话前设置会在加入频道之后生效。如果设置观众模式。则会停止音视频设备。
      * </pre>
@@ -998,8 +997,8 @@ class NERtcChannel extends EventEmitter {
      * @fires NERtcChannel#onClientRoleChanged
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setClientRole(role: NERtcClientRole): number {
@@ -1028,7 +1027,7 @@ class NERtcChannel extends EventEmitter {
     * </pre
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -1068,8 +1067,8 @@ class NERtcChannel extends EventEmitter {
      * @param {number} config.captureHeight 本地采集的视频高度，单位为 px。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setCameraCaptureConfig(config: any): number {
@@ -1087,16 +1086,16 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {NERtcVideoStreamType} streamType 视频通道类型。
      * <pre>
-     * - 0: 主流。
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @param {object} config 摄像头采集配置:
      * @param {number} config.captureWidth 本地采集的视频宽度，单位为 px。
      * @param {number} config.captureHeight 本地采集的视频高度，单位为 px。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setCameraCaptureConfigWithType(type: number, config: any): number {
@@ -1106,7 +1105,7 @@ class NERtcChannel extends EventEmitter {
     /**
      * 设置视频配置。
      * <pre>
-     * 该方法设置视频配置。每个属性对应一套视频参数，如分辨率等，会在摄像头重启后生效。 所有设置的参数均为理想情况下的最大值。当视频引擎因网络环境等原因无法达到设置的分辨率的最大值时，会取最接近最大值的那个值。
+     * 该方法设置视频配置。每个属性对应一套视频参数，如分辨率等，会在摄像头重启后生效。所有设置的参数均为理想情况下的最大值。当视频引擎因网络环境等原因无法达到设置的分辨率的最大值时，会取最接近最大值的那个值。
      * </pre>
      * @param {object} config 视频配置:
      * @param {number} config.max_profile 视频编码的分辨率，用于衡量编码质量:
@@ -1117,8 +1116,8 @@ class NERtcChannel extends EventEmitter {
      * - 3 1280x720, 30fps
      * - 4 1920x1080, 30fps
      * </pre>
-     * @param {number} config.width 视频编码自定义分辨率之宽度。width为0表示使用max_profile
-     * @param {number} config.height 视频编码自定义分辨率之高度。height为0表示使用max_profile
+     * @param {number} config.width 视频编码自定义分辨率之宽度。width 为 0 表示使用 max_profile
+     * @param {number} config.height 视频编码自定义分辨率之高度。height 为 0 表示使用 max_profile
      * @param {number} config.crop_mode 视频画面裁剪模式:
      * <pre>
      * - 0 Device Defalut
@@ -1129,24 +1128,24 @@ class NERtcChannel extends EventEmitter {
      * @param {number} config.framerate 视频帧率:
      * <pre>
      * - 0 默认帧率
-     * - 7 7帧每秒
-     * - 10 10帧每秒
-     * - 15 15帧每秒
-     * - 24 24帧每秒
-     * - 30 30帧每秒
-     * - 60 60帧每秒
+     * - 7 7 帧每秒
+     * - 10 10 帧每秒
+     * - 15 15 帧每秒
+     * - 24 24 帧每秒
+     * - 30 30 帧每秒
+     * - 60 60 帧每秒
      * </pre>
      * @param {number} config.min_framerate 视频最小帧率:
      * <pre>
      * - 0 默认帧率
-     * - 7 7帧每秒
-     * - 10 10帧每秒
-     * - 15 15帧每秒
-     * - 24 24帧每秒
-     * - 30 30帧每秒
+     * - 7 7 帧每秒
+     * - 10 10 帧每秒
+     * - 15 15 帧每秒
+     * - 24 24 帧每秒
+     * - 30 30 帧每秒
      * </pre>
-     * @param {number} [config.bitrate=0] 视频编码码率kbps，取0时使用默认值
-     * @param {number} [config.min_bitrate=0] 视频编码码率下限kbps，取0时使用默认值
+     * @param {number} [config.bitrate=0] 视频编码码率 kbps，取 0 时使用默认值
+     * @param {number} [config.min_bitrate=0] 视频编码码率下限 kbps，取 0 时使用默认值
      * @param {number} config.degradation_preference 编码策略:
      * <pre>
      * - 0 使用引擎推荐值。通话场景使用平衡模式，直播推流场景使用清晰优先
@@ -1156,8 +1155,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setVideoConfig(config: NERtcVideoConfig): number {
@@ -1168,12 +1167,12 @@ class NERtcChannel extends EventEmitter {
      * 设置视频配置。
      * @since V5.4.0
      * <pre>
-     * 该方法设置视频配置。每个属性对应一套视频参数，如分辨率等，会在摄像头重启后生效。 所有设置的参数均为理想情况下的最大值。当视频引擎因网络环境等原因无法达到设置的分辨率的最大值时，会取最接近最大值的那个值。
+     * 该方法设置视频配置。每个属性对应一套视频参数，如分辨率等，会在摄像头重启后生效。所有设置的参数均为理想情况下的最大值。当视频引擎因网络环境等原因无法达到设置的分辨率的最大值时，会取最接近最大值的那个值。
      * </pre>
      * @param {number} streamType 视频通道类型。
      * <pre>
-     * - 0: 主流。
-     * - 1: 辅流。
+     * - 0：主流。
+     * - 1：辅流。
      * </pre>
      * @param {object} config 视频配置:
      * @param {number} config.max_profile 视频编码的分辨率，用于衡量编码质量:
@@ -1184,8 +1183,8 @@ class NERtcChannel extends EventEmitter {
      * - 3 1280x720, 30fps
      * - 4 1920x1080, 30fps
      * </pre>
-     * @param {number} config.width 视频编码自定义分辨率之宽度。width为0表示使用max_profile
-     * @param {number} config.height 视频编码自定义分辨率之高度。height为0表示使用max_profile
+     * @param {number} config.width 视频编码自定义分辨率之宽度。width 为 0 表示使用 max_profile
+     * @param {number} config.height 视频编码自定义分辨率之高度。height 为 0 表示使用 max_profile
      * @param {number} config.crop_mode 视频画面裁剪模式:
      * <pre>
      * - 0 Device Defalut
@@ -1196,24 +1195,24 @@ class NERtcChannel extends EventEmitter {
      * @param {number} config.framerate 视频帧率:
      * <pre>
      * - 0 默认帧率
-     * - 7 7帧每秒
-     * - 10 10帧每秒
-     * - 15 15帧每秒
-     * - 24 24帧每秒
-     * - 30 30帧每秒
-     * - 60 60帧每秒
+     * - 7 7 帧每秒
+     * - 10 10 帧每秒
+     * - 15 15 帧每秒
+     * - 24 24 帧每秒
+     * - 30 30 帧每秒
+     * - 60 60 帧每秒
      * </pre>
      * @param {number} config.min_framerate 视频最小帧率:
      * <pre>
      * - 0 默认帧率
-     * - 7 7帧每秒
-     * - 10 10帧每秒
-     * - 15 15帧每秒
-     * - 24 24帧每秒
-     * - 30 30帧每秒
+     * - 7 7 帧每秒
+     * - 10 10 帧每秒
+     * - 15 15 帧每秒
+     * - 24 24 帧每秒
+     * - 30 30 帧每秒
      * </pre>
-     * @param {number} [config.bitrate=0] 视频编码码率kbps，取0时使用默认值
-     * @param {number} [config.min_bitrate=0] 视频编码码率下限kbps，取0时使用默认值
+     * @param {number} [config.bitrate=0] 视频编码码率 kbps，取 0 时使用默认值
+     * @param {number} [config.min_bitrate=0] 视频编码码率下限 kbps，取 0 时使用默认值
      * @param {number} config.degradation_preference 编码策略:
      * <pre>
      * - 0 使用引擎推荐值。通话场景使用平衡模式，直播推流场景使用清晰优先
@@ -1235,8 +1234,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setVideoConfigWithType(type: number, config: NERtcVideoConfig): number {
@@ -1255,8 +1254,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     enableDualStreamMode(enabled: boolean): number {
@@ -1268,13 +1267,13 @@ class NERtcChannel extends EventEmitter {
      * @param {number} uid 指定用户的 ID
      * @param {boolean} subscribe
      * <pre>
-     * - true: 订阅指定音频流（默认）；
-     * - false: 取消订阅指定音频流。
+     * - true：订阅指定音频流（默认）。
+     * - false：取消订阅指定音频流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     subscribeRemoteAudioStream(uid: number, enabled: boolean): number {
@@ -1287,13 +1286,13 @@ class NERtcChannel extends EventEmitter {
      * @param {number} uid 指定用户的 ID
      * @param {boolean} subscribe
      * <pre>
-     * - true: 订阅指定音频辅流（默认）。
-     * - false: 取消订阅指定音频辅流。
+     * - true：订阅指定音频辅流（默认）。
+     * - false：取消订阅指定音频辅流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     subscribeRemoteSubStreamAudio(uid: number, enabled: boolean): number {
@@ -1311,13 +1310,13 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {boolean} subscribe
      * <pre>
-     * - true: 订阅所有远端用户的音频主流。
-     * - false: 取消订阅所有远端用户的音频主流。
+     * - true：订阅所有远端用户的音频主流。
+     * - false：取消订阅所有远端用户的音频主流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     subscribeAllRemoteAudioStream(subscribe: boolean): number {
@@ -1333,12 +1332,12 @@ class NERtcChannel extends EventEmitter {
      * - 此接口需要在加入房间成功后调用。
      * - 对于调用接口时不在房间的 uid 不生效。
      * </pre>
-     * @param {Array<Number>} uids 用户id数组
+     * @param {Array<Number>} uids 用户 ID 数组
      * @param {number} size 数组长度
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     setAudioSubscribeOnlyBy(subscribe: boolean): number {
@@ -1356,15 +1355,15 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {boolean} subscribe
      * <pre>
-     * - true: 订阅指定远端用户的视频流；
-     * - false: 取消订阅指定远端用户的视频流。
+     * - true：订阅指定远端用户的视频流。
+     * - false：取消订阅指定远端用户的视频流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
-      */
+     */
     subscribeRemoteVideoStream(uid: number, type: number, subscribe: boolean) {
         return this.rtcChannel.subscribeRemoteVideoStream(uid, type, subscribe);
     }
@@ -1380,13 +1379,13 @@ class NERtcChannel extends EventEmitter {
      * @param {number} uid 指定用户的用户 ID。
      * @param {number} subscribe
      * <pre>
-     * - true: 订阅指定远端用户的视频流；
-     * - false: 取消订阅指定远端用户的视频流。
+     * - true：订阅指定远端用户的视频流。
+     * - false：取消订阅指定远端用户的视频流。
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     subscribeRemoteVideoSubStream(uid: number, sub: boolean) {
@@ -1397,7 +1396,7 @@ class NERtcChannel extends EventEmitter {
      * 添加房间推流任务，成功添加后当前用户可以收到该直播流的状态通知。通话中有效。
      * @fires NERtcChannel#onAddLiveStreamTask
      * @param {Object} info 直播任务信息。
-     * @param {String} info.task_id 推流任务ID，为推流任务的唯一标识，用于过程中增删任务操作 <64 chars
+     * @param {String} info.task_id 推流任务 ID，为推流任务的唯一标识，用于过程中增删任务操作 <64 chars
      * @param {String} info.stream_url 直播推流地址 <256 chars
      * @param {Boolean} info.server_record_enabled 服务器录制功能是否开启
      * @param {Number} info.ls_mode 直播推流模式:
@@ -1421,8 +1420,8 @@ class NERtcChannel extends EventEmitter {
      * @param {number} info.layout.background_color 视频推流背景色，(R & 0xff) << 16 | (G & 0xff) << 8 | (B & 0xff)
      * @param {number} info.layout.user_count 成员布局个数
      * @param {object[]} info.layout.users 成员布局数组:
-     * @param {number} info.layout.users[].uid 用户id
-     * @param {boolean} info.layout.users[].video_push 是否推送该用户视频流，info.ls_mode=1时无效
+     * @param {number} info.layout.users[].uid 用户 ID
+     * @param {boolean} info.layout.users[].video_push 是否推送该用户视频流，info.ls_mode=1 时无效
      * @param {number} info.layout.users[].adaption 视频流裁剪模式:
      * <pre>
      * - 0 视频尺寸等比缩放。优先保证视频内容全部显示。因视频尺寸与显示视窗尺寸不一致造成的视窗未被填满的区域填充背景色
@@ -1441,8 +1440,8 @@ class NERtcChannel extends EventEmitter {
      * @param {number} info.layout.users[].bg_image.height 画面在主画面的显示高度，画面底边超出主画面会失败
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     addLiveStreamTask(info: NERtcLiveStreamTaskInfo): number {
@@ -1453,7 +1452,7 @@ class NERtcChannel extends EventEmitter {
      * 更新修改房间推流任务。通话中有效。
      * @fires NERtcChannel#onUpdateLiveStreamTask
      * @param {Object} info 直播任务信息。
-     * @param {String} info.task_id 推流任务ID，为推流任务的唯一标识，用于过程中增删任务操作 <64 chars
+     * @param {String} info.task_id 推流任务 ID，为推流任务的唯一标识，用于过程中增删任务操作 <64 chars
      * @param {String} info.stream_url 直播推流地址 <256 chars
      * @param {Boolean} info.server_record_enabled 服务器录制功能是否开启
      * @param {Number} info.ls_mode 直播推流模式:
@@ -1467,8 +1466,8 @@ class NERtcChannel extends EventEmitter {
      * @param {number} info.layout.background_color 视频推流背景色，(R & 0xff) << 16 | (G & 0xff) << 8 | (B & 0xff)
      * @param {number} info.layout.user_count 成员布局个数
      * @param {object[]} info.layout.users 成员布局数组:
-     * @param {number} info.layout.users[].uid 用户id
-     * @param {boolean} info.layout.users[].video_push 是否推送该用户视频流，info.ls_mode=1时无效
+     * @param {number} info.layout.users[].uid 用户 ID
+     * @param {boolean} info.layout.users[].video_push 是否推送该用户视频流，info.ls_mode=1 时无效
      * @param {number} info.layout.users[].adaption 视频流裁剪模式:
      * <pre>
      * - 0 视频尺寸等比缩放。优先保证视频内容全部显示。因视频尺寸与显示视窗尺寸不一致造成的视窗未被填满的区域填充背景色
@@ -1487,8 +1486,8 @@ class NERtcChannel extends EventEmitter {
      * @param {number} info.layout.users[].bg_image.height 画面在主画面的显示高度，画面底边超出主画面会失败
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     updateLiveStreamTask(info: NERtcLiveStreamTaskInfo): number {
@@ -1498,11 +1497,11 @@ class NERtcChannel extends EventEmitter {
     /**
      * 删除房间推流任务。通话中有效。
      * @fires NERtcChannel#onRemoveLiveStreamTask
-     * @param {String} taskId  直播任务id
+     * @param {String} taskId  直播任务 ID
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     removeLiveStreamTask(taskId: String): number {
@@ -1525,8 +1524,8 @@ class NERtcChannel extends EventEmitter {
      * @param {ArrayBuffer} data 自定义 SEI 数据
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     sendSEIMsg(data: ArrayBuffer): number {
@@ -1554,8 +1553,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功；
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     sendSEIMsgWithType(data: ArrayBuffer, type: NERtcStreamChannelType) {
@@ -1594,8 +1593,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功。
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     adjustUserPlaybackSignalVolume(uid: number, volume: number): number {
@@ -1614,8 +1613,8 @@ class NERtcChannel extends EventEmitter {
      * @param  {number} volume 播放音量，取值范围为 [0,400]。
      * @returns {number}
      * <pre>
-     * - 0: 方法调用成功。
-     * - 其他: 方法调用失败。
+     * - 0：方法调用成功。
+     * - 其他：方法调用失败。
      * </pre>
      */
     adjustChannelPlaybackSignalVolume(volume: number): number {
@@ -1643,15 +1642,15 @@ class NERtcChannel extends EventEmitter {
     * @param {String} config.dest_infos.uid 标识目标房间中的转发媒体流的 UID。请确保不要将该参数设为目标房间的主播的 UID，并与目标房间中的 所有 UID 都不同。
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功。
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     startChannelMediaRelay(config: NERtcChannelMediaRelayConfiguration): number{
         return this.rtcChannel.startChannelMediaRelay(config);
     }
 
-    /**
+   /**
     * 更新媒体流转发的目标房间。
     * <pre>
     * - 成功开始跨房间转发媒体流后，如果您需要修改目标房间，例如添加或删减目标房间等，可以调用此方法。
@@ -1670,7 +1669,7 @@ class NERtcChannel extends EventEmitter {
     * @param {String} config.dest_infos.uid 标识目标房间中的转发媒体流的 UID。请确保不要将该参数设为目标房间的主播的 UID，并与目标房间中的 所有 UID 都不同。
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -1678,7 +1677,7 @@ class NERtcChannel extends EventEmitter {
         return this.rtcChannel.updateChannelMediaRelay(config);
     }
   
-    /** 
+   /**
     * 停止跨房间媒体流转发。
     * <pre>
     * 主播离开房间时，跨房间媒体流转发自动停止，您也可以在需要的时候随时调用 stopChannelMediaRelay 方法，此时主播会退出所有目标房间。
@@ -1686,7 +1685,7 @@ class NERtcChannel extends EventEmitter {
     * <pre>
     * @return {number}
     * <pre>
-    * - 0: 方法调用成功。
+    * - 0：方法调用成功。
     * - 其他：方法调用失败。
     * </pre>
     */
@@ -1694,7 +1693,7 @@ class NERtcChannel extends EventEmitter {
         return this.rtcChannel.stopChannelMediaRelay();
     }
 
-    /** 
+   /**
     * 设置弱网条件下发布的音视频流回退选项。
     * <pre>
     * 在网络不理想的环境下，发布的音视频质量都会下降。使用该接口并将 option 设置为 kNERtcStreamFallbackAudioOnly 后：
@@ -1703,23 +1702,23 @@ class NERtcChannel extends EventEmitter {
     * - 当本地发布的音视频流回退为音频流时，或由音频流恢复为音视频流时，SDK 会触发本地发布的媒体流已回退为音频流 onLocalPublishFallbackToAudioOnly 回调。
     * <b>NOTE:</b> 请在加入房间（joinChannel）前调用此方法。
     * <pre>
-    * @param  {number} option 发布音视频流的回退选项: NERTCStreamFallbackOption。
+    * @param  {number} option 发布音视频流的回退选项：NERTCStreamFallbackOption。
     * <pre>
-    * - 0: 上行或下行网络较弱时，不对音视频流作回退处理，但不能保证音视频流的质量。
-    * - 1: 在下行网络条件较差的情况下，SDK 将只接收视频小流，即低分辨率、低码率视频流。
-    * - 2: 上行网络较弱时，只发布音频流。下行网络较弱时，先尝试只接收视频小流，即低分辨率、低码率视频流。如果网络环境无法显示视频，则再回退到只接收音频流。
+    * - 0：上行或下行网络较弱时，不对音视频流作回退处理，但不能保证音视频流的质量。
+    * - 1：在下行网络条件较差的情况下，SDK 将只接收视频小流，即低分辨率、低码率视频流。
+    * - 2：上行网络较弱时，只发布音频流。下行网络较弱时，先尝试只接收视频小流，即低分辨率、低码率视频流。如果网络环境无法显示视频，则再回退到只接收音频流。
     * </pre>
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功。
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     setLocalPublishFallbackOption(option: number): number {
         return this.rtcChannel.setLocalPublishFallbackOption(option);
     }
 
-    /** 
+   /**
     * 设置弱网条件下订阅的音视频流回退选项。
     * <pre>弱网环境下，订阅的音视频质量会下降。使用该接口并将 option 设置为  #kNERtcStreamFallbackVideoStreamLow 或者 #kNERtcStreamFallbackAudioOnly 后：
     * - SDK 会在下行弱网且音视频质量严重受影响时，将视频流切换为小流，或关断视频流，从而保证或提高通信质量。
@@ -1728,16 +1727,16 @@ class NERtcChannel extends EventEmitter {
     * <b>NOTE:</b>
     * - 请在加入房间（joinChannel）前调用此方法。
     * </pre>
-    * @param  {number} option 发布音视频流的回退选项: NERTCStreamFallbackOption。
+    * @param  {number} option 发布音视频流的回退选项：NERTCStreamFallbackOption。
     * <pre>
-    * - 0: 上行或下行网络较弱时，不对音视频流作回退处理，但不能保证音视频流的质量。
-    * - 1: 在下行网络条件较差的情况下，SDK 将只接收视频小流，即低分辨率、低码率视频流。
-    * - 2: 上行网络较弱时，只发布音频流。下行网络较弱时，先尝试只接收视频小流，即低分辨率、低码率视频流。如果网络环境无法显示视频，则再回退到只接收音频流。
+    * - 0：上行或下行网络较弱时，不对音视频流作回退处理，但不能保证音视频流的质量。
+    * - 1：在下行网络条件较差的情况下，SDK 将只接收视频小流，即低分辨率、低码率视频流。
+    * - 2：上行网络较弱时，只发布音频流。下行网络较弱时，先尝试只接收视频小流，即低分辨率、低码率视频流。如果网络环境无法显示视频，则再回退到只接收音频流。
     * </pre>
     * @returns {number}
     * <pre>
-    * - 0: 方法调用成功；
-    * - 其他: 方法调用失败。
+    * - 0：方法调用成功。
+    * - 其他：方法调用失败。
     * </pre>
     */
     setRemoteSubscribeFallbackOption(option: number): number {
@@ -1780,7 +1779,7 @@ class NERtcChannel extends EventEmitter {
      * - 该方法暂时仅支持控制音频流的发送。
      * - 该方法在加入房间前后均可调用。
      * - 停止发送媒体流的状态会在通话结束后被重置为允许发送。
-     * - 成功调用该方法切换本地用户的发流状态后，房间内其他用户会收到onUserAudioStart（开启发送音频）或 onUserAudioStop（停止发送音频）的回调。
+     * - 成功调用该方法切换本地用户的发流状态后，房间内其他用户会收到 onUserAudioStart（开启发送音频）或 onUserAudioStop（停止发送音频）的回调。
      * </pre>
      * @param {boolean} enabled 是否发布本地媒体流。
      * <pre>
@@ -1805,7 +1804,7 @@ class NERtcChannel extends EventEmitter {
      * 更新权限密钥。
      * @since V5.4.0
      * <pre>
-     * - 通过本接口可以实现当用户权限被变更，或者收到权限密钥即将过期的回调onPermissionKeyWillExpire时，更新权限密钥。
+     * - 通过本接口可以实现当用户权限被变更，或者收到权限密钥即将过期的回调 onPermissionKeyWillExpire 时，更新权限密钥。
      * <b>NOTE:</b>
      * - 请确保已开通高级 Token 鉴权功能，具体请联系网易云信商务经理。
      * - 请在引擎初始化之后调用此接口，且该方法仅可在加入房间后调用。
@@ -1823,15 +1822,15 @@ class NERtcChannel extends EventEmitter {
     }
   
     /**
-     * 你可以调用该方法指定只订阅的音频流。
+     * 您可以调用该方法指定只订阅的音频流。
      * <pre>
      *  - 此接口需要在加入房间成功后调用。
      *  - 对于调用接口时不在房间的 uid 不生效。
      * </pre>
-     * @param {Array<Number>} uids 只订阅此用户uid列表 的音频.此列表为全量列表。如果列表为空或 null，取消订阅白名单。例如：[uid1,uid2...]。
+     * @param {Array<Number>} uids 只订阅此用户 uid 列表 的音频.此列表为全量列表。如果列表为空或 null，取消订阅白名单。例如：[uid1,uid2...]。
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功。
+     * - 0：方法调用成功。
      * - 其他：方法调用失败。
      * </pre>
      */
@@ -1840,7 +1839,7 @@ class NERtcChannel extends EventEmitter {
     }
 
     /**
-     * 你可以调用该方法指定不订阅的音频流。
+     * 您可以调用该方法指定不订阅的音频流。
      * <pre>
      *  - 此接口需要在加入房间成功后调用。
      *  - 对于调用接口时不在房间的 uid 不生效。
@@ -1850,10 +1849,10 @@ class NERtcChannel extends EventEmitter {
      * - 0: 主流
      * - 1: 辅流
      * </pre>
-     * @param {Array<Number>} uids 只订阅此用户uid列表 的音频.此列表为全量列表。如果列表为空或 null，取消订阅白名单。例如：[uid1,uid2...]。
+     * @param {Array<Number>} uids 只订阅此用户 uid 列表 的音频.此列表为全量列表。如果列表为空或 null，取消订阅白名单。例如：[uid1,uid2...]。
      * @return {number}
      * <pre>
-     * - 0: 方法调用成功。
+     * - 0：方法调用成功。
      * - 其他：方法调用失败。
      * </pre>
      */
@@ -1872,8 +1871,8 @@ class NERtcChannel extends EventEmitter {
      * </pre>
      * @param {number} mode 范围语音模式，包括所有人和仅小队两种模式。
      * <pre>
-     * - 0: 默认模式。设置后玩家附近一定范围的人都能听到该玩家讲话，如果范围内也有玩家设置为此模式，则也可以互相通话。
-     * - 1: 小组模式。仅TeamID相同的队友可以互相听到
+     * - 0：默认模式。设置后玩家附近一定范围的人都能听到该玩家讲话，如果范围内也有玩家设置为此模式，则也可以互相通话。
+     * - 1：小组模式。仅 TeamID 相同的队友可以互相听到
      * </pre>
      * @return {number}
      * <pre>
@@ -1886,18 +1885,18 @@ class NERtcChannel extends EventEmitter {
     }
    
     /**
-     * 设置范围语音的小队ID。
+     * 设置范围语音的小队 ID。
      * @since V5.5.10
      * <pre>
      * - 请在引擎初始化后调用此接口，且该方法在加入房间前后均可调用。
      * <b>NOTE:</b>
-     * - 离开房间后，TeamID 失效，需要重新配置TeamID ，请在每次加入房间之前都调用此方法设置 TeamID。
-     * - 离开房间后，TeamID 失效，需要重新配置TeamID ，请在每次加入房间之前都调用此方法设置队伍号。
+     * - 离开房间后，TeamID 失效，需要重新配置 TeamID，请在每次加入房间之前都调用此方法设置 TeamID。
+     * - 离开房间后，TeamID 失效，需要重新配置 TeamID，请在每次加入房间之前都调用此方法设置队伍号。
      * - 如果离开房间后再加入房间，请在收到退房成功回调（onLeaveChannel）后，再调用此方法设置队伍号。
      * - 若加入房间后，调用此接口修改队伍号，设置后立即生效。
-     * - 请配合 #setRangeAudioMode  接口一起使用。  
+     * - 请配合 #setRangeAudioMode  接口一起使用。
      * </pre>
-     * @param {number} team_id 小队ID, 有效值: >=0。若team_id = 0，则房间内所有人（不论范围语音的模式是所有人还是仅小队）都可以听到该成员的声音。
+     * @param {number} team_id 小队 ID, 有效值：>=0。若 team_id = 0，则房间内所有人（不论范围语音的模式是所有人还是仅小队）都可以听到该成员的声音。
      * @return {number}
      * <pre>
      * - 0: 方法调用成功
@@ -1914,10 +1913,10 @@ class NERtcChannel extends EventEmitter {
      * <pre>
      * - 请在引擎初始化后调用此接口，且该方法在加入房间前后均可调用。
      * <b>NOTE:</b>
-     * - 若要使用范围语音或3D音效功能，加入房间前需要调用一次本接口。
-     * - 仅使用范围语音时，您只需要设置audible_distance参数，其他参数设置不生效，填写默认值即可。
+     * - 若要使用范围语音或 3D 音效功能，加入房间前需要调用一次本接口。
+     * - 仅使用范围语音时，您只需要设置 audible_distance 参数，其他参数设置不生效，填写默认值即可。
      * </pre>
-     * @param {number} audible_distance 监听器能够听到扬声器并接收其语音的距离扬声器的最大距离。距离有效范围：[1,max int) ，无默认值。
+     * @param {number} audible_distance 监听器能够听到扬声器并接收其语音的距离扬声器的最大距离。距离有效范围：[1,max int)，无默认值。
      * @param {number} conversational_distance 范围语音场景中，该参数设置的值不起作用，保持默认值即可。空间音效场景中，需要配置该参数。控制音频保持其原始音量的范围，超出该范围时，语音聊天的响度在被听到时开始淡出。
      * 默认值为 1。
      * @param {number} roll_off 范围语音场景中，该参数设置的值不起作用，保持默认值即可。
@@ -1942,10 +1941,10 @@ class NERtcChannel extends EventEmitter {
      * <pre>
      * - 请在引擎初始化后调用此接口，且该方法在加入房间前后均可调用。
      * </pre>
-     * @param {Object} info L通过 info 参数设置空间音效中说话者和接收者的空间位置信息。
-     * @param {Array<Number>} info.speaker_position 说话者的位置信息，三个值依次表示X、Y、Z的坐标值。默认值[0,0,0]。
+     * @param {Object} info L 通过 info 参数设置空间音效中说话者和接收者的空间位置信息。
+     * @param {Array<Number>} info.speaker_position 说话者的位置信息，三个值依次表示 X、Y、Z 的坐标值。默认值[0,0,0]。
      * @param {Array<Number>} info.speaker_quaternion 说话者的旋转信息，通过四元组来表示，数据格式为[w, x, y, z]。默认值[0,0,0,0]。
-     * @param {Array<Number>} info.head_position 接收者的位置信息，三个值依次表示X、Y、Z的坐标值。默认值[0,0,0]。
+     * @param {Array<Number>} info.head_position 接收者的位置信息，三个值依次表示 X、Y、Z 的坐标值。默认值[0,0,0]。
      * @param {Array<Number>} info.head_quaternion 接收者的旋转信息，通过四元组来表示，数据格式为[w, x, y, z]。默认值[0,0,0,0]。
      * @return {number}
      * <pre>
@@ -1962,8 +1961,8 @@ class NERtcChannel extends EventEmitter {
      * @since V5.4.0
      * <pre>
      * - 请在引擎初始化后调用此接口，且该方法在加入房间前后均可调用。
-     * - 该接口不支持Linux平台
-     * - 请先调用enableSpatializer接口启用空间音效，再调用本接口。
+     * - 该接口不支持 Linux 平台
+     * - 请先调用 enableSpatializer 接口启用空间音效，再调用本接口。
      * </pre>
      * @param {boolean} enable 混响效果开关，默认值关闭。
      * @return {number}
@@ -1987,10 +1986,10 @@ class NERtcChannel extends EventEmitter {
      * @param {Object} config 房间属性。
      * @param {number} config.room_capacity 房间大小。
      * <pre>
-     * - 0: 小房间。
-     * - 1: 中等大小房间。
-     * - 2: 大房间。
-     * - 3: 巨大房间。
+     * - 0：小房间。
+     * - 1：中等大小房间。
+     * - 2：大房间。
+     * - 3：巨大房间。
      * - 4: 无房间效果
      * </pre>
      * @param {number} config.material 房间材质。
@@ -2020,10 +2019,10 @@ class NERtcChannel extends EventEmitter {
      * - 22: 木头枪板，未开放
      * - 23: 均匀分布，未开放
      * </pre>
-     * @param {number} config.reflection_scalar 反射比例，默认值1.0。
-     * @param {number} config.reverb_gain 混响增益比例因子，默认值1.0。
-     * @param {number} config.reverb_time 混响时间比例因子，默认值1.0。
-     * @param {number} config.reverb_brightness 混响亮度，默认值1.0。
+     * @param {number} config.reflection_scalar 反射比例，默认值 1.0。
+     * @param {number} config.reverb_gain 混响增益比例因子，默认值 1.0。
+     * @param {number} config.reverb_time 混响时间比例因子，默认值 1.0。
+     * @param {number} config.reverb_brightness 混响亮度，默认值 1.0。
      * @return {number}
      * <pre>
      * - 0: 方法调用成功
@@ -2062,7 +2061,7 @@ class NERtcChannel extends EventEmitter {
     }
     
     /**
-     * 初始化引擎3D音效算法。
+     * 初始化引擎 3D 音效算法。
      * @since V5.5.10
      * <pre>
      * - 此接口在加入房间前调用后均可调用。
@@ -2089,15 +2088,15 @@ class NERtcChannel extends EventEmitter {
      * - 开启空间音效后，通话结束时仍保留该开关状态，不重置。
      * - 请先调用 \ref  #initSpatializer 接口初始化空间音效算法，再调用本接口。
      * </pre>
-     * @param {boolean} enable 是否打开3D音效算法功能，默认为关闭状态。
+     * @param {boolean} enable 是否打开 3D 音效算法功能，默认为关闭状态。
      * <pre>
-     * - true: 开启空间音效。
-     * - false: 关闭空间音效。
+     * - true：开启空间音效。
+     * - false：关闭空间音效。
      * </pre>
-     * @param {boolean} apply_to_team 是否仅本小队开启3D音效。默认为 false。
+     * @param {boolean} apply_to_team 是否仅本小队开启 3D 音效。默认为 false。
      * <pre>
-     * - true: 仅在接收本小队的语音时有3D音效。
-     * - false: 接收到所有的语音都有3D音效。
+     * - true：仅在接收本小队的语音时有 3D 音效。
+     * - false：接收到所有的语音都有 3D 音效。
      * </pre>
      * @return {number}
      * <pre>
@@ -2143,14 +2142,14 @@ class NERtcChannel extends EventEmitter {
             fire('onWarning', warnCode, msg);
         });
   
-         /**
-         * API调用结束回调。
-         * @since V5.4.0
-         * @event NERtcChannel#onApiCallExecuted
-         * @param {string} apiName API名称
-         * @param {NERtcErrorCode} code API执行结果错误码
-         * @param {string} msg API执行结果描述
-         */
+       /**
+        * API 调用结束回调。
+        * @since V5.4.0
+        * @event NERtcChannel#onApiCallExecuted
+        * @param {string} apiName API 名称
+        * @param {NERtcErrorCode} code API 执行结果错误码
+        * @param {string} msg API 执行结果描述
+        */
         this.rtcChannel.onEvent('onApiCallExecuted', function (
           apiName: string, 
           code: number, 
@@ -2179,7 +2178,7 @@ class NERtcChannel extends EventEmitter {
         /**
           * 触发重连。
           * <pre>
-          * 有时候由于网络原因，客户端可能会和服务器失去连接，SDK会进行自动重连，开始自动重连后触发此回调。
+          * 有时候由于网络原因，客户端可能会和服务器失去连接，SDK 会进行自动重连，开始自动重连后触发此回调。
           * </pre>
           * @event NERtcChannel#onReconnectingStart
           * @param cid  频道 ID。
@@ -2231,7 +2230,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 重新加入频道回调。
          * <pre>
-         * 有时候由于网络原因，客户端可能会和服务器失去连接，SDK会进行自动重连，自动重连后触发此回调方法。
+         * 有时候由于网络原因，客户端可能会和服务器失去连接，SDK 会进行自动重连，自动重连后触发此回调方法。
          * </pre>
          * @event NERtcChannel#onRejoinChannel
          * @param {number} cid 频道 ID
@@ -2250,7 +2249,7 @@ class NERtcChannel extends EventEmitter {
   
         /**
          * 离开频道回调。
-         * App 调用 {@link NERtcChannel#leaveChannel} 方法时，SDK提示 App 离开频道是否成功。
+         * App 调用 {@link NERtcChannel#leaveChannel} 方法时，SDK 提示 App 离开频道是否成功。
          * @event NERtcChannel#onLeaveChannel
          * @param {NERtcErrorCode} result 错误码
          */
@@ -2263,7 +2262,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 掉线回调。
          * <pre>
-         * 由于非网络原因，客户端可能会和服务器失去连接，此时SDK无需自动重连，直接触发此回调方法。
+         * 由于非网络原因，客户端可能会和服务器失去连接，此时 SDK 无需自动重连，直接触发此回调方法。
          * </pre>
          * @event NERtcChannel#onDisconnect
          * @param {NERtcErrorCode} result 错误码
@@ -2279,8 +2278,8 @@ class NERtcChannel extends EventEmitter {
          * 本地用户加入房间后，通过 {@link NERtcChannel#setClientRole} 切换用户角色后会触发此回调。例如从主播切换为观众、从观众切换为主播。
          * <b>NOTE:</b>
          * 直播场景下，如果您在加入房间后调用该方法切换用户角色，调用成功后，会触发以下回调：
-         * - 主播切观众，本端触发onClientRoleChanged回调，远端触发 onUserLeft 回调。
-         * - 观众切主播，本端触发onClientRoleChanged回调，远端触发 onUserJoined 回调。
+         * - 主播切观众，本端触发 onClientRoleChanged 回调，远端触发 onUserLeft 回调。
+         * - 观众切主播，本端触发 onClientRoleChanged 回调，远端触发 onUserJoined 回调。
          * @event NERtcChannel#onClientRoleChanged
          * @param {number} oldRole 原角色类型。
          * <pre>
@@ -2306,7 +2305,7 @@ class NERtcChannel extends EventEmitter {
          * - 通信模式下，该回调提示有远端用户加入了频道，并返回新加入用户的 ID；如果加入之前，已经有其他用户在频道中了，新加入的用户也会收到这些已有用户加入频道的回调。
          * </pre>
          * @event NERtcChannel#onUserJoined
-         * @param {number} uid 新加入频道的远端用户ID。
+         * @param {number} uid 新加入频道的远端用户 ID。
          * @param {string} userName 新加入频道的远端用户名(无效)。
          */
         this.rtcChannel.onEvent('onUserJoined', function (
@@ -2316,18 +2315,18 @@ class NERtcChannel extends EventEmitter {
             fire('onUserJoined', uid, userName);
         });
   
-         /**
-         * 远端用户加入当前频道回调。
-         * @since V5.4.0
-         * <pre>
-         * - 通信模式下，该回调提示有远端用户加入了频道，并返回新加入用户的 ID；如果加入之前，已经有其他用户在频道中了，新加入的用户也会收到这些已有用户加入频道的回调。
-         * </pre>
-         * @event NERtcChannel#onUserJoinedEx
-         * @param {number} uid 新加入频道的远端用户ID。
-         * @param {string} userName 新加入频道的远端用户名(无效)。
-         * @param {object} extra_info 一些可选信息:
-         * @param {string} extra_info.custom_info 自定义信息，来源于远端用户joinChannel时填的 {@link NERtcJoinChannelOptions#custom_info}参数，默认为空字符串。
-         */
+       /**
+        * 远端用户加入当前频道回调。
+        * @since V5.4.0
+        * <pre>
+        * - 通信模式下，该回调提示有远端用户加入了频道，并返回新加入用户的 ID；如果加入之前，已经有其他用户在频道中了，新加入的用户也会收到这些已有用户加入频道的回调。
+        * </pre>
+        * @event NERtcChannel#onUserJoinedEx
+        * @param {number} uid 新加入频道的远端用户 ID。
+        * @param {string} userName 新加入频道的远端用户名(无效)。
+        * @param {object} extra_info 一些可选信息:
+        * @param {string} extra_info.custom_info 自定义信息，来源于远端用户 joinChannel 时填的 {@link NERtcJoinChannelOptions#custom_info}参数，默认为空字符串。
+        */
         this.rtcChannel.onEvent('onUserJoinedWithExtraInfo', function (
             uid: number, 
             userName: number, 
@@ -2341,7 +2340,7 @@ class NERtcChannel extends EventEmitter {
          * 提示有远端用户离开了频道（或掉线）。
          * </pre>
          * @event NERtcChannel#onUserLeft
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          * @param {number} reason 远端用户离开原因:
          * <pre>
          * - 0 正常离开
@@ -2365,7 +2364,7 @@ class NERtcChannel extends EventEmitter {
          * 提示有远端用户离开了频道（或掉线）。
          * </pre>
          * @event NERtcChannel#onUserLeftEx
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          * @param {number} reason 远端用户离开原因:
          * <pre>
          * - 0 正常离开
@@ -2375,7 +2374,7 @@ class NERtcChannel extends EventEmitter {
          * - 4 用户超时导致离开
          * </pre>
          * @param {object} extra_info 一些可选信息:
-         * @param {string} extra_info.custom_info 自定义信息，来源于远端用户joinChannel时填的 {@link NERtcJoinChannelOptions#custom_info}参数，默认为空字符串。
+         * @param {string} extra_info.custom_info 自定义信息，来源于远端用户 joinChannel 时填的 {@link NERtcJoinChannelOptions#custom_info}参数，默认为空字符串。
          */
         this.rtcChannel.onEvent('onUserLeftWithExtraInfo', function (
             uid: number, 
@@ -2387,7 +2386,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 远端用户开启音频回调。
          * @event NERtcChannel#onUserAudioStart
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          */
         this.rtcChannel.onEvent('onUserAudioStart', function (
             uid: number
@@ -2398,7 +2397,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 远端用户停用音频回调。
          * @event NERtcChannel#onUserAudioStop
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          */
         this.rtcChannel.onEvent('onUserAudioStop', function (
             uid: number
@@ -2409,7 +2408,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 远端用户是否静音回调。
          * @event NERtcChannel#onUserAudioMute
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          * @param {boolean} mute 是否静音。
          */
         this.rtcChannel.onEvent('onUserAudioMute', function (
@@ -2453,7 +2452,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 远端用户开启视频回调。
          * @event NERtcChannel#onUserVideoStart
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          * @param {number} maxProfile 最大分辨率:
          * <pre>
          * - 0 160x90/120, 15fps
@@ -2462,7 +2461,7 @@ class NERtcChannel extends EventEmitter {
          * - 3 1280x720, 30fps
          * - 4 1920x1080, 30fps
          * - 5 none
-         * - 6 FakeVideo 标识，仅在回调中显示。请勿主动设置，否则 SDK 会按照STANDARD处理。
+         * - 6 FakeVideo 标识，仅在回调中显示。请勿主动设置，否则 SDK 会按照 STANDARD 处理。
          * </pre>
          */
         this.rtcChannel.onEvent('onUserVideoStart', function (
@@ -2475,7 +2474,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 远端用户停用视频回调。
          * @event NERtcChannel#onUserVideoStop
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          */
         this.rtcChannel.onEvent('onUserVideoStop', function (
             uid: number
@@ -2499,7 +2498,12 @@ class NERtcChannel extends EventEmitter {
         /**
          * 远端用户是否禁视频流回调。
          * @event NERtcChannel#onUserVideoMuteEx
-         * @param {number} uid 远端用户ID。
+         * @param {number} streamType 视频流类型。
+         * <pre>
+         * - 0: 主流
+         * - 1: 辅流
+         * </pre>
+         * @param {number} uid 远端用户 ID。
          * @param {boolean} mute 是否禁视频流。
          */
         this.rtcChannel.onEvent('onUserVideoMuteWithType', function (
@@ -2513,7 +2517,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 远端用户开启辅流视频回调。
          * @event NERtcChannel#onUserSubStreamVideoStart
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          * @param {number} maxProfile 最大分辨率:
          * <pre>
          * - 0 160x90/120, 15fps
@@ -2533,7 +2537,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 远端用户停用辅流视频回调。
          * @event NERtcChannel#onUserSubStreamVideoStop
-         * @param {number} uid 远端用户ID。
+         * @param {number} uid 远端用户 ID。
          */
         this.rtcChannel.onEvent('onUserSubStreamVideoStop', function (
             uid: number
@@ -2617,7 +2621,7 @@ class NERtcChannel extends EventEmitter {
         /**
          * 已显示首帧远端视频回调。
          * <pre>
-         * 引擎收到第一帧远端视频流并解码成功时，触发此调用。 App 可在此回调中设置该用户的 video canvas。
+         * 引擎收到第一帧远端视频流并解码成功时，触发此调用。App 可在此回调中设置该用户的 video canvas。
          * </pre>
          * @event NERtcChannel#onFirstVideoFrameDecoded
          * @param {number} uid 用户 ID，指定是哪个用户的视频流。
@@ -2636,7 +2640,7 @@ class NERtcChannel extends EventEmitter {
          * 已显示首帧远端视频回调。
          * @since V5.4.0
          * <pre>
-         * 引擎收到第一帧远端视频流并解码成功时，触发此调用。 App 可在此回调中设置该用户的 video canvas。
+         * 引擎收到第一帧远端视频流并解码成功时，触发此调用。App 可在此回调中设置该用户的 video canvas。
          * </pre>
          * @event NERtcChannel#onFirstVideoFrameDecodedEx
          * @param {number} streamType 视频流类型
@@ -2699,8 +2703,8 @@ class NERtcChannel extends EventEmitter {
          * 开启后，无论频道内是否有人说话，SDK 都会按 {@link NERtcChannel#enableAudioVolumeIndication} 方法中设置的时间间隔触发该回调。
          * 在返回的 speakers 数组中:
          * - 如果有 uid 出现在上次返回的数组中，但不在本次返回的数组中，则默认该 uid 对应的远端用户没有说话。
-         * - 如果volume 为 0，表示该用户没有说话。
-         * - 如果speakers 数组为空，则表示此时远端没有人说话。
+         * - 如果 volume 为 0，表示该用户没有说话。
+         * - 如果 speakers 数组为空，则表示此时远端没有人说话。
          * </pre>
          * @event NERtcChannel#onRemoteAudioVolumeIndication
          * @param {object[]} speakers 每个说话者的用户 ID 和音量信息的数组:
@@ -2723,7 +2727,7 @@ class NERtcChannel extends EventEmitter {
          * 该回调异步返回 {@link NERtcChannel#addLiveStreamTask} 接口的调用结果；实际推流状态参考 onLiveStreamState 事件
          * </pre>
          * @event NERtcChannel#onAddLiveStreamTask
-         * @param {String} task_id 任务id
+         * @param {String} task_id 任务 ID
          * @param {String} url 推流地址
          * @param {number} error 结果
          */
@@ -2741,7 +2745,7 @@ class NERtcChannel extends EventEmitter {
          * 该回调异步返回 {@link NERtcChannel#updateLiveStreamTask} 接口的调用结果；实际推流状态参考 onLiveStreamState 事件
          * </pre>
          * @event NERtcChannel#onUpdateLiveStreamTask
-         * @param {String} task_id 任务id
+         * @param {String} task_id 任务 ID
          * @param {String} url 推流地址
          * @param {number} error 结果
          */
@@ -2759,7 +2763,7 @@ class NERtcChannel extends EventEmitter {
          * 该回调异步返回 {@link NERtcChannel#removeLiveStreamTask} 接口的调用结果；实际推流状态参考 onLiveStreamState 事件
          * </pre>
          * @event NERtcChannel#onRemoveLiveStreamTask
-         * @param {String} task_id 任务id
+         * @param {String} task_id 任务 ID
          * @param {number} error 结果
          */
         this.rtcChannel.onEvent('onRemoveLiveStreamTask', function (
@@ -2772,13 +2776,13 @@ class NERtcChannel extends EventEmitter {
         /**
          * 通知直播推流状态
          * @event NERtcChannel#onLiveStreamState
-         * @param {string} task_id 任务id
+         * @param {string} task_id 任务 ID
          * @param {string} url 推流地址
          * @param {number} state 直播推流状态:
          * <pre>
-         * - 505: 推流中；
-         * - 506: 推流失败；
-         * - 511: 推流结束；
+         * - 505：推流中。
+         * - 506：推流失败。
+         * - 511：推流结束。
          * </pre>
          */
         this.rtcChannel.onEvent('onLiveStreamState', function (
@@ -2793,7 +2797,7 @@ class NERtcChannel extends EventEmitter {
          * 监听 SEI 数据回调
          * @since 4.1.110
          * @event NERtcChannel#onRecvSEIMsg
-         * @param {number} uid 发送该 sei 的用户 id
+         * @param {number} uid 发送该 sei 的用户 ID
          * @param {ArrayBuffer} data 接收到的 sei 数据
          */
         this.rtcChannel.onEvent('onRecvSEIMsg', function (
@@ -2803,15 +2807,15 @@ class NERtcChannel extends EventEmitter {
             fire('onRecvSEIMsg', uid, data);
         });
   
-        /** 
+        /**
          * 跨房间媒体流转发状态发生改变回调。
          * @event NERtcChannel#onMediaRelayStateChanged
          * @param {number} state 当前跨房间媒体流转发状态。
          * <pre>
-         * - 0 初始状态。在成功调用 stopChannelMediaRelay 停止跨房间媒体流转发后， onMediaRelayStateChanged 会回调该状态。
+         * - 0 初始状态。在成功调用 stopChannelMediaRelay 停止跨房间媒体流转发后，onMediaRelayStateChanged 会回调该状态。
          * - 1 尝试跨房间转发媒体流。
          * - 2 源房间主播角色成功加入目标房间。
-         * - 3 发生异常，详见 onMediaRelayEvent 的 error 中提示的错误信息。
+         * - 3 发生异常，请参考 onMediaRelayEvent 的 error 中提示的错误信息。
          * </pre>
          * @param channel_name  媒体流转发的目标房间名。
          */
@@ -2819,10 +2823,10 @@ class NERtcChannel extends EventEmitter {
             fire('onMediaRelayStateChanged', state, channel_name);
         });
   
-        /** 
+        /**
          * 媒体流相关转发事件回调。
          * @event NERtcChannel#onMediaRelayEvent
-         * @param {number} event 当前媒体流转发事件。详细信息请参考 #NERtcChannelMediaRelayEvent 。
+         * @param {number} event 当前媒体流转发事件。详细信息请参考 #NERtcChannelMediaRelayEvent。
          * <pre>
          * - 0 媒体流转发停止。
          * - 1 正在连接服务器，开始尝试转发媒体流。
@@ -2837,7 +2841,7 @@ class NERtcChannel extends EventEmitter {
          * - 30112 调用 stopChannelMediaRelay 前，未调用 startChannelMediaRelay。
          * </pre>
          * @param channel_name  转发的目标房间名。
-         * @param error         相关错误码。详细信息请参考 #NERtcErrorCode 。
+         * @param error         相关错误码。详细信息请参考 #NERtcErrorCode。
          */
          this.rtcChannel.onEvent('onMediaRelayEvent', function (event: number, channel_name: string, error: number) {
             fire('onMediaRelayEvent', event, channel_name, error);
@@ -2868,9 +2872,9 @@ class NERtcChannel extends EventEmitter {
         /**
          * 订阅的远端流已回退为音频流、或已恢复为音视频流回调。
          * <pre>
-         * 如果你调用了设置远端订阅流回退选项 setRemoteSubscribeFallbackOption 接口并将 option 设置 #kNERtcStreamFallbackAudioOnly 后，当下行网络环境不理想、仅接收远端音频流时，或当下行网络改善、恢复订阅音视频流时，会触发该回调。
+         * 如果您调用了设置远端订阅流回退选项 setRemoteSubscribeFallbackOption 接口并将 option 设置 #kNERtcStreamFallbackAudioOnly 后，当下行网络环境不理想、仅接收远端音频流时，或当下行网络改善、恢复订阅音视频流时，会触发该回调。
          * </pre>
-         * @event NERtcChannel#onRemoteSubscribeFallbackToAudioOnly 
+         * @event NERtcChannel#onRemoteSubscribeFallbackToAudioOnly
          * @param {number} uid 远端用户的 ID。
          * @param {boolean} is_fallback 远端订阅流已回退或恢复：
          * <pre>
@@ -2947,6 +2951,7 @@ class NERtcChannel extends EventEmitter {
   
   
         /*****mediaStats*****/
+        /*****mediaStats*****/
         /**
          * 当前通话统计回调。
          * <pre>
@@ -2957,9 +2962,9 @@ class NERtcChannel extends EventEmitter {
          * @param {number} stats.cpu_app_usage 当前 App 的 CPU 使用率 (%)。
          * @param {number} stats.cpu_idle_usage 当前系统的 CPU 空闲率 (%)。
          * @param {number} stats.cpu_total_usage 当前系统的 CPU 使用率 (%)。
-         * @param {number} stats.memory_app_usage 当前App的内存使用率 (%)。
+         * @param {number} stats.memory_app_usage 当前 App 的内存使用率 (%)。
          * @param {number} stats.memory_total_usage 当前系统的内存使用率 (%)。
-         * @param {number} stats.memory_app_kbytes 当前App的内存使用量 (KB)。
+         * @param {number} stats.memory_app_kbytes 当前 App 的内存使用量 (KB)。
          * @param {number} stats.total_duration 通话时长（秒）。
          * @param {number} stats.tx_bytes 发送字节数，累计值。(bytes)
          * @param {number} stats.rx_bytes 接收字节数，累计值。(bytes)
@@ -2971,8 +2976,8 @@ class NERtcChannel extends EventEmitter {
          * @param {number} stats.rx_audio_kbitrate 音频接收码率。(kbps)
          * @param {number} stats.tx_video_kbitrate 视频发送码率。(kbps)
          * @param {number} stats.rx_video_kbitrate 视频接收码率。(kbps)
-         * @param {number} stats.up_rtt 上行平均往返时延rtt(ms)
-         * @param {number} stats.down_rtt 下行平均往返时延rtt(ms)
+         * @param {number} stats.up_rtt 上行平均往返时延 rtt(ms)
+         * @param {number} stats.down_rtt 下行平均往返时延 rtt(ms)
          * @param {number} stats.tx_audio_packet_loss_rate 本地上行音频实际丢包率。(%)
          * @param {number} stats.tx_video_packet_loss_rate 本地上行视频实际丢包率。(%)
          * @param {number} stats.tx_audio_packet_loss_sum  本地上行音频实际丢包数。
@@ -3120,7 +3125,7 @@ class NERtcChannel extends EventEmitter {
           * 当远端用户视频流的分辨率发生变化时，会触发此回调，例如推流端调用 SetVideoConfig 更改了编码分辨率设置，本地会收到该远端用户分辨率变化通知。
           * </pre>
          * @event NERtcChannel#onRemoteVideoReceiveSizeChanged
-         * @param {number} uid 远端用户ID，指定是哪个用户的视频流
+         * @param {number} uid 远端用户 ID，指定是哪个用户的视频流
          * @param {number} type 视频通道类型
          * <pre>
          * - 0 主流
@@ -3193,7 +3198,7 @@ class NERtcChannel extends EventEmitter {
          * 实验功能回调接口，用于回调一些非正式的事件及数据通知。
          * @event NERtcChannel#onLabFeatureCallback
          * @param {string} key 返回回调类型。
-         * @param {string} param 值内容。对应字符串的参数值，如果是结构体对象，需要转成json格式。
+         * @param {string} param 值内容。对应字符串的参数值，如果是结构体对象，需要转成 JSON 格式。
          */
         this.rtcChannel.onEvent('onLabFeatureCallback', function (
             key: string, 
@@ -3207,14 +3212,14 @@ class NERtcChannel extends EventEmitter {
         //  * @event NERtcChannel#onLabFeatureCallback
         //  * @param {Object} data 返回回调类型。
         //  * @param {number} data.type 屏幕分享类型。
-        //  * @param {number} data.source_id 屏幕分享源的ID。
+        //  * @param {number} data.source_id 屏幕分享源的 ID。
         //  * @param {number} data.status 屏幕分享状态。
-        //  * @param {number} data.action 屏幕分享自定义高亮框的设置动作，结合capture_rect使用。
+        //  * @param {number} data.action 屏幕分享自定义高亮框的设置动作，结合 capture_rect 使用。
         //  * @param {number} data.regionRect.x 左上角的横向偏移
         //  * @param {number} data.regionRect.y 左上角的纵向偏移
         //  * @param {number} data.regionRect.width 待共享区域的宽
         //  * @param {number} data.regionRect.height 待共享区域的高
-        //  * @param {number} data.level 屏幕分享源的层级，仅用于macOS
+        //  * @param {number} data.level 屏幕分享源的层级，仅用于 macOS
         //  */
         // this.rtcChannel.onEvent('onScreenCaptureSourceDataUpdate', function (
         //     data: NERtcScreenCaptureSourceData
@@ -3344,7 +3349,7 @@ class NERtcChannel extends EventEmitter {
             const { type, uid, channelId, header, ydata, udata, vdata } = info;
             if (!header || !ydata || !udata || !vdata) {
                 console.log(
-                    'Invalid data param ： ' +
+                    'Invalid data param:  ' +
                     header +
                     ' ' +
                     ydata +
@@ -3831,4 +3836,3 @@ declare interface NERtcChannel {
 }
 
 export default NERtcChannel;
-

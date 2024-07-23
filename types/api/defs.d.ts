@@ -1,7 +1,7 @@
 export interface RendererOptions {
     append: boolean;
 }
-/** 日志级别。 */
+/** 日志级别。*/
 export declare enum NERtcLogLevel {
     kNERtcLogLevelFatal = 0,
     kNERtcLogLevelError = 1,
@@ -16,7 +16,7 @@ export interface NERtcJoinChannelOptions {
     custom_info: string; /**< 自定义信息，最长支持 127 个字符。 <127chars */
     permission_key: string; /**< 权限密钥。能控制通话时长及媒体权限能力。*/
 }
-/** 日志级别。 */
+/** 范围语音模式。*/
 export declare enum NERtcRangeAudioMode {
     NERtcRangeAudioModeDefault = 0,
     NERtcRangeAudioModeTeam = 1
@@ -301,7 +301,7 @@ export interface NERtcVideoDimensions {
 - kNERtcSubStreamContentPreferMotion: 内容类型为动画;当共享的内容是视频、电影或游戏时，推荐选择该内容类型
 当用户设置内容类型为动画时，按用户设置的帧率处理
 - kNERtcSubStreamContentPreferDetails: 内容类型为细节;当共享的内容是图片或文字时，推荐选择该内容类型
-当用户设置内容类型为细节时，最高允许用户设置到10帧，设置超过10帧时，不生效，按10帧处理
+当用户设置内容类型为细节时，最高允许用户设置到 10 帧，设置超过 10 帧时，不生效，按 10 帧处理
  */
 export declare enum NERtcSubStreamContentPrefer {
     kNERtcSubStreamContentPreferMotion = 0,
@@ -453,7 +453,7 @@ export declare enum NERtcClientRole {
     kNERtcClientRoleBroadcaster = 0,
     kNERtcClientRoleAudience = 1
 }
-/** SEI发送的流通道类型 */
+/** SEI 发送的流通道类型 */
 export declare enum NERtcStreamChannelType {
     kNERtcStreamChannelTypeMainStream = 0,
     kNERtcStreamChannelTypeSubStream = 1

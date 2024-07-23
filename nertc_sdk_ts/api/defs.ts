@@ -5,7 +5,7 @@ export interface RendererOptions
     append: boolean
 }
 
-/** 日志级别。 */
+/** 日志级别。*/
 export enum NERtcLogLevel{
     kNERtcLogLevelFatal    = 0,        /**< Fatal 级别日志信息。 */
     kNERtcLogLevelError    = 1,        /**< Error 级别日志信息。 */
@@ -22,7 +22,7 @@ export interface NERtcJoinChannelOptions {
     permission_key: string; /**< 权限密钥。能控制通话时长及媒体权限能力。*/
 }
 
-/** 日志级别。 */
+/** 范围语音模式。*/
 export enum NERtcRangeAudioMode{
     NERtcRangeAudioModeDefault    = 0, /**< 默认模式。设置后玩家附近一定范围的人都能听到该玩家讲话，如果范围内也有玩家设置为此模式，则也可以互相通话。 */
     NERtcRangeAudioModeTeam    = 1,        /**< 小组模式。仅TeamID相同的队友可以互相听到 */
@@ -355,11 +355,10 @@ export interface NERtcVideoDimensions
 
 /** 屏幕共享功能的编码策略倾向
 - kNERtcSubStreamContentPreferMotion: 内容类型为动画;当共享的内容是视频、电影或游戏时，推荐选择该内容类型
-当用户设置内容类型为动画时，按用户设置的帧率处理   
+当用户设置内容类型为动画时，按用户设置的帧率处理
 - kNERtcSubStreamContentPreferDetails: 内容类型为细节;当共享的内容是图片或文字时，推荐选择该内容类型
-当用户设置内容类型为细节时，最高允许用户设置到10帧，设置超过10帧时，不生效，按10帧处理
+当用户设置内容类型为细节时，最高允许用户设置到 10 帧，设置超过 10 帧时，不生效，按 10 帧处理
  */
-
 export enum NERtcSubStreamContentPrefer
 {
     kNERtcSubStreamContentPreferMotion  = 0,    /**< 动画模式。*/
@@ -549,7 +548,7 @@ export enum NERtcClientRole
     kNERtcClientRoleAudience        = 1,            /**< 观众 */
 }
 
-/** SEI发送的流通道类型 */
+/** SEI 发送的流通道类型 */
 export enum NERtcStreamChannelType {
     kNERtcStreamChannelTypeMainStream   = 0, /**< 主流通道 */
     kNERtcStreamChannelTypeSubStream    = 1, /**< 辅流通道 */

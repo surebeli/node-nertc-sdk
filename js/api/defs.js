@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NERtcScreenCaptureCustomHLBorderAction = exports.NERtcScreenCaptureStatus = exports.NERtcFeatureType = exports.NERtcBackgroundSourceType = exports.NERtcAudioRecordingCycleTime = exports.NERtcAudioRecordingPosition = exports.NERtcSpatializerRenderMode = exports.NERtcSpatializerMaterialName = exports.NERtcSpatializerRoomCapacity = exports.NERtcVoiceEqualizationBand = exports.NERtcVoiceBeautifierType = exports.NERtcVoiceChangerType = exports.NERtcMediaStatsEventName = exports.NERtcLiveStreamStateCode = exports.NERtcAudioMixingErrorCode = exports.NERtcAudioMixingState = exports.NERtcAudioDeviceState = exports.NERtcAudioDeviceType = exports.NERtcReasonConnectionChangedType = exports.NERtcConnectionStateType = exports.NERtcNetworkQualityType = exports.NERtcVideoStreamType = exports.NERtcStreamChannelType = exports.NERtcClientRole = exports.NERtcVideoDeviceTransportType = exports.NERtcAudioDeviceTransportType = exports.NERtcLiveStreamAudioCodecProfile = exports.NERtcLiveStreamAudioSampleRate = exports.NERtcLiveStreamVideoScaleMode = exports.NERtcLiveStreamMode = exports.NERtcEncryptionMode = exports.NERtcAudioRecordingQuality = exports.NERtcMediaPriorityType = exports.NERtcSubStreamContentPrefer = exports.NERtcScreenProfileType = exports.NERtcDistanceRolloffModel = exports.NERtcAudioStreamType = exports.NERtcDegradationPreference = exports.NERtcVideoFramerateType = exports.NERtcVideoCropMode = exports.NERtcAudioScenarioType = exports.NERtcAudioProfileType = exports.NERtcRawAudioFrameOpModeType = exports.NERtcVideoOutputOrientationMode = exports.NERtcVideoMirrorMode = exports.NERtcVideoScalingMode = exports.NERtcVideoProfileType = exports.NERtcSessionLeaveReason = exports.NERtcErrorCode = exports.NERtcRemoteVideoStreamType = exports.NERtcChannelProfileType = exports.NERtcRangeAudioMode = exports.NERtcLogLevel = void 0;
-/** 日志级别。 */
+/** 日志级别。*/
 var NERtcLogLevel;
 (function (NERtcLogLevel) {
     NERtcLogLevel[NERtcLogLevel["kNERtcLogLevelFatal"] = 0] = "kNERtcLogLevelFatal";
@@ -13,7 +13,7 @@ var NERtcLogLevel;
     NERtcLogLevel[NERtcLogLevel["kNERtcLogLevelDebug"] = 6] = "kNERtcLogLevelDebug";
     NERtcLogLevel[NERtcLogLevel["kNERtcLogLevelOff"] = 7] = "kNERtcLogLevelOff";
 })(NERtcLogLevel = exports.NERtcLogLevel || (exports.NERtcLogLevel = {}));
-/** 日志级别。 */
+/** 范围语音模式。*/
 var NERtcRangeAudioMode;
 (function (NERtcRangeAudioMode) {
     NERtcRangeAudioMode[NERtcRangeAudioMode["NERtcRangeAudioModeDefault"] = 0] = "NERtcRangeAudioModeDefault";
@@ -236,7 +236,7 @@ var NERtcScreenProfileType;
 - kNERtcSubStreamContentPreferMotion: 内容类型为动画;当共享的内容是视频、电影或游戏时，推荐选择该内容类型
 当用户设置内容类型为动画时，按用户设置的帧率处理
 - kNERtcSubStreamContentPreferDetails: 内容类型为细节;当共享的内容是图片或文字时，推荐选择该内容类型
-当用户设置内容类型为细节时，最高允许用户设置到10帧，设置超过10帧时，不生效，按10帧处理
+当用户设置内容类型为细节时，最高允许用户设置到 10 帧，设置超过 10 帧时，不生效，按 10 帧处理
  */
 var NERtcSubStreamContentPrefer;
 (function (NERtcSubStreamContentPrefer) {
@@ -316,7 +316,7 @@ var NERtcClientRole;
     NERtcClientRole[NERtcClientRole["kNERtcClientRoleBroadcaster"] = 0] = "kNERtcClientRoleBroadcaster";
     NERtcClientRole[NERtcClientRole["kNERtcClientRoleAudience"] = 1] = "kNERtcClientRoleAudience";
 })(NERtcClientRole = exports.NERtcClientRole || (exports.NERtcClientRole = {}));
-/** SEI发送的流通道类型 */
+/** SEI 发送的流通道类型 */
 var NERtcStreamChannelType;
 (function (NERtcStreamChannelType) {
     NERtcStreamChannelType[NERtcStreamChannelType["kNERtcStreamChannelTypeMainStream"] = 0] = "kNERtcStreamChannelTypeMainStream";
