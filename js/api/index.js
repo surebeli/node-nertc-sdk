@@ -1830,7 +1830,7 @@ class NERtcEngine extends events_1.EventEmitter {
     }
     /**
      * 启用说话者音量提示。该方法允许 SDK 定期向 App 反馈当前谁在说话以及说话者的音量。
-     * @since V4.5.d
+     * @since V4.5.0
      * <pre>
      * 启用该方法后，无论频道内是否有人说话，可以通过{@link NERtcEngine#on}方法监听 onRemoteAudioVolumeIndication，根据设置的间隔时间返回音量提示事件。
      * </pre>
@@ -4630,7 +4630,7 @@ class NERtcEngine extends events_1.EventEmitter {
        * <pre>
        * - 通信模式下，该回调提示有远端用户加入了频道，并返回新加入用户的 ID；如果加入之前，已经有其他用户在频道中了，新加入的用户也会收到这些已有用户加入频道的回调。
        * </pre>
-       * @event NERtcEngine#onUserJoinedEx
+       * @event NERtcEngine#onUserJoinedWithExtraInfo
        * @param {number} uid 新加入频道的远端用户 ID。
        * @param {string} userName 新加入频道的远端用户名(无效)。
        * @param {object} extra_info 一些可选信息:
@@ -4664,7 +4664,7 @@ class NERtcEngine extends events_1.EventEmitter {
        * <pre>
        * 提示有远端用户离开了频道（或掉线）。
        * </pre>
-       * @event NERtcEngine#onUserLeftEx
+       * @event NERtcEngine#onUserLeftWithExtraInfo
        * @param {number} uid 远端用户 ID。
        * @param {number} reason 远端用户离开原因:
        * <pre>
@@ -4783,7 +4783,7 @@ class NERtcEngine extends events_1.EventEmitter {
         /**
          * 远端用户是否禁视频流回调。
          * @since V5.4.0
-         * @event NERtcEngine#onUserVideoMuteEx
+         * @event NERtcEngine#onUserVideoMuteWithType
          * @param {number} streamType 视频流类型
          * <pre>
          * - 0 主流
@@ -4871,7 +4871,7 @@ class NERtcEngine extends events_1.EventEmitter {
          * <pre>
          * 第一帧远端视频显示在视图上时，触发此调用。
          * </pre>
-         * @event NERtcEngine#onFirstVideoDataReceivedEx
+         * @event NERtcEngine#onFirstVideoDataReceivedWithType
          * @param {number} streamType 视频流类型
          * <pre>
          * - 0 主流
@@ -4909,7 +4909,7 @@ class NERtcEngine extends events_1.EventEmitter {
          * <pre>
          * 引擎收到第一帧远端视频流并解码成功时，触发此调用。App 可在此回调中设置该用户的 video canvas。
          * </pre>
-         * @event NERtcEngine#onFirstVideoFrameDecodedEx
+         * @event NERtcEngine#onFirstVideoFrameDecodedWithType
          * @param {number} streamType 视频流类型
          * <pre>
          * - 0 主流
@@ -4958,7 +4958,7 @@ class NERtcEngine extends events_1.EventEmitter {
             fire('onAudioMixingTimestampUpdate', timestamp_ms);
         });
         /**
-         * 本地音效文件播放已结束回调。
+         * 本地音效文件播放进度回调。
          * <pre>
          * 当播放音效结束后，会触发该回调。
          * </pre>
@@ -4968,6 +4968,15 @@ class NERtcEngine extends events_1.EventEmitter {
         this.nertcEngine.onEvent('onAudioEffectFinished', function (effect_id) {
             fire('onAudioEffectFinished', effect_id);
         });
+        /**
+         * 本地音效文件播放进度回调。
+         * <pre>
+         * 调用 {@link NERtcEngine#playEffect} 播放音效文件后，当音效播放进度改变时，会触发该回调。
+         * </pre>
+         * @event NERtcEngine#onAudioEffectTimestampUpdate
+         * @param {number} effect_id 音效 ID
+         * @param {number} timestamp_ms 音乐文件播放进度，单位为毫秒。
+         */
         this.nertcEngine.onEvent('onAudioEffectTimestampUpdate', function (effecct_id, timestamp_ms) {
             fire('onAudioEffectTimestampUpdate', effecct_id, timestamp_ms);
         });
@@ -5598,7 +5607,7 @@ class NERtcEngine extends events_1.EventEmitter {
             fire('onBitrateUpdated', bps, type);
         });
         /**
-         * 视频码率信息回调
+         * 视频编码器信息回调
          * @since V5.4.0
          * @event NERtcEngine#onVideoCodecUpdated
          * @param {number} codecType 视频编码器类型：

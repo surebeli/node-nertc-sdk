@@ -1026,4 +1026,5 @@ export interface NERtcEngineAPI {
     isFeatureSupported(type: NERtcFeatureType): boolean;
     switchChannelWithOptions(token: string, channelName: string, channelOptions: NERtcJoinChannelOptions): number;
     setLocalVideoWatermarkConfigs(enbale: boolean, type: number, config: any): number;
+    playEffect(effectId: number, opt: Array<NERtcCreateAudioEffectOption>): number;
 }

@@ -1522,7 +1522,7 @@ declare class NERtcEngine extends EventEmitter {
     enableAudioVolumeIndication(enabled: boolean, interval: number): number;
     /**
      * 启用说话者音量提示。该方法允许 SDK 定期向 App 反馈当前谁在说话以及说话者的音量。
-     * @since V4.5.d
+     * @since V4.5.0
      * <pre>
      * 启用该方法后，无论频道内是否有人说话，可以通过{@link NERtcEngine#on}方法监听 onRemoteAudioVolumeIndication，根据设置的间隔时间返回音量提示事件。
      * </pre>
@@ -3900,7 +3900,16 @@ declare interface NERtcEngine {
      @param mute 是否禁视频流。
      */
     on(event: 'onUserVideoMute', cb: (uid: number, mute: boolean) => void): this;
-    on(event: 'onUserVideoMuteEx', cb: (streamType: number, uid: number, mute: boolean) => void): this;
+    /** 远端用户是否禁视频流回调。
+     @param {number} streamType 视频流类型
+     <pre>
+     - 0 主流
+     - 1 辅流
+     </pre>
+     @param {number} uid 远端用户 ID。
+     @param {boolean} mute 是否禁视频流。
+     */
+    on(event: 'onUserVideoMuteWithType', cb: (streamType: number, uid: number, mute: boolean) => void): this;
     /** 音频设备状态更改回调。
 
      @param device_id 设备ID。
@@ -3933,6 +3942,13 @@ declare interface NERtcEngine {
      @param uid 用户 ID，指定是哪个用户的视频流。
      */
     on(event: 'onFirstVideoDataReceived', cb: (uid: number) => void): this;
+    /** 已显示首帧远端视频回调。
+
+    第一帧远端视频显示在视图上时，触发此调用。
+
+     @param uid 用户 ID，指定是哪个用户的视频流。
+     */
+    on(event: 'onFirstVideoDataReceivedWithType', cb: (streamType: number, uid: number) => void): this;
     /** 已解码远端音频首帧的回调。
 
      @param uid 远端用户 ID。
@@ -3948,6 +3964,18 @@ declare interface NERtcEngine {
 
      */
     on(event: 'onFirstVideoFrameDecoded', cb: (uid: number, width: number, height: number) => void): this;
+    /** 已显示首帧远端视频回调。
+     引擎收到第一帧远端视频流并解码成功时，触发此调用。App 可在此回调中设置该用户的 video canvas。
+     @param {number} streamType 视频流类型
+      <pre>
+      - 0 主流
+      - 1 辅流
+      </pre>
+      @param {number} uid 用户 ID，指定是哪个用户的视频流。
+      @param {number} width 视频流宽（px）。
+      @param {number} height 视频流高（px）。
+     */
+    on(event: 'onFirstVideoFrameDecodedWithType', cb: (streamType: number, uid: number, width: number, height: number) => void): this;
     /** 本地用户的音乐文件播放状态改变回调。
 
     调用 startAudioMixing 播放混音音乐文件后，当音乐文件的播放状态发生改变时，会触发该回调。
