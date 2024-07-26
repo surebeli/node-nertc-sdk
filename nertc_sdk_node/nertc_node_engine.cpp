@@ -456,7 +456,7 @@ NIM_SDK_NODE_API_DEF(initialize)
             context.log_dir_path = log_path_.c_str();
         }
         context.event_handler = _event_handler.get();
-        std::string para = "{\"sdk.business.scenario.type\": 6,  \"video.h265.decoder.type\": false , \"video.h265.encoder.type\": false}";
+        std::string para = "{\"sdk.business.scenario.type\": 6,  \"sdk.enable.encrypt.log\": false ,\"video.h265.decoder.type\": false , \"video.h265.encoder.type\": false}";
         ret = rtc_engine_->setParameters(para.c_str());
         ret = rtc_engine_->initialize(context);
         if (ret == 0)
@@ -2423,7 +2423,7 @@ NIM_SDK_NODE_API_DEF(startScreenCaptureByWindowId)
 #ifdef WIN32
         ret = rtc_engine_->startScreenCaptureByWindowId(reinterpret_cast<void *>(windowid), region_rect, param);
 #else
-        ret = rtc_engine_->startScreenCaptureByWindowId(reinterpret_cast<void *>(&windowid), region_rect, param);
+        ret = rtc_engine_->startScreenCaptureByWindowId(reinterpret_cast<void *>(windowid), region_rect, param);
 #endif
         if (param.excluded_window_list != nullptr)
         {
