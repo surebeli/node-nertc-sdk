@@ -95,7 +95,7 @@
   "author": "surebeli <surebeli@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/surebeli/node-nertc-sdk/issues"
+    "url": "https://github.com/netease-im/node-nertc-sdk/issues"
   },
-  "homepage": "https://github.com/surebeli/node-nertc-sdk#readme"
+  "homepage": "https://github.com/netease-im/node-nertc-sdk#readme"
 }
