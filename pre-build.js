@@ -160,7 +160,7 @@ function downloadAddon(name_addon, arch, fallBackToBuild, publish_json) {
     }).then(() => {
       copySDKToBinaryDir();
       console.log(`[node_pre_build] downloadAddon copySDKToBinaryDir end`)
-      removeNativeSdk();
+      // removeNativeSdk();
     }).catch((err) => {
       console.log(`[node_pre_build] downloadAddon err:${err}`)
       if (!fallBackToBuild) {
