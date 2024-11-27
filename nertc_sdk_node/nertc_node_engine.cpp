@@ -2508,7 +2508,7 @@ NIM_SDK_NODE_API_DEF(startScreenCaptureByDisplayId)
             // ret = rtc_engine_->startScreenCaptureByDisplayId(reinterpret_cast<void *>(display), region_rect, param);
 #else
             // ret = rtc_engine_->startScreenCaptureByDisplayId((unsigned int)(display), region_rect, param);
-            ret = rtc_engine_->startScreenCaptureByDisplayId(reinterpret_cast<void *>(display), region_rect, param);
+            ret = rtc_engine_->startScreenCaptureByDisplayId(reinterpret_cast<void *>(&display), region_rect, param);
 #endif
             if (param.excluded_window_list != nullptr)
             {
