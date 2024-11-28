@@ -2404,7 +2404,7 @@ NIM_SDK_NODE_API_DEF(startScreenCaptureByWindowId)
     INIT_ENV
     do
     {
-        int32_t windowid;
+        int32_t windowid; // nativesdk use int32_t to static_cast<void *> ,so don't use other type under macOS.
         nertc::NERtcRectangle region_rect = {};
         nertc::NERtcScreenCaptureParameters param = {};
         napi_get_value_int32(info[0], windowid);
