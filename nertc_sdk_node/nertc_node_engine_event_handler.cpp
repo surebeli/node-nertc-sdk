@@ -1850,7 +1850,7 @@ void NertcNodeRtcMediaStatsHandler::Node_onLocalVideoStats(const std::vector<ner
 
 void NertcNodeRtcMediaStatsHandler::onRemoteVideoStats(const nertc::NERtcVideoRecvStats *stats, unsigned int user_count)
 {
-    std::map<nertc::uid_t uid, std::vector<nertc::NERtcVideoLayerRecvStats>> ss;
+    std::map<nertc::uid_t, std::vector<nertc::NERtcVideoLayerRecvStats>> ss;
     for (auto i = 0; i < user_count; i++) {
         std::vector<nertc::NERtcVideoLayerRecvStats> s;
         for (auto j = 0; j < stats[i].video_layers_count; j++) {
