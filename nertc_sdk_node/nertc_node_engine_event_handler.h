@@ -231,7 +231,7 @@ private:
     void Node_onLocalAudioStats(const nertc::NERtcAudioSendStats & stats);
     void Node_onRemoteAudioStats(const std::vector<nertc::NERtcAudioRecvStats> &stats);
     void Node_onLocalVideoStats(const std::vector<nertc::NERtcVideoLayerSendStats>& ss);
-    void Node_onRemoteVideoStats(const std::map<nertc::uid_t uid, std::vector<nertc::NERtcVideoLayerRecvStats>> &ss);
+    void Node_onRemoteVideoStats(const std::map<nertc::uid_t, std::vector<nertc::NERtcVideoLayerRecvStats>> &ss);
     void Node_onNetworkQuality(const std::vector<nertc::NERtcNetworkQualityInfo> &ss);
 
 };

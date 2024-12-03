@@ -1803,8 +1803,6 @@ void NertcNodeRtcMediaStatsHandler::onRemoteAudioStats(const nertc::NERtcAudioRe
 
 void NertcNodeRtcMediaStatsHandler::Node_onRemoteAudioStats(const std::vector<nertc::NERtcAudioRecvStats> &stats)
 {
-    if (user_count <= 0)
-        return;
     auto it = _callbacks.find("onRemoteAudioStats");
     if (it != _callbacks.end())
     {
@@ -1852,7 +1850,7 @@ void NertcNodeRtcMediaStatsHandler::Node_onLocalVideoStats(const std::vector<ner
 
 void NertcNodeRtcMediaStatsHandler::onRemoteVideoStats(const nertc::NERtcVideoRecvStats *stats, unsigned int user_count)
 {
-    std::map<nertc::uid_t uid, std::vector<nertc::NERtcVideoRecvStats>> ss;
+    std::map<nertc::uid_t uid, std::vector<nertc::NERtcVideoLayerRecvStats>> ss;
     for (auto i = 0; i < user_count; i++) {
         std::vector<nertc::NERtcVideoLayerRecvStats> s;
         for (auto j = 0; j < stats[i].video_layers_count; j++) {
@@ -1865,7 +1863,7 @@ void NertcNodeRtcMediaStatsHandler::onRemoteVideoStats(const nertc::NERtcVideoRe
     });
 }
 
-void NertcNodeRtcMediaStatsHandler::Node_onRemoteVideoStats(const std::map<nertc::uid_t uid, std::vector<nertc::NERtcVideoLayerRecvStats>> &ss)
+void NertcNodeRtcMediaStatsHandler::Node_onRemoteVideoStats(const std::map<nertc::uid_t, std::vector<nertc::NERtcVideoLayerRecvStats>> &ss)
 {
     auto it = _callbacks.find("onRemoteVideoStats");
     if (it != _callbacks.end())
