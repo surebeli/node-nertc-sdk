@@ -1258,7 +1258,7 @@ void NertcChannelRtcMediaStatsHandler::Node_onLocalAudioStats(const nertc::NERtc
     }
 }
 
-void NertcNodeRtcMediaStatsHandler::onRemoteAudioStats(const nertc::NERtcAudioRecvStats *stats, unsigned int user_count)
+void NertcChannelRtcMediaStatsHandler::onRemoteAudioStats(const nertc::NERtcAudioRecvStats *stats, unsigned int user_count)
 {
     if (user_count <= 0)
         return;
@@ -1272,7 +1272,7 @@ void NertcNodeRtcMediaStatsHandler::onRemoteAudioStats(const nertc::NERtcAudioRe
     });
 }
 
-void NertcNodeRtcMediaStatsHandler::Node_onRemoteAudioStats(const std::vector<nertc::NERtcAudioRecvStats> &stats)
+void NertcChannelRtcMediaStatsHandler::Node_onRemoteAudioStats(const std::vector<nertc::NERtcAudioRecvStats> &stats)
 {
     auto it = _callbacks.find("onRemoteAudioStats");
     if (it != _callbacks.end())
