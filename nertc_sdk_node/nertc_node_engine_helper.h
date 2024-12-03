@@ -7,6 +7,7 @@
 #include "nertc_engine_defines.h"
 #include <list>
 #include <set>
+#include <vector>
 
 namespace nertc_node
 {
@@ -43,8 +44,8 @@ napi_status nertc_video_water_mark_config_to_struct(const Napi::Env& env, const 
 napi_status nertc_stats_to_obj(const Napi::Env env, const nertc::NERtcStats& config,  Napi::Object& obj);
 napi_status nertc_audio_send_stats_to_obj(const Napi::Env env, const nertc::NERtcAudioSendStats& config,  Napi::Object& obj);
 napi_status nertc_audio_recv_stats_to_obj(const Napi::Env env, const nertc::NERtcAudioRecvStats& config,  Napi::Object& obj);
-napi_status nertc_video_send_stats_to_obj(const Napi::Env env, const nertc::NERtcVideoSendStats& config,  Napi::Object& obj);
-napi_status nertc_video_recv_stats_to_obj(const Napi::Env env, const nertc::NERtcVideoRecvStats& config,  Napi::Object& obj);
+napi_status nertc_video_send_stats_to_obj(const Napi::Env env, const std::vector<nertc::NERtcVideoLayerSendStats>& video_layers_list,  Napi::Object& obj);
+napi_status nertc_video_recv_stats_to_obj(const Napi::Env env, const nertc::uid_t uid, const std::vector<nertc::NERtcVideoLayerRecvStats>& video_layers_list,  Napi::Object& obj);
 napi_status nertc_network_quality_to_obj(const Napi::Env env, const nertc::NERtcNetworkQualityInfo& config,  Napi::Object& obj);
 napi_status nertc_audio_volume_info_to_obj(const Napi::Env env, const nertc::NERtcAudioVolumeInfo& config,  Napi::Object& obj);
 napi_status nertc_lastmile_probe_result_to_obj(const Napi::Env env, const nertc::NERtcLastmileProbeResult& config,  Napi::Object& obj);

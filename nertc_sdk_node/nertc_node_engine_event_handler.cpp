@@ -1791,16 +1791,17 @@ void NertcNodeRtcMediaStatsHandler::onRemoteAudioStats(const nertc::NERtcAudioRe
 {
     if (user_count <= 0)
         return;
-    nertc::NERtcAudioRecvStats *ss = new nertc::NERtcAudioRecvStats[user_count];
+
+    std::vector<nertc::NERtcAudioRecvStats> ss;
     for (auto i = 0; i < user_count; i++) {
-        ss[i] = stats[i];
+        ss.push_back(stats[i]);
     }
-    nim_node::node_async_call::async_call([=]() {
-        Node_onRemoteAudioStats(ss, user_count);
+    nim_node::node_async_call::async_call([this, ss]() {
+        Node_onRemoteAudioStats(ss);
     });
 }
 
-void NertcNodeRtcMediaStatsHandler::Node_onRemoteAudioStats(const nertc::NERtcAudioRecvStats *stats, unsigned int user_count)
+void NertcNodeRtcMediaStatsHandler::Node_onRemoteAudioStats(const std::vector<nertc::NERtcAudioRecvStats> &stats)
 {
     if (user_count <= 0)
         return;
@@ -1810,39 +1811,32 @@ void NertcNodeRtcMediaStatsHandler::Node_onRemoteAudioStats(const nertc::NERtcAu
         auto function_reference = it->second;
         auto env = function_reference->function.Env();
         Napi::Array s = Napi::Array::New(env);
-        for (auto i = 0; i < (int)user_count; i++)
+        for (auto i = 0; i < (int)stats.size(); i++)
         {
             Napi::Object o = Napi::Object::New(env);
             nertc_audio_recv_stats_to_obj(env, stats[i], o);
             // s[i] = o;
             s.Set(static_cast<napi_value>(Napi::Number::New(env, i)),  o);
         }
-        Napi::Number param1 = Napi::Number::New(env, (int)user_count);
+        Napi::Number param1 = Napi::Number::New(env, (int)stats.size());
         const std::vector<napi_value> args = {param1, s};
         function_reference->function.Call(args);
-    }
-    if (stats)
-    {
-        delete[] stats;
-        stats = nullptr;
     }
 }
 
 void NertcNodeRtcMediaStatsHandler::onLocalVideoStats(const nertc::NERtcVideoSendStats &stats)
 {
-    nertc::NERtcVideoSendStats ss;
-    ss.video_layers_count = stats.video_layers_count;
-    ss.video_layers_list = new nertc::NERtcVideoLayerSendStats[ss.video_layers_count];
-    for (auto i = 0; i < ss.video_layers_count; i++) {
-        ss.video_layers_list[i] = stats.video_layers_list[i];
+    std::vector<nertc::NERtcVideoLayerSendStats> ss;
+    for (auto i = 0; i < stats.video_layers_count; i++) {
+        ss.push_back(stats.video_layers_list[i]);
     }
 
-    nim_node::node_async_call::async_call([=]() {
+    nim_node::node_async_call::async_call([this, ss]() {
         Node_onLocalVideoStats(ss);
     });
 }
 
-void NertcNodeRtcMediaStatsHandler::Node_onLocalVideoStats(const nertc::NERtcVideoSendStats& ss)
+void NertcNodeRtcMediaStatsHandler::Node_onLocalVideoStats(const std::vector<nertc::NERtcVideoLayerSendStats>& ss)
 {
     auto it = _callbacks.find("onLocalVideoStats");
     if (it != _callbacks.end())
@@ -1854,30 +1848,24 @@ void NertcNodeRtcMediaStatsHandler::Node_onLocalVideoStats(const nertc::NERtcVid
         const std::vector<napi_value> args = {s};
         function_reference->function.Call(args);
     }
-    if (ss.video_layers_list)
-    {
-        delete[] ss.video_layers_list;
-    }
 }
 
 void NertcNodeRtcMediaStatsHandler::onRemoteVideoStats(const nertc::NERtcVideoRecvStats *stats, unsigned int user_count)
 {
-    nertc::NERtcVideoRecvStats *ss = new nertc::NERtcVideoRecvStats[user_count];
+    std::map<nertc::uid_t uid, std::vector<nertc::NERtcVideoRecvStats>> ss;
     for (auto i = 0; i < user_count; i++) {
-        ss[i].uid = stats[i].uid;
-        ss[i].video_layers_count = stats[i].video_layers_count;
-        ss[i].video_layers_list = new nertc::NERtcVideoLayerRecvStats[ss[i].video_layers_count];
-        for (auto j = 0; j < ss[i].video_layers_count; j++){
-            ss[i].video_layers_list[j] = stats[i].video_layers_list[j];
+        std::vector<nertc::NERtcVideoLayerRecvStats> s;
+        for (auto j = 0; j < stats[i].video_layers_count; j++) {
+            s.push_back(stats[i].video_layers_list[j]);
         }
+        ss[stats[i].uid] = s;
     }
-
-    nim_node::node_async_call::async_call([=]() {
-        Node_onRemoteVideoStats(ss, user_count);
+    nim_node::node_async_call::async_call([this, ss]() {
+        Node_onRemoteVideoStats(ss);
     });
 }
 
-void NertcNodeRtcMediaStatsHandler::Node_onRemoteVideoStats(const nertc::NERtcVideoRecvStats *ss, unsigned int user_count)
+void NertcNodeRtcMediaStatsHandler::Node_onRemoteVideoStats(const std::map<nertc::uid_t uid, std::vector<nertc::NERtcVideoLayerRecvStats>> &ss)
 {
     auto it = _callbacks.find("onRemoteVideoStats");
     if (it != _callbacks.end())
@@ -1885,45 +1873,33 @@ void NertcNodeRtcMediaStatsHandler::Node_onRemoteVideoStats(const nertc::NERtcVi
         auto function_reference = it->second;
         auto env = function_reference->function.Env();
         Napi::Array s = Napi::Array::New(env);
-        for (auto i = 0; i < (int)user_count; i++)
-        {
+        int i = 0;
+        for (auto iter = ss.begin(); iter != ss.end(); iter++) {
             Napi::Object o = Napi::Object::New(env);
-            nertc_video_recv_stats_to_obj(env, ss[i], o);
-            // s[i] = o;
-            s.Set(static_cast<napi_value>(Napi::Number::New(env, i)),  o);
+            nertc_video_recv_stats_to_obj(env, iter->first, iter->second, o);
+            s.Set(static_cast<napi_value>(Napi::Number::New(env, i++)),  o);
         }
-        auto param1 = Napi::Number::New(env, (int)user_count);
+
+        auto param1 = Napi::Number::New(env, (int)ss.size());
         const std::vector<napi_value> args = {param1, s};
         function_reference->function.Call(args);
-    }
-    if (ss)
-    {
-        for (int i = 0; i < user_count; i++)
-        {
-            if (ss[i].video_layers_list)
-            {
-                delete[] ss[i].video_layers_list;
-                // ss[i].video_layers_list = nullptr;
-            }
-        }
-        delete[] ss;
-        // ss = nullptr;
     }
 }
 
 void NertcNodeRtcMediaStatsHandler::onNetworkQuality(const nertc::NERtcNetworkQualityInfo *infos, unsigned int user_count)
 {
-    nertc::NERtcNetworkQualityInfo *ss = new nertc::NERtcNetworkQualityInfo[user_count];
+    std::vector<nertc::NERtcNetworkQualityInfo> ss;
     for (auto i = 0; i < user_count; i++) {
-        ss[i] = infos[i];
+        ss.push_back(infos[i]);
     }
-    nim_node::node_async_call::async_call([=]() {
-        Node_onNetworkQuality(ss, user_count);
+
+    nim_node::node_async_call::async_call([this, ss]() {
+        Node_onNetworkQuality(ss);
     });
     
 }
 
-void NertcNodeRtcMediaStatsHandler::Node_onNetworkQuality(const nertc::NERtcNetworkQualityInfo *ss, unsigned int user_count)
+void NertcNodeRtcMediaStatsHandler::Node_onNetworkQuality(const std::vector<nertc::NERtcNetworkQualityInfo> &ss)
 {
     auto it = _callbacks.find("onNetworkQuality");
     if (it != _callbacks.end())
@@ -1931,7 +1907,7 @@ void NertcNodeRtcMediaStatsHandler::Node_onNetworkQuality(const nertc::NERtcNetw
         auto function_reference = it->second;
         auto env = function_reference->function.Env();
         Napi::Array s = Napi::Array::New(env);
-        for (auto i = 0; i < (int)user_count; i++)
+        for (auto i = 0; i < (int)ss.size(); i++)
         {
             Napi::Object o = Napi::Object::New(env);
             nertc_network_quality_to_obj(env, ss[i], o);
@@ -1939,13 +1915,9 @@ void NertcNodeRtcMediaStatsHandler::Node_onNetworkQuality(const nertc::NERtcNetw
             s.Set(static_cast<napi_value>(Napi::Number::New(env, i)),  o);
         }
 
-        auto param1 = Napi::Number::New(env, user_count);
+        auto param1 = Napi::Number::New(env, ss.size());
         const std::vector<napi_value> args = {param1, s};
         function_reference->function.Call(args);
-    }
-    if (ss) {
-        delete[] ss;
-        ss = nullptr;
     }
 }
 /**********************************************QS*****************************************************/

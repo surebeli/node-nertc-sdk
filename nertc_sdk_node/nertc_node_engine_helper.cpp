@@ -666,27 +666,27 @@ napi_status nertc_audio_recv_stats_to_obj(const Napi::Env env, const  nertc::NER
     return napi_ok;
 }
 
-napi_status nertc_video_send_stats_to_obj(const Napi::Env env, const nertc::NERtcVideoSendStats& config,  Napi::Object& obj)
+napi_status nertc_video_send_stats_to_obj(const Napi::Env env, const std::vector<nertc::NERtcVideoLayerSendStats>& video_layers_list,  Napi::Object& obj)
 {
-    obj.Set(static_cast<napi_value>(Napi::String::New(env,"video_layers_count")), config.video_layers_count);
+    obj.Set(static_cast<napi_value>(Napi::String::New(env,"video_layers_count")), video_layers_list.size());
     Napi::Array s = Napi::Array::New(env);
-    for (auto i = 0; i < (int)config.video_layers_count; i++)
+    for (auto i = 0; i < (int)video_layers_list.size(); i++)
     {
         Napi::Object o = Napi::Object::New(env);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"layer_type")), config.video_layers_list[i].layer_type);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"width")), config.video_layers_list[i].width);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"height")), config.video_layers_list[i].height);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"capture_width")), config.video_layers_list[i].capture_width);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"capture_height")), config.video_layers_list[i].capture_height);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"capture_frame_rate")), config.video_layers_list[i].capture_frame_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"render_frame_rate")), config.video_layers_list[i].render_frame_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"encoder_frame_rate")), config.video_layers_list[i].encoder_frame_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"sent_frame_rate")), config.video_layers_list[i].sent_frame_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"sent_bitrate")), config.video_layers_list[i].sent_bitrate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"target_bitrate")), config.video_layers_list[i].target_bitrate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"encoder_bitrate")), config.video_layers_list[i].encoder_bitrate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"codec_name")), config.video_layers_list[i].codec_name);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"drop_bandwidth_strategy_enabled")), config.video_layers_list[i].drop_bandwidth_strategy_enabled);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"layer_type")), video_layers_list[i].layer_type);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"width")), video_layers_list[i].width);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"height")), video_layers_list[i].height);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"capture_width")), video_layers_list[i].capture_width);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"capture_height")), video_layers_list[i].capture_height);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"capture_frame_rate")), video_layers_list[i].capture_frame_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"render_frame_rate")), video_layers_list[i].render_frame_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"encoder_frame_rate")), video_layers_list[i].encoder_frame_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"sent_frame_rate")), video_layers_list[i].sent_frame_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"sent_bitrate")), video_layers_list[i].sent_bitrate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"target_bitrate")), video_layers_list[i].target_bitrate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"encoder_bitrate")), video_layers_list[i].encoder_bitrate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"codec_name")), video_layers_list[i].codec_name);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"drop_bandwidth_strategy_enabled")), video_layers_list[i].drop_bandwidth_strategy_enabled);
         s.Set(static_cast<napi_value>(Napi::Number::New(env, i)),  o);
     }
     obj.Set(static_cast<napi_value>(Napi::String::New(env,"video_layers_list")), s);
@@ -1538,26 +1538,26 @@ napi_status nertc_encry_obj_to_struct(const Napi::Env& env, const Napi::Object& 
 }
 
 
-napi_status nertc_video_recv_stats_to_obj(const Napi::Env env, const nertc::NERtcVideoRecvStats& config,  Napi::Object& obj)
+napi_status nertc_video_recv_stats_to_obj(const Napi::Env env, const nertc::uid_t uid, const std::vector<nertc::NERtcVideoLayerRecvStats>& video_layers_list,  Napi::Object& obj)
 {
-    obj.Set(static_cast<napi_value>(Napi::String::New(env,"video_layers_count")), config.video_layers_count);
-    obj.Set(static_cast<napi_value>(Napi::String::New(env,"uid")), config.uid);
+    obj.Set(static_cast<napi_value>(Napi::String::New(env,"video_layers_count")), video_layers_list.size());
+    obj.Set(static_cast<napi_value>(Napi::String::New(env,"uid")), uid);
     Napi::Array s = Napi::Array::New(env);
-    for (int index = 0; index < config.video_layers_count; index++)
+    for (int index = 0; index < video_layers_list.size(); index++)
     {
         Napi::Object o = Napi::Object::New(env);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"layer_type")), config.video_layers_list[index].layer_type);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"width")), config.video_layers_list[index].width);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"height")), config.video_layers_list[index].height);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"received_bitrate")), config.video_layers_list[index].received_bitrate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"received_frame_rate")), config.video_layers_list[index].received_frame_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"decoder_frame_rate")), config.video_layers_list[index].decoder_frame_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"render_frame_rate")), config.video_layers_list[index].render_frame_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"packet_loss_rate")), config.video_layers_list[index].packet_loss_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"total_frozen_time")), config.video_layers_list[index].total_frozen_time);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"frozen_rate")), config.video_layers_list[index].frozen_rate);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"codec_name")), config.video_layers_list[index].codec_name);
-        o.Set(static_cast<napi_value>(Napi::String::New(env,"peer_to_peer_delay")), config.video_layers_list[index].peer_to_peer_delay);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"layer_type")), video_layers_list[index].layer_type);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"width")), video_layers_list[index].width);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"height")), video_layers_list[index].height);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"received_bitrate")), video_layers_list[index].received_bitrate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"received_frame_rate")), video_layers_list[index].received_frame_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"decoder_frame_rate")), video_layers_list[index].decoder_frame_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"render_frame_rate")), video_layers_list[index].render_frame_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"packet_loss_rate")), video_layers_list[index].packet_loss_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"total_frozen_time")), video_layers_list[index].total_frozen_time);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"frozen_rate")), video_layers_list[index].frozen_rate);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"codec_name")), video_layers_list[index].codec_name);
+        o.Set(static_cast<napi_value>(Napi::String::New(env,"peer_to_peer_delay")), video_layers_list[index].peer_to_peer_delay);
         // s[index] = o;
         s.Set(static_cast<napi_value>(Napi::Number::New(env, index)),  o);
 

@@ -3,6 +3,7 @@
 
 #include <napi.h>
 #include <unordered_map>
+#include <map>
 #include "nertc_node_engine_helper.h"
 #include "nertc_engine_event_handler_ex.h"
 #include "nertc_engine_media_stats_observer.h"
@@ -228,10 +229,10 @@ public:
 private:
     void Node_onRtcStats(const nertc::NERtcStats & stats);
     void Node_onLocalAudioStats(const nertc::NERtcAudioSendStats & stats);
-    void Node_onRemoteAudioStats(const nertc::NERtcAudioRecvStats *stats, unsigned int user_count);
-    void Node_onLocalVideoStats(const nertc::NERtcVideoSendStats & ss);
-    void Node_onRemoteVideoStats(const nertc::NERtcVideoRecvStats *ss, unsigned int user_count);
-    void Node_onNetworkQuality(const nertc::NERtcNetworkQualityInfo *ss, unsigned int user_count);
+    void Node_onRemoteAudioStats(const std::vector<nertc::NERtcAudioRecvStats> &stats);
+    void Node_onLocalVideoStats(const std::vector<nertc::NERtcVideoLayerSendStats>& ss);
+    void Node_onRemoteVideoStats(const std::map<nertc::uid_t uid, std::vector<nertc::NERtcVideoLayerRecvStats>> &ss);
+    void Node_onNetworkQuality(const std::vector<nertc::NERtcNetworkQualityInfo> &ss);
 
 };
 
