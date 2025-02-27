@@ -60,13 +60,11 @@ public:
     NIM_SDK_NODE_API(subscribeRemoteVideoStream);
     NIM_SDK_NODE_API(setLocalVideoWatermarkConfigs);
 
-
     NIM_SDK_NODE_API(onVideoFrame);
     NIM_SDK_NODE_API(onEvent);
     // NIM_SDK_NODE_API(onAudioFrameEvent);
     NIM_SDK_NODE_API(onStatsObserver);
     NIM_SDK_NODE_API(onQsObserver);
-
 
     NIM_SDK_NODE_API(getConnectionState);
     NIM_SDK_NODE_API(muteLocalAudioStream);
@@ -220,7 +218,6 @@ public:
     NIM_SDK_NODE_API(initSpatializer);
     NIM_SDK_NODE_API(enableSpatializer);
 
-
     // adm
     NIM_SDK_NODE_API(enumerateRecordDevices);
     NIM_SDK_NODE_API(setRecordDevice);
@@ -255,8 +252,6 @@ public:
     // CUSTOM
     NIM_SDK_NODE_API(enumerateScreenCaptureSourceInfo);
     
-
-
 private:
     //nertc::IRtcEngineEx *rtc_engine_ = nullptr;
     nertc::IAudioDeviceManager *_adm = nullptr;

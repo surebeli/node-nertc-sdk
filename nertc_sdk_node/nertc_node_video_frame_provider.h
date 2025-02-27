@@ -171,7 +171,7 @@ namespace nertc_node
 
     private:
         bool init;
-        FrameDataCallback* m_pFrameDataCallback;
+        FrameDataCallback* m_pFrameDataCallback = nullptr;
         std::unordered_map<nertc::uid_t, VideoFrameInfo> m_remoteVideoFrames;
         std::unique_ptr<VideoFrameInfo> m_localVideoFrame;
         std::unordered_map<nertc::uid_t, VideoFrameInfo> m_substreamVideoFrame;

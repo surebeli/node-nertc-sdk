@@ -412,6 +412,8 @@ NertcNodeEngine::NertcNodeEngine(const Napi::CallbackInfo& info)
 }
 
 NertcNodeEngine::~NertcNodeEngine() {
+    uint64_t thisAddr = (uint64_t)this;
+    // LOG_F(INFO, "###################NertcNodeEngine::~NertcNodeEngine(), %llu", thisAddr);
     if (rtc_engine_)
     {
         destroyNERtcEngine((void *&)rtc_engine_);
@@ -420,13 +422,30 @@ NertcNodeEngine::~NertcNodeEngine() {
         rtc_engine_ = nullptr;
     }
 
+    if (_event_handler)
+        _event_handler->removeAll();
+    _stats_observer.reset();
+    _qs_handler.reset();
+    _packet_observer.reset();
+    _audio_observer.reset();
+    _event_handler.reset();
+
+    for (auto& pair : g_transporter_map) {
+        delete pair.second;
+    }
+    g_transporter_map.clear();
+
 #ifdef WIN32
     if (_windows_helper)
     {
         delete _windows_helper;
         _windows_helper = nullptr;
     }
+    window_capture_helper_.reset();
+    screen_capture_helper_.reset();
 #endif
+
+    LOG_F(INFO, "###################NertcNodeEngine::~NertcNodeEngine(), %llu", thisAddr);
 };
 
 NIM_SDK_NODE_API_DEF(initialize)
@@ -455,9 +474,21 @@ NIM_SDK_NODE_API_DEF(initialize)
             log_path_ = obj.Get(static_cast<napi_value>(Napi::String::New(env,"log_dir_path"))).As<Napi::String>().Utf8Value();
             context.log_dir_path = log_path_.c_str();
         }
+        std::string log_directory(context.log_dir_path);
+        auto error_code = nelog::InitailizeLogFileStream(
+                          log_directory.c_str(),
+                          "addon_log",
+                           false
+                           );
+        nelog::SetMinLoggingSeverity(nelog::LS_INFO);
+
+        uint64_t thisAddr = (uint64_t)this;
+        // LOG_F(INFO, "###################context.event_handler = _event_handler.get(), %llu", thisAddr);
         context.event_handler = _event_handler.get();
+        // LOG_F(INFO, "###################context.event_handler = _event_handler.get(), %llu, %d", thisAddr, rtc_engine_ == nullptr);
         std::string para = "{\"sdk.business.scenario.type\": 6,  \"video.h265.decoder.type\": false , \"video.h265.encoder.type\": false}";
         ret = rtc_engine_->setParameters(para.c_str());
+        // LOG_F(INFO, "###################initialize, %llu", thisAddr);
         ret = rtc_engine_->initialize(context);
         if (ret == 0)
         {
@@ -466,15 +497,9 @@ NIM_SDK_NODE_API_DEF(initialize)
             rtc_engine_->setAudioFrameObserver(_audio_observer.get());
         }
         rtc_engine_->setStatsObserver(_stats_observer.get());
-        std::string log_directory(context.log_dir_path);
-        auto error_code = nelog::InitailizeLogFileStream(
-                          log_directory.c_str(),
-                          "addon_log",
-                           false
-                           );
-        nelog::SetMinLoggingSeverity(nelog::LS_INFO);
         //LOG_F(INFO, "%s:%d", "test", 1);
         LOG_F(INFO, "-------------initialize ret:%d-------------", ret);
+        LOG_F(INFO, "###################NertcNodeEngine::initialize(), %llu", thisAddr);
     }while (false);
     return Napi::Number::New(env, ret);
 }
@@ -485,22 +510,15 @@ NIM_SDK_NODE_API_DEF(release)
     do
     {
         LOG_F(INFO, "-------------sdk release-------------");
-        rtc_engine_->setAudioFrameObserver(nullptr);
-        _audio_observer->removeAll();
-        ret = rtc_engine_->stopVideoPreview();
-		// NodeVideoFrameTransporter *pTransporter = getNodeVideoFrameTransporter();
-		// pTransporter->stopFlushVideo();
-        rtc_engine_->release(true);
         if (rtc_engine_)
         {
-            destroyNERtcEngine((void *&)rtc_engine_);
-            _adm = nullptr;
-            _vdm = nullptr;
-            rtc_engine_ = nullptr;
+            rtc_engine_->setAudioFrameObserver(nullptr);
+            rtc_engine_->stopVideoPreview();
+            rtc_engine_->release(true);
         }
-        _event_handler->removeAll();
-        _packet_observer.reset();
-
+        ret = 0;
+        uint64_t thisAddr = (uint64_t)this;
+        LOG_F(INFO, "###################NertcNodeEngine::release(), %llu", thisAddr);
         //todo
         // NertcNodeRtcMediaStatsHandler::GetInstance()->RemoveAll();
     }while (false);
